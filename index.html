@@ -905,20 +905,18 @@
     </div>
   </div>
 
-  <div style="flex:1;"></div>
-
   <!-- ARROW -->
-  <div style="position:relative;height:80px;">
+  <div style="position:relative;height:180px;">
     <svg viewBox="0 0 560 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"
-         style="width:100%;height:80px;display:block;">
+         style="width:100%;height:180px;display:block;">
       <defs>
-        <marker id="ah" markerWidth="10" markerHeight="8" refX="5" refY="4" orient="auto">
-          <polygon points="0 0, 10 4, 0 8" fill="#C8A96E"/>
+        <marker id="ah" markerWidth="10" markerHeight="5" refX="2.5" refY="2.75" orient="auto">
+          <polygon points="4.5,2 7,4.5 1.5,4" fill="#C8A96E"/>
         </marker>
       </defs>
       <!-- S-curve: starts right of included block, swings left, then comes straight down to center of CTA -->
       <!-- M startX,0 → swing right → swing back to center → arrive at 280,78 straight down -->
-      <path d="M 390,2 C 430,2 430,40 280,40 C 130,40 280,40 280,72"
+      <path d="M 390,2 C 430,2 430,30 280,35 C 130,40 160,60 280,70"
             fill="none" stroke="#C8A96E" stroke-width="3.5"
             stroke-dasharray="9,6" stroke-linecap="round"
             marker-end="url(#ah)" opacity="0.95"/>
