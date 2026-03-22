@@ -1,7 +1,4 @@
-# ShiREstate
-
-## About
-ShiREstate is a real estate portfolio management web site.
+# PropFolio App
 
 ## Local development
 
@@ -10,7 +7,7 @@ npm run dev
 
 http://localhost:5173
 
-## GitHub Pages Frontend Static Hosting
+## 🚀 GitHub Pages
 
 npm run deploy
 
