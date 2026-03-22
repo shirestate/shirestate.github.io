@@ -1,13 +1,969 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="ru">
 <head>
-    <meta charset="UTF-8"/>
-    <link rel="icon" type="image/svg+xml" href="/vite.svg"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>PropFolio App</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Программа обучения торгам - Полный курс</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Стили для печати */
+        @media print {
+            body {
+                background: white !important;
+                font-size: 12pt;
+                line-height: 1.4;
+            }
+            
+            .document-container {
+                box-shadow: none !important;
+                max-width: none !important;
+                margin: 0 !important;
+            }
+            
+            .page-break {
+                page-break-before: always;
+            }
+            
+            .no-break {
+                page-break-inside: avoid;
+            }
+            
+            .header {
+                background: linear-gradient(135deg, #667eea, #764ba2) !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            
+            .stats-section {
+                background: linear-gradient(135deg, #667eea, #764ba2) !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            
+            .module-header {
+                background: linear-gradient(135deg, #667eea, #764ba2) !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+
+        .document-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            min-height: 100vh;
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.2);
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
+            animation: float 20s linear infinite;
+        }
+
+        @keyframes float {
+            0% { transform: rotate(0deg) translate(0, 0); }
+            100% { transform: rotate(360deg) translate(0, 0); }
+        }
+
+        .header h1 {
+            font-size: 3.5em;
+            font-weight: 700;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .header .subtitle {
+            font-size: 1.3em;
+            opacity: 0.9;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Секция со спикером */
+        .speaker-section {
+            padding: 60px 40px;
+            background: #f8f9fa;
+            display: flex;
+            align-items: flex-start;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .speaker-photo {
+            height: 535px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .speaker-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .speaker-info {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .speaker-info h2 {
+            font-size: 2.5em;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .speaker-info h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        .speaker-info p {
+            font-size: 1.2em;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .speaker-credentials {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 30px;
+            border-left: 4px solid #667eea;
+        }
+
+        .speaker-credentials h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .speaker-credentials ul {
+            list-style: none;
+        }
+
+        .speaker-credentials ul li {
+            padding: 8px 0;
+            position: relative;
+            padding-left: 25px;
+            color: #555;
+        }
+
+        .speaker-credentials ul li::before {
+            content: '✓';
+            color: #667eea;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .content {
+            padding: 60px 40px;
+        }
+
+        .section {
+            margin-bottom: 80px;
+        }
+
+        .section h2 {
+            font-size: 2.5em;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            position: relative;
+            text-align: center;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        .intro-block {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 40px;
+            border-left: 6px solid #667eea;
+        }
+
+        .intro-block h3 {
+            font-size: 1.8em;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .intro-block p {
+            font-size: 1.1em;
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .benefit-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-top: 4px solid #667eea;
+            transition: all 0.3s ease;
+            page-break-inside: avoid;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .benefit-card h4 {
+            font-size: 1.4em;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .benefit-card h4::before {
+            content: '✓';
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            border-radius: 50%;
+            width: 25px;
+            height: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8em;
+            font-weight: bold;
+        }
+
+        .modules-section {
+            background: #f8f9fa;
+            margin: 0 -40px 40px;
+            padding: 60px 40px;
+        }
+
+        .module {
+            background: white;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .module:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .module-header {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 30px;
+            position: relative;
+        }
+
+        .module-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(255,255,255,0.1), transparent);
+        }
+
+        .module-number {
+            font-size: 1.2em;
+            opacity: 0.8;
+            margin-bottom: 10px;
+        }
+
+        .module-title {
+            font-size: 1.8em;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .module-description {
+            opacity: 0.9;
+            font-size: 1.1em;
+        }
+
+        .module-content {
+            padding: 40px;
+        }
+
+        .topic-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .topic-item {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s ease;
+            page-break-inside: avoid;
+        }
+
+        .topic-item:hover {
+            background: #e9ecef;
+            transform: translateX(5px);
+        }
+
+        .topic-item h5 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .topic-item ul {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .topic-item ul li {
+            padding: 5px 0;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .topic-item ul li::before {
+            content: '•';
+            color: #667eea;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .module-result {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+            border-radius: 15px;
+            padding: 25px;
+            border: 2px solid #667eea;
+            margin-top: 20px;
+            page-break-inside: avoid;
+        }
+
+        .module-result h4 {
+            color: #2c3e50;
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .module-result h4::before {
+            content: '🎯';
+            font-size: 1.2em;
+        }
+
+        .module-result ul {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .module-result ul li {
+            padding: 5px 0;
+            position: relative;
+            padding-left: 25px;
+            color: #555;
+        }
+
+        .module-result ul li::before {
+            content: '✅';
+            position: absolute;
+            left: 0;
+        }
+
+        .stats-section {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            margin: 0 -40px;
+            padding: 60px 40px;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 3em;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+            border-radius: 20px;
+            padding: 50px;
+            text-align: center;
+            width: 700px;
+        }
+
+        .cta-section h3 {
+            font-size: 2.2em;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 1.2em;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        .cta-section-wrapper {
+            margin-top: 60px;
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .speaker-photo-more {
+            display: flex;
+            height: 550px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 20px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.2em;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .speaker-section {
+                padding: 40px 20px;
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .speaker-photo {
+                flex: none;
+                width: 250px;
+                height: 300px;
+                align-self: center;
+            }
+            
+            .header {
+                padding: 40px 20px;
+            }
+            
+            .header h1 {
+                font-size: 2.5em;
+            }
+            
+            .content {
+                padding: 40px 20px;
+            }
+            
+            .modules-section {
+                margin: 0 -20px 40px;
+                padding: 40px 20px;
+            }
+            
+            .stats-section {
+                margin: 0 -20px;
+                padding: 40px 20px;
+            }
+            
+            .section h2 {
+                font-size: 2em;
+            }
+            
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .topic-list {
+                grid-template-columns: 1fr;
+            }
+            
+            .speaker-info h2 {
+                font-size: 2em;
+            }
+        }
+
+        @media print {
+            @page {
+                margin: 2cm;
+                size: A4;
+            }
+            
+            .speaker-section {
+                page-break-after: always;
+            }
+            
+            .module {
+                page-break-inside: avoid;
+                margin-bottom: 20px;
+            }
+            
+            .stats-section {
+                page-break-before: always;
+            }
+            
+            .cta-section {
+                page-break-before: always;
+            }
+        }
+    </style>
 </head>
 <body>
-<div id="root"></div>
-<script type="module" src="/src/main.jsx"></script>
+    <div class="document-container">
+        <div class="header">
+            <h1>Торги с Кристиной</h1>
+            <p class="subtitle">Программа от новичка до профессионала</p>
+        </div>
+
+        <!-- Секция со спикером -->
+        <div class="speaker-section no-break">
+            <div class="intro-block">
+                        <h3>Для кого эта программа?</h3>
+                        <p><strong>Для тех кто хочет приобрести имущество с торгов ниже рынка</strong></p>
+                        <h3>Что для этого надо?</h3>
+                        <p><strong>Подходит любому кто умеет пользоваться компьютером</strong></p>
+                        <h3>Результат программы:</h3>
+                        <p>• Умение заходить на торги и торговаться</p>
+                        <p>• Умение работать с документацией и проведить анализа рынка</p>
+                        <p>• Правильное выстраивание коммуникаций</p>
+                        <p>• <strong>Получить первое имущество с торгов!</strong></p>
+            </div>
+            <div class="speaker-photo">
+                <img src="photo1.jpg" alt="Кристина"></img>
+            </div>
+        </div>
+        <div class="content">
+                <!-- Общая информация -->
+                <div class="section">
+                    <div class="intro-block no-break">
+                        <h3>Формат работы</h3>
+                        <p>• Чат с ответами на вопросы</p>
+                        <p>• Поддержка в реальных торгах на протяжении 3х месяцев</p>
+                        <p>• Созвоны раз в неделю</p>
+                        <p>• По конкретным кейсам поддержка в личных сообщениях</p>
+                        <p>• Документы: Таблица менеджмент площадок, Аналитика объекта</p>
+                        <p>• Только практические задания, которые ведут к проведению первых торгов</p>
+                    </div>
+
+                    <div class="benefits-grid no-break">
+                        <div class="benefit-card">
+                            <h4>Полное понимание процесса</h4>
+                            <p>Изучите все этапы торгов от поиска лотов до завершения сделок. Узнаете, как работают государственные регистрации и банковское обслуживание.</p>
+                        </div>
+
+                        <div class="benefit-card">
+                            <h4>Практические навыки работы</h4>
+                            <p>Научитесь анализировать лоты, работать с документами, договариваться с организаторами и участвовать в торгах.</p>
+                        </div>
+
+                        <div class="benefit-card">
+                            <h4>Доступ к готовым инструментам</h4>
+                            <p>Получите готовые контракты, чек-листы, шаблоны документов и доступ к базе проверенных площадок.</p>
+                        </div>
+
+                        <div class="benefit-card">
+                            <h4>Постоянную поддержку</h4>
+                            <p>Чат с ответами на вопросы, регулярные консультации и помощь в решении сложных ситуаций.</p>
+                        </div>
+
+                        <div class="benefit-card">
+                            <h4>Источник дохода</h4>
+                            <p>Навыки для основного заработка или дополнительного дохода через участие в торгах различных категорий имущества.</p>
+                        </div>
+
+                        <div class="benefit-card">
+                            <h4>Юридическую защищенность</h4>
+                            <p>Понимание всех правовых аспектов, способы защиты своих интересов и работа только через официальные каналы.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Модули программы -->
+                <div class="modules-section">
+                    <h2>Модули программы обучения</h2>
+
+                    <!-- Модуль 0 -->
+                    <div class="module no-break">
+                        <div class="module-header">
+                            <div class="module-number">Модуль 0</div>
+                            <div class="module-title">Торги - это понятно</div>
+                            <div class="module-description">Понять что такое торги, какие они бывают и определиться с тем, какие подходят именно тебе</div>
+                        </div>
+                        <div class="module-content">
+                            <div class="topic-list">
+                                <div class="topic-item">
+                                    <h5>Виды</h5>
+                                    <ul>
+                                        <li>Муниципальные торги</li>
+                                        <li>Банкротство</li>
+                                        <li>Взыскание/конфискат</li>
+                                        <li>Реализация/продажа</li>
+                                    </ul>
+                                </div>
+                                <div class="topic-item">
+                                    <h5>Формы</h5>
+                                    <ul>
+                                        <li>Аукцион</li>
+                                        <li>Публичное предложение</li>
+                                        <li>Цена на отсечение</li>
+                                    </ul>
+                                </div>
+                                <div class="topic-item">
+                                    <h5>Категории имущества</h5>
+                                    <ul>
+                                        <li>Машины</li>
+                                        <li>Квартиры</li>
+                                        <li>Участки</li>
+                                        <li>Прочие</li>
+                                    </ul>
+                                </div>
+                                <div class="topic-item">
+                                    <h5>Варианты использования</h5>
+                                    <ul>
+                                        <li>Для себя</li>
+                                        <li>Для основного заработка</li>
+                                        <li>Для расширения предложения</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="module-result">
+                                <h4>По итогу модуля:</h4>
+                                <ul>
+                                    <li>Понимание что такое торги и какие они бывают</li>
+                                    <li>Определение своих категорий</li>
+                                    <li>Выбор как тебе заработать на торгах</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Модуль 1 -->
+                    <div class="module no-break">
+                        <div class="module-header">
+                            <div class="module-number">Модуль 1</div>
+                            <div class="module-title">Взлом системы</div>
+                            <div class="module-description">Получаем необходимые сертификаты, регистрации и аккредитации</div>
+                        </div>
+                        <div class="module-content">
+                            <div class="topic-list">
+                                <div class="topic-item">
+                                    <h5>Оформление ЭЦП</h5>
+                                    <ul>
+                                        <li>Оформляем</li>
+                                        <li>Учимся применять</li>
+                                    </ul>
+                                </div>
+                                <div class="topic-item">
+                                    <h5>Регистрация в специализированной единой системе</h5>
+                                </div>
+                                <div class="topic-item">
+                                    <h5>Работа с площадками</h5>
+                                    <ul>
+                                        <li>Регистрация</li>
+                                        <li>Аккредитация</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="module-result">
+                                <h4>Счета для залога</h4>
+                                <ul>
+                                    <li>Открытие счета в банке</li>
+                                    <li>Создание счета на площадках</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Модуль 2 -->
+                    <div class="module no-break">
+                        <div class="module-header">
+                            <div class="module-number">Модуль 2</div>
+                            <div class="module-title">Золотой лот</div>
+                            <div class="module-description">Научиться выбирать и анализировать лоты</div>
+                        </div>
+                        <div class="module-content">
+                            <div class="topic-list">
+                                <div class="topic-item">
+                                    <h5>Работа с сайтом</h5>
+                                    <ul>
+                                        <li>Поиск лотов</li>
+                                        <li>Срок на торги</li>
+                                        <li>Срок заявок</li>
+                                        <li>Шаг аукциона</li>
+                                        <li>Лицензия и адрес/участок</li>
+                                    </ul>
+                                </div>
+                                <div class="topic-item">
+                                    <h5>Выбрать лот</h5>
+                                    <ul>
+                                        <li>Выбрать мин 5 лотов в одной категории</li>
+                                        <li>Сравнить их</li>
+                                        <li>Определить основные критерии</li>
+                                    </ul>
+                                </div>
+                                <div class="topic-item">
+                                    <h5>Проверка лота</h5>
+                                    <ul>
+                                        <li>Проверка документов</li>
+                                        <li>Проверка на площадках</li>
+                                        <li>Условие на площадках</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="module-result">
+                                <h4>По итогу модуля:</h4>
+                                <ul>
+                                    <li>Умение находить и фильтровать лоты</li>
+                                    <li>Навык сравнительного анализа</li>
+                                    <li>Понимание ключевых критериев оценки</li>
+                                    <li>Способность проводить первичную проверку</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Модуль 3 -->
+                    <div class="module no-break">
+                        <div class="module-header">
+                            <div class="module-number">Модуль 3</div>
+                            <div class="module-title">Простые документы</div>
+                            <div class="module-description">Изучаем структуру документации и определием собственность</div>
+                        </div>
+                        <div class="module-content">
+                            <div class="topic-list">
+                                <div class="topic-item">
+                                    <h5>Площадка и лот</h5>
+                                    <ul>
+                                        <li>Проверка сайта и время торгов</li>
+                                        <li>Разбираемся с продажей и арендой</li>
+                                        <li>Проверка сроков</li>
+                                    </ul>
+                                </div>
+                                <div class="topic-item">
+                                    <h5>Проверка документов</h5>
+                                    <ul>
+                                        <li>Отчет об оценке</li>
+                                        <li>Осмотр</li>
+                                        <li>ЕГРН и другие документы права собственности</li>
+                                    </ul>
+                                </div>
+                                <div class="topic-item">
+                                    <h5>Проект договора</h5>
+                                    <ul>
+                                        <li>Характеристики</li>
+                                        <li>Условия по задатку</li>
+                                        <li>Условия по  возврату</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="module-result">
+                                <h4>По итогу модуля:</h4>
+                                <ul>
+                                    <li>Умение читать и анализировать документы</li>
+                                    <li>Навык работы с кадастровыми данными</li>
+                                    <li>Понимание юридических аспектов</li>
+                                    <li>Способность выявлять скрытые риски</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Модуль 4 -->
+                    <div class="module no-break">
+                        <div class="module-header">
+                            <div class="module-number">Модуль 4</div>
+                            <div class="module-title">На страт! Внимание! Марш!</div>
+                            <div class="module-description">Выбраем лот и участвуем в торгах</div>
+                        </div>
+                        <div class="module-content">
+                            <div class="topic-list">
+                                <div class="topic-item">
+                                    <h5>Фактор времени</h5>
+                                    <ul>
+                                        <li>Психологические моменты</li>
+                                        <li>Выдержка и быстрая перебивка</li>
+                                    </ul>
+                                </div>
+                                <div class="topic-item">
+                                    <h5>Защита себя</h5>
+                                    <ul>
+                                        <li>Выбор своей стратегии поведения</li>
+                                        <li>Защита своей психики</li>
+                                        <li>Отработка жалоб</li>
+                                    </ul>
+                                </div>
+                                <div class="topic-item">
+                                    <h5>Что обговорить с клиентом</h5>
+                                    <ul>
+                                        <li>Вопросы до торгов</li>
+                                        <li>Принятие решения во время торгов</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="module-result">
+                                <h4>По итогу модуля:</h4>
+                                <ul>
+                                    <li>Разработана персональная стратегия торгов</li>
+                                    <li>Получен практический опыт участия</li>
+                                    <li>Понимание психологии торгов</li>
+                                    <li>Навык оценки и осмотра объектов</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Модуль 5 -->
+                    <div class="module no-break">
+                        <div class="module-header">
+                            <div class="module-number">Модуль 5</div>
+                            <div class="module-title">И это только начало</div>
+                            <div class="module-description">Итоги и дальнейшие действия</div>
+                        </div>
+                        <div class="module-content">
+                            <div class="topic-list">
+                                <div class="topic-item">
+                                    <h5>Итоги и усиление результатов</h5>
+                                    <ul>
+                                        <li>Кто поможет в торгах</li>
+                                        <li>Как использовать ИИ</li>
+                                        <li>Разбор результатов</li>
+                                        <li>План дальнейших действий</li>
+                                        <li>Рекомендации по развитию</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="module-result">
+                                <h4>По итогу модуля:</h4>
+                                <ul>
+                                    <li>Подведены итоги обучения</li>
+                                    <li>Получен план дальнейшего развития</li>
+                                    <li>Сформирована стратегия на будущее</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Статистика -->
+                <div class="stats-section no-break">
+                    <h2 style="color: white;">Ключевые показатели программы</h2>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <span class="stat-number">5</span>
+                            <div class="stat-label">Модулей обучения</div>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">3</span>
+                            <div class="stat-label">Месяца личной поддержки на торгах</div>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">100%</span>
+                            <div class="stat-label">Практические навыки</div>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">Online</span>
+                            <div class="stat-label">Поддержка в чате с ответами на любые вопросы</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="cta-section-wrapper no-break">
+                    <div class="speaker-photo-more">
+                        <img src="photo2.jpg" alt="Кристина"></img>
+                    </div>
+                    <!-- Призыв к действию -->
+                    <div class="cta-section no-break">
+                        <h3>Готовы начать зарабатывать на торгах?</h3>
+                        <p>Присоединяйтесь к программе обучения и получите все необходимые знания и инструменты для успешного участия в торгах</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
