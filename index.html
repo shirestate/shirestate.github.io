@@ -1,1023 +1,1268 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Инвестиционный Тур — Доминиканская Республика</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ShiREstate — Инвестиционный Тур · Доминиканская Республика</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    :root {
-      --gold: #C8A96E;
-      --gold-light: #E8D5A8;
-      --dark: #0D1B14;
-      --green-deep: #1A3328;
-      --green-mid: #2A5040;
-      --cream: #F7F2EA;
-      --white: #FFFFFF;
-      --accent-orange: #C8845A;
-    }
+:root {
+  --gold: #C8A96E;
+  --gold-light: #E8D5A8;
+  --dark: #0D1B14;
+  --green-deep: #1A3328;
+  --green-mid: #2A5040;
+  --cream: #F7F2EA;
+  --white: #FFFFFF;
+  --accent-orange: #C8845A;
+  --nav-h: 70px;
+}
 
-    body {
-      font-family: 'Montserrat', sans-serif;
-      background: var(--cream);
-      color: var(--dark);
-      font-size: 13px;
-      line-height: 1.6;
-      width: 210mm;
-      margin: 0 auto;
-    }
+html { scroll-behavior: smooth; }
 
-    /* ─── COVER ─── */
-    .cover {
-      position: relative;
-      width: 210mm;
-      height: 297mm;
-      overflow: hidden;
-      background: var(--dark);
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      page-break-after: always;
-    }
-    .cover-bg {
-      position: absolute; inset: 0;
-      background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MDAiIGhlaWdodD0iNDAwIiB2aWV3Qm94PSIwIDAgNjAwIDQwMCI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj48c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMWE1YzNhIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMGQzYTI0Ii8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjYwMCIgaGVpZ2h0PSI0MDAiIGZpbGw9InVybCgjZykiLz48L3N2Zz4=');
-      background-size: cover; background-position: center 40%;
-      filter: brightness(0.52) saturate(1.1);
-    }
-    .cover-overlay {
-      position: absolute; inset: 0;
-      background: linear-gradient(to bottom, transparent 25%, rgba(13,27,20,0.82) 72%, rgba(13,27,20,0.97) 100%);
-    }
-    .cover-content { position: relative; z-index: 2; padding: 0 18mm 18mm 18mm; }
-    .cover-eyebrow {
-      font-size: 9px; letter-spacing: 4px; text-transform: uppercase;
-      color: var(--gold); margin-bottom: 12px;
-    }
-    .cover-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 56px; font-weight: 300; color: var(--white); line-height: 1.1; margin-bottom: 10px;
-    }
-    .cover-title em { font-style: italic; color: var(--gold-light); }
-    .cover-subtitle {
-      font-family: 'Cormorant Garamond', serif; font-size: 21px;
-      font-weight: 300; color: rgba(255,255,255,0.75); font-style: italic; margin-bottom: 28px;
-    }
-    .cover-divider { width: 60px; height: 1px; background: var(--gold); margin-bottom: 20px; }
-    .cover-desc {
-      font-size: 11px; color: rgba(255,255,255,0.7); font-weight: 300;
-      max-width: 120mm; letter-spacing: 0.3px; line-height: 1.8;
-    }
-    .cover-badge {
-      position: absolute; top: 18mm; right: 18mm; z-index: 3;
-      width: 28mm; height: 28mm; border: 1px solid var(--gold); border-radius: 50%;
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      background: rgba(13,27,20,0.7); backdrop-filter: blur(4px);
-    }
-    .cover-badge .days { font-size: 24px; font-weight: 600; color: var(--gold); line-height: 1; }
-    .cover-badge .days-label { font-size: 7px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.7); margin-top: 3px; }
-    .cover-logo {
-      position: absolute; top: 18mm; left: 18mm; z-index: 3;
-      color: var(--white); font-family: 'Cormorant Garamond', serif;
-      font-size: 16px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
-    }
-    .cover-logo span { color: var(--gold); }
-    .corner-ornament {
-      position: absolute; width: 20mm; height: 20mm;
-      border-color: rgba(200,169,110,0.4); border-style: solid; z-index: 3;
-    }
-    .corner-ornament.tl { top: 10mm; left: 10mm; border-width: 1px 0 0 1px; }
-    .corner-ornament.tr { top: 10mm; right: 10mm; border-width: 1px 1px 0 0; }
-    .corner-ornament.bl { bottom: 10mm; left: 10mm; border-width: 0 0 1px 1px; }
-    .corner-ornament.br { bottom: 10mm; right: 10mm; border-width: 0 1px 1px 0; }
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: var(--cream);
+  color: var(--dark);
+  font-size: 15px;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
 
-    /* ─── PAGES ─── */
-    .page {
-      width: 210mm; height: 297mm;
-      padding: 14mm 16mm; background: var(--cream);
-      page-break-after: always; position: relative;
-      overflow: hidden;
-    }
-    .page-header {
-      display: flex; align-items: center; justify-content: space-between;
-      padding-bottom: 8px; border-bottom: 1px solid var(--gold); margin-bottom: 16px;
-    }
-    .page-header-logo {
-      font-family: 'Cormorant Garamond', serif; font-size: 13px;
-      font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--green-deep);
-    }
-    .page-header-logo span { color: var(--gold); }
-    .page-header-title { font-size: 8px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); }
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0;
+  height: var(--nav-h);
+  background: rgba(13,27,20,0.92);
+  backdrop-filter: blur(12px);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 5vw;
+  z-index: 100;
+  border-bottom: 1px solid rgba(200,169,110,0.2);
+}
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px; font-weight: 600;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--white);
+}
+.nav-logo span { color: var(--gold); }
+.nav-links {
+  display: flex; gap: 32px;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+  color: rgba(255,255,255,0.65);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--gold); }
+.nav-cta {
+  border: 1px solid var(--gold);
+  border-radius: 2px;
+  padding: 8px 20px;
+  font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--gold-light);
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.nav-cta:hover { background: rgba(200,169,110,0.15); }
+.burger { display: none; cursor: pointer; flex-direction: column; gap: 5px; }
+.burger span { display: block; width: 24px; height: 1.5px; background: var(--gold); transition: all 0.3s; }
+.mobile-menu {
+  display: none;
+  position: fixed; inset: 0; top: var(--nav-h);
+  background: rgba(13,27,20,0.98);
+  z-index: 99;
+  flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 40px;
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu a {
+  font-size: 20px; letter-spacing: 2px; text-transform: uppercase;
+  color: rgba(255,255,255,0.8); text-decoration: none;
+}
+.mobile-menu a:hover { color: var(--gold); }
 
-    .section-eyebrow { font-size: 8px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 5px; }
-    .section-title {
-      font-family: 'Cormorant Garamond', serif; font-size: 30px;
-      font-weight: 300; color: var(--green-deep); line-height: 1.2; margin-bottom: 6px;
-    }
-    .section-title em { font-style: italic; color: var(--gold); }
-    .section-divider { width: 40px; height: 1.5px; background: var(--gold); margin: 10px 0 16px; }
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  background: var(--green-deep);
+  position: relative;
+  display: flex; align-items: flex-end;
+  padding: 0 5vw calc(80px + 5vw);
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, #1a5c3a 0%, #0d3a24 60%, #050f08 100%);
+}
+.hero-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to bottom, transparent 30%, rgba(13,27,20,0.7) 70%, rgba(13,27,20,0.97) 100%);
+}
+.hero-ornament {
+  position: absolute;
+  border-color: rgba(200,169,110,0.25); border-style: solid;
+}
+.hero-ornament.tl { top: 90px; left: 5vw; width: 60px; height: 60px; border-width: 1px 0 0 1px; }
+.hero-ornament.tr { top: 90px; right: 5vw; width: 60px; height: 60px; border-width: 1px 1px 0 0; }
+.hero-ornament.bl { bottom: 30px; left: 5vw; width: 60px; height: 60px; border-width: 0 0 1px 1px; }
+.hero-ornament.br { bottom: 30px; right: 5vw; width: 60px; height: 60px; border-width: 0 1px 1px 0; }
+.hero-badge {
+  position: absolute; top: calc(var(--nav-h) + 40px); right: 5vw;
+  width: 100px; height: 100px;
+  border: 1px solid var(--gold); border-radius: 50%;
+  background: rgba(13,27,20,0.7); backdrop-filter: blur(4px);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+}
+.hero-badge .days { font-size: 40px; font-weight: 600; color: var(--gold); line-height: 1; }
+.hero-badge .days-label { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.7); }
+.hero-content { position: relative; z-index: 2; max-width: 700px; }
+.hero-eyebrow {
+  font-size: 11px; letter-spacing: 4px; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 16px;
+}
+.hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(48px, 8vw, 80px);
+  font-weight: 300; color: var(--white); line-height: 1.05; margin-bottom: 14px;
+}
+.hero-title em { font-style: italic; color: var(--gold-light); }
+.hero-subtitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(18px, 2.5vw, 24px);
+  font-weight: 300; color: rgba(255,255,255,0.7); font-style: italic; margin-bottom: 32px;
+}
+.hero-divider { width: 60px; height: 1px; background: var(--gold); margin-bottom: 24px; }
+.hero-desc {
+  font-size: 13px; color: rgba(255,255,255,0.65);
+  font-weight: 300; max-width: 520px; letter-spacing: 0.3px; line-height: 1.9;
+  margin-bottom: 36px;
+}
+.hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+.btn-primary {
+  background: var(--gold);
+  color: var(--dark);
+  padding: 14px 36px;
+  font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+  font-weight: 600; text-decoration: none; border-radius: 2px;
+  transition: opacity 0.2s;
+}
+.btn-primary:hover { opacity: 0.88; }
+.btn-outline {
+  border: 1px solid rgba(200,169,110,0.5);
+  color: var(--gold-light);
+  padding: 14px 32px;
+  font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+  text-decoration: none; border-radius: 2px;
+  transition: border-color 0.2s, background 0.2s;
+}
+.btn-outline:hover { border-color: var(--gold); background: rgba(200,169,110,0.08); }
+.hero-stats {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  background: rgba(13,27,20,0.9); backdrop-filter: blur(8px);
+  border-top: 1px solid rgba(200,169,110,0.2);
+  display: flex; justify-content: center;
+}
+.hero-stats-inner {
+  max-width: 1100px; width: 100%;
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  padding: 0 5vw;
+}
+.stat {
+  padding: 24px 0;
+  border-right: 1px solid rgba(200,169,110,0.15);
+  text-align: center;
+}
+.stat:last-child { border-right: none; }
+.stat-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 34px; font-weight: 300; color: var(--gold); line-height: 1;
+  display: block; margin-bottom: 4px;
+}
+.stat-label {
+  font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+}
 
-    /* ─── MAP BLOCK ─── */
-    .map-block {
-      background: var(--green-deep); border-radius: 4px;
-      padding: 10px 14px; margin-bottom: 16px;
-    }
-    .map-label { font-size: 7.5px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
+/* ── SECTION BASICS ── */
+section {
+  padding: 100px 5vw;
+}
+.section-inner { max-width: 1100px; margin: 0 auto; }
+.eyebrow {
+  font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 8px;
+}
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(32px, 5vw, 52px);
+  font-weight: 300; color: var(--green-deep); line-height: 1.15; margin-bottom: 8px;
+}
+.section-title em { font-style: italic; color: var(--gold); }
+.section-divider { width: 40px; height: 2px; background: var(--gold); margin: 16px 0 36px; }
 
-    /* ─── INTRO GRID ─── */
-    .intro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 16px; }
-    .intro-photo { border-radius: 3px; overflow: hidden; position: relative; }
-    .intro-photo img { width: 100%; height: 52mm; object-fit: cover; display: block; }
-    .intro-photo-caption {
-      position: absolute; bottom: 0; left: 0; right: 0;
-      background: linear-gradient(transparent, rgba(13,27,20,0.8));
-      color: var(--gold-light); font-size: 8px; letter-spacing: 1.5px;
-      text-transform: uppercase; padding: 10px 8px 7px;
-    }
-    .intro-text {
-      font-family: 'Cormorant Garamond', serif; font-size: 15px;
-      font-weight: 300; line-height: 1.7; color: var(--green-deep); font-style: italic; margin-bottom: 10px;
-    }
-    .intro-body { font-size: 10.5px; line-height: 1.9; color: #3a3a3a; font-weight: 300; }
-    .highlights { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 14px; }
-    .highlight-box {
-      background: var(--green-deep); color: var(--white);
-      border-radius: 3px; padding: 10px 8px; text-align: center;
-    }
-    .highlight-box .h-number {
-      font-family: 'Cormorant Garamond', serif; font-size: 28px;
-      font-weight: 300; color: var(--gold); line-height: 1; display: block;
-    }
-    .highlight-box .h-label {
-      font-size: 7px; letter-spacing: 1.5px; text-transform: uppercase;
-      color: rgba(255,255,255,0.7); margin-top: 3px; display: block; line-height: 1.4;
-    }
+/* ── WHY DR ── */
+#why { background: var(--cream); }
+.why-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+}
+.why-item {
+  display: flex; gap: 14px; align-items: flex-start;
+  padding: 18px 20px 18px 0;
+  border-bottom: 1px solid rgba(200,169,110,0.18);
+}
+.why-item:nth-child(even) {
+  padding-left: 24px;
+  border-left: 1px solid rgba(200,169,110,0.18);
+}
+.why-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--gold); flex-shrink: 0; margin-top: 7px;
+}
+.why-text { font-size: 13px; line-height: 1.7; color: #333; }
+.why-text strong { color: var(--green-deep); font-weight: 600; }
+.why-num { color: var(--gold); font-weight: 600; font-size: 15px; }
 
-    /* ─── WHY DR — bullet list ─── */
-    .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 14px; }
-    .why-col {}
-    .why-item {
-      display: flex; gap: 8px; align-items: flex-start;
-      padding: 8px 0; border-bottom: 1px solid rgba(200,169,110,0.18);
-    }
-    .why-item:last-child { border-bottom: none; }
-    .why-dot {
-      width: 7px; height: 7px; border-radius: 50%;
-      background: var(--gold); flex-shrink: 0; margin-top: 5px;
-    }
-    .why-text { font-size: 10.5px; line-height: 1.6; color: #333; }
-    .why-text strong { color: var(--green-deep); font-weight: 600; }
-    .why-text .why-strong-colored strong { color: var(--gold); font-weight: 600; font-size: 12px;}
+/* ── WHAT YOU GET ── */
+#get { background: var(--green-deep); }
+#get .section-title,
+#get .eyebrow { color: var(--white); }
+#get .section-title em { color: var(--gold); }
+.get-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px;
+  margin-top: 8px;
+}
+.get-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(200,169,110,0.15);
+  padding: 32px 28px;
+  transition: background 0.2s;
+}
+.get-card:hover { background: rgba(200,169,110,0.07); }
+.get-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 48px; font-weight: 300; color: rgba(200,169,110,0.3);
+  line-height: 1; margin-bottom: 12px;
+}
+.get-title { font-size: 12px; font-weight: 600; color: var(--gold-light); margin-bottom: 8px; letter-spacing: 0.5px; }
+.get-desc { font-size: 12.5px; color: rgba(255,255,255,0.65); line-height: 1.75; }
 
-    .why-photos { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 12px; }
-    .why-photo { border-radius: 3px; overflow: hidden; position: relative; }
-    .why-photo img { width: 100%; height: 42mm; object-fit: cover; display: block; }
-    .why-photo-cap {
-      position: absolute; bottom: 0; left: 0; right: 0;
-      background: linear-gradient(transparent, rgba(13,27,20,0.75));
-      color: var(--gold-light); font-size: 7.5px; letter-spacing: 1.5px;
-      text-transform: uppercase; padding: 8px 7px 6px;
-    }
+/* ── PROGRAM ── */
+#program { background: var(--cream); }
 
-    /* ─── WHAT YOU GET ─── */
-    .get-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
-    .get-item {
-      display: flex; gap: 10px; align-items: flex-start;
-      padding: 10px 12px 10px 0; border-bottom: 1px solid rgba(200,169,110,0.18);
-    }
-    .get-item:nth-child(even) { padding-left: 12px; border-left: 1px solid rgba(200,169,110,0.18); }
-    .get-num {
-      font-family: 'Cormorant Garamond', serif; font-size: 28px;
-      font-weight: 300; color: var(--gold); line-height: 1; flex-shrink: 0; width: 24px;
-    }
-    .get-text .get-title { font-size: 11px; font-weight: 600; color: var(--green-deep); margin-bottom: 3px; }
-    .get-text .get-desc { font-size: 12px; color: #555; line-height: 1.6; }
+/* MAP BLOCK */
+.map-wrap {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 52px;
+  background: var(--green-deep);
+  border: 1px solid rgba(200,169,110,0.2);
+}
+.map-label {
+  font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--gold); padding: 14px 20px 10px;
+}
+.map-inner { position: relative; line-height: 0; border-radius: 6px; overflow: hidden; }
 
-    /* ─── STRATEGIES ─── */
-    .strat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 14px; }
-    .strat-photo { border-radius: 3px; overflow: hidden; }
-    .strat-photo img { width: 100%; height: 38mm; object-fit: cover; display: block; }
-    .strat-items { display: flex; flex-direction: column; gap: 0; }
-    .strat-item {
-      display: flex; gap: 10px; align-items: flex-start;
-      padding: 11px 0; border-bottom: 1px solid rgba(200,169,110,0.2);
-    }
-    .strat-item:last-child { border-bottom: none; }
-    .strat-icon {
-      width: 32px; height: 32px; background: var(--green-deep);
-      border-radius: 4px; flex-shrink: 0; display: flex; align-items: center; justify-content: center;
-      font-size: 14px;
-    }
-    .strat-text .strat-title { font-size: 10.5px; font-weight: 600; color: var(--green-deep); margin-bottom: 3px; }
-    .strat-text .strat-desc { font-size: 9.5px; color: #555; line-height: 1.6; }
-    .strat-text .strat-yield { color: var(--accent-orange); font-weight: 600; }
+/* PROGRAM CARDS GRID */
+.prog-wrap {
+  position: relative;
+}
+.prog-cards-grid {
+  position: relative;
+  /* height set by JS */
+}
+.prog-card {
+  position: absolute;
+  width: 31%;
+  background: #fff;
+  border: 1px solid rgba(200,169,110,0.28);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: box-shadow 0.25s, border-color 0.25s;
+}
+.prog-card:hover {
+  box-shadow: 0 8px 32px rgba(13,27,20,0.10);
+  border-color: rgba(200,169,110,0.55);
+}
+.prog-card.simple {
+  background: var(--green-deep);
+}
+.prog-svg-overlay {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  pointer-events: none; overflow: visible;
+}
+@media (max-width: 900px) {
+  .prog-card { position: static; width: 100%; margin-bottom: 14px; }
+  .prog-cards-grid { height: auto !important; }
+  .prog-svg-overlay { display: none; }
+}
+.pc-head {
+  background: var(--green-deep);
+  padding: 10px 16px;
+  display: flex; align-items: center; gap: 10px;
+}
+.prog-card.simple .pc-head {
+  background: transparent;
+  padding: 16px;
+}
+.pc-badge {
+  background: rgba(200,169,110,0.18);
+  border: 1px solid var(--gold);
+  border-radius: 4px;
+  padding: 3px 10px; flex-shrink: 0;
+  font-size: 13px; font-weight: 700;
+  color: var(--gold); letter-spacing: 0.3px;
+  white-space: nowrap;
+}
+.pc-head-title {
+  font-size: 11px; font-weight: 600; color: #fff; line-height: 1.35;
+}
+.pc-body {
+  padding: 12px 16px 14px;
+}
+.pc-loc {
+  font-size: 8.5px; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 6px;
+}
+.pc-row {
+  display: flex; gap: 8px; align-items: flex-start;
+  margin-bottom: 5px; font-size: 12px; color: #444; line-height: 1.55;
+}
+.pc-row:last-child { margin-bottom: 0; }
+.pc-dot {
+  width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; margin-top: 5px;
+}
+.dot-invest { background: var(--gold); }
+.dot-act    { background: var(--accent-orange); }
+.pc-tags { display: flex; flex-wrap: wrap; gap: 5px; padding: 0 16px 14px; }
+.tag {
+  font-size: 9px; letter-spacing: 1px; text-transform: uppercase;
+  background: rgba(200,169,110,0.1); color: var(--green-mid);
+  border: 1px solid rgba(200,169,110,0.35); border-radius: 20px; padding: 3px 10px;
+}
 
-    /* ─── PROGRAM ─── */
-    .route-strip {
-      display: flex; align-items: center;
-      margin: 12px 0; background: white; border-radius: 3px;
-      padding: 9px 12px; border: 1px solid rgba(200,169,110,0.3);
-    }
-    .route-point { flex: 1; text-align: center; }
-    .route-point .rp-name { font-size: 8px; font-weight: 600; color: var(--green-deep); display: block; }
-    .route-point .rp-day { font-size: 7px; color: var(--gold); letter-spacing: 1px; display: block; margin-top: 2px; }
-    .route-arrow { color: var(--gold); font-size: 12px; padding: 0 3px; flex-shrink: 0; }
+/* ── PLACES ── */
+#places { background: var(--dark); }
+#places .section-title { color: var(--white); }
+#places .eyebrow { color: var(--gold); }
+.places-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;
+}
+.place-card {
+  border-radius: 4px; overflow: hidden; position: relative;
+  aspect-ratio: 4/3;
+  background: var(--green-deep);
+}
+.place-card-gradient {
+  position: absolute; inset: 0;
+  background: linear-gradient(to bottom, transparent 40%, rgba(13,27,20,0.9) 100%);
+}
+.place-card-cap {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  padding: 20px 16px 14px;
+}
+.place-card-cap .pc-name {
+  font-size: 14px; font-weight: 600; color: var(--white); display: block; margin-bottom: 3px;
+}
+.place-card-cap .pc-sub {
+  font-size: 10px; color: var(--gold-light); display: block; letter-spacing: 1px;
+}
+.place-img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+}
 
-    .days-grid { display: flex; flex-direction: column; gap: 0; }
-    .day-card {
-      display: grid; grid-template-columns: 14mm 1fr 50mm; gap: 0;
-      border-bottom: 1px solid rgba(200,169,110,0.22); padding: 12px 0;
-    }
-    .day-card:last-child { border-bottom: none; }
-    .day-number { display: flex; flex-direction: column; align-items: center; padding-right: 10px; padding-top: 2px; }
-    .day-number .num { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 300; color: var(--gold); line-height: 1; }
-    .day-number .day-word { font-size: 6.5px; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(13,27,20,0.4); }
-    .day-content { padding-right: 10px; }
-    .day-location { font-size: 7.5px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 3px; }
-    .day-title { font-family: 'Cormorant Garamond', serif; font-size: 16px; font-weight: 600; color: var(--green-deep); margin-bottom: 5px; line-height: 1.3; }
-    .day-body { font-size: 10px; line-height: 1.85; color: #444; font-weight: 300; }
-    .day-tags { display: flex; flex-wrap: wrap; gap: 3px; margin-top: 6px; }
-    .tag {
-      font-size: 7px; letter-spacing: 1px; text-transform: uppercase;
-      background: rgba(200,169,110,0.13); color: var(--green-mid);
-      border: 1px solid rgba(200,169,110,0.38); border-radius: 20px; padding: 2px 6px;
-    }
-    .day-photo { border-radius: 3px; overflow: hidden; align-self: center; }
-    .day-photo img { width: 100%; height: 33mm; object-fit: cover; display: block; }
+/* ── PRICING ── */
+#pricing { background: var(--cream); }
+.accom-section {
+  background: var(--green-deep);
+  border-radius: 6px; padding: 36px 40px; margin-bottom: 20px;
+}
+.accom-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px; font-weight: 300; color: var(--white); margin-bottom: 24px;
+}
+.accom-options { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 24px; }
+.accom-option {
+  border: 1px solid rgba(200,169,110,0.3); border-radius: 4px; padding: 16px 18px;
+  transition: border-color 0.2s;
+}
+.accom-option:hover { border-color: rgba(200,169,110,0.6); }
+.opt-icon { font-size: 20px; margin-right: 8px; }
+.opt-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 17px; font-weight: 600; color: var(--gold-light); margin-bottom: 6px;
+}
+.opt-desc { font-size: 12px; color: rgba(255,255,255,0.55); line-height: 1.65; }
+.price-block { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.price-card {
+  border-radius: 4px; padding: 24px 26px;
+  display: flex; flex-direction: column;
+}
+.price-card.pc-single { background: var(--gold); }
+.price-card.pc-single .pc-label { color: rgba(13,27,20,0.7); }
+.price-card.pc-single .pc-price { color: var(--dark); }
+.price-card.pc-single .pc-note { color: rgba(13,27,20,0.65); }
+.price-card.pc-double { background: var(--accent-orange); }
+.price-card.pc-shared { background: #3a6b58; }
+.pc-label { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.7); margin-bottom: 8px; }
+.pc-price {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 48px; font-weight: 300; color: var(--white); line-height: 1;
+}
+.pc-price span { font-size: 22px; }
+.pc-note { font-size: 11px; color: rgba(255,255,255,0.65); margin-top: 10px; line-height: 1.55; }
+.included {
+  background: white; border: 1px solid rgba(200,169,110,0.3);
+  border-radius: 4px; padding: 18px 24px; margin-top: 14px;
+}
+.included-title {
+  font-size: 9px; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 14px;
+}
+.included-list { display: flex; flex-direction: column; gap: 8px; }
+.included-item {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 13px; color: var(--green-deep); font-weight: 500;
+}
+.included-item::before { content: '✓'; color: var(--gold); font-size: 12px; }
 
-    /* ─── PLACES ─── */
-    .places-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 14px; }
-    .place-card { border-radius: 3px; overflow: hidden; position: relative; }
-    .place-card img { width: 100%; height: 38mm; object-fit: cover; display: block; }
-    .place-card-cap {
-      position: absolute; bottom: 0; left: 0; right: 0;
-      background: linear-gradient(transparent, rgba(13,27,20,0.85));
-      padding: 16px 8px 8px;
-    }
-    .place-card-cap .pc-name { font-size: 9.5px; font-weight: 600; color: var(--white); display: block; }
-    .place-card-cap .pc-sub { font-size: 7.5px; color: var(--gold-light); display: block; margin-top: 2px; }
-    .places-note {
-      background: var(--green-deep); border-radius: 3px; padding: 10px 14px; margin-top: 10px;
-      display: flex; gap: 14px; align-items: center;
-    }
-    .places-note .pn-text { font-size: 10px; color: rgba(255,255,255,0.8); line-height: 1.6; }
-    .places-note .pn-text strong { color: var(--gold); }
+/* ── FOR WHOM ── */
+#forwhom { background: var(--green-deep); }
+#forwhom .section-title { color: var(--white); }
+#forwhom .section-title em { color: var(--gold); }
+#forwhom .eyebrow { color: var(--gold); }
+.forwhom-intro {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(18px, 2.5vw, 24px);
+  font-weight: 300; font-style: italic;
+  color: rgba(255,255,255,0.8); line-height: 1.7; margin-bottom: 36px; max-width: 720px;
+}
+.forwhom-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+.forwhom-item {
+  display: flex; gap: 14px; align-items: flex-start;
+  padding: 18px 20px 18px 0;
+  border-bottom: 1px solid rgba(200,169,110,0.12);
+}
+.forwhom-item:nth-child(even) {
+  padding-left: 28px;
+  border-left: 1px solid rgba(200,169,110,0.12);
+}
+.fw-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--gold); flex-shrink: 0; margin-top: 7px;
+}
+.fw-text { font-size: 13px; color: rgba(255,255,255,0.7); line-height: 1.7; }
+.fw-text strong { color: var(--gold-light); font-weight: 600; }
 
-    /* ─── ACCOMMODATION ─── */
-    .accom-section {
-      background: var(--green-deep); border-radius: 4px;
-      padding: 14px 16px; color: var(--white); margin-top: 14px;
-    }
-    .accom-eyebrow { font-size: 7.5px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 7px; }
-    .accom-title { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 300; color: var(--white); margin-bottom: 12px; }
-    .accom-options { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
-    .accom-option { border: 1px solid rgba(200,169,110,0.35); border-radius: 3px; padding: 9px 10px; }
-    .accom-option .opt-icon { font-size: 16px; margin-bottom: 5px; margin-right: 10px }
-    .accom-option .opt-title { font-family: 'Cormorant Garamond', serif; font-size: 14px; font-weight: 600; color: var(--gold-light); margin-bottom: 3px; }
-    .accom-option .opt-desc { font-size: 9px; color: rgba(255,255,255,0.62); line-height: 1.6; }
+/* ── CTA ── */
+#cta { background: var(--cream); }
+.cta-box {
+  background: var(--green-deep);
+  border-radius: 8px;
+  padding: 56px 60px;
+  text-align: center;
+  max-width: 820px; margin: 0 auto;
+  position: relative; overflow: hidden;
+}
+.cta-box::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(200,169,110,0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+.cta-eyebrow {
+  font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 12px;
+}
+.cta-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 300; color: var(--white); margin-bottom: 32px;
+}
+.cta-btn {
+  display: inline-block;
+  border: 1px solid var(--gold);
+  border-radius: 3px; padding: 14px 40px;
+  font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--gold-light); text-decoration: none;
+  transition: background 0.2s;
+  margin-bottom: 40px;
+}
+.cta-btn:hover { background: rgba(200,169,110,0.1); }
+.contacts-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.contact-card {
+  border: 1px solid rgba(200,169,110,0.25);
+  border-radius: 4px; padding: 16px 12px; text-align: center;
+  transition: border-color 0.2s;
+}
+.contact-card:hover { border-color: rgba(200,169,110,0.5); }
+.contact-icon { font-size: 22px; margin-bottom: 8px; }
+.contact-type {
+  font-size: 9px; letter-spacing: 1px; text-transform: uppercase;
+  color: rgba(255,255,255,0.5); margin-bottom: 5px;
+}
+.contact-val { font-size: 13px; color: var(--gold); }
 
-    /* ─── PRICE BLOCK ─── */
-    .price-block { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 14px; }
-    .price-card {
-      border-radius: 4px; padding: 14px 16px;
-      display: flex; flex-direction: column; align-items: flex-start;
-    }
-    .price-card.pc-single { background: var(--gold); }
-    .price-card.pc-single .pc-label { color: rgba(13,27,20,0.7); }
-    .price-card.pc-single .pc-price { color: var(--dark); }
-    .price-card.pc-single .pc-note { color: rgba(13,27,20,0.7); }
-    .price-card.pc-double { background: var(--accent-orange); }
-    .price-card .pc-label { font-size: 8px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.7); margin-bottom: 5px; }
-    .price-card .pc-price { font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 300; color: var(--white); line-height: 1; }
-    .price-card .pc-price span { font-size: 16px; }
-    .price-card .pc-note { font-size: 9px; color: rgba(255,255,255,0.7); margin-top: 6px; line-height: 1.5; }
-    .price-included {
-      background: white; border: 1px solid rgba(200,169,110,0.3); border-radius: 3px;
-      padding: 10px 14px; margin-top: 10px;
-    }
-    .price-included .pi-title { font-size: 8px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
-    .pi-list { display: flex; flex-wrap: wrap; gap: 6px; }
-    .pi-item {
-      display: flex; align-items: center; gap: 5px;
-      font-size: 9.5px; color: var(--green-deep); font-weight: 500;
-    }
-    .pi-item::before { content: '✓'; color: var(--gold); font-size: 10px; }
+/* ── FOOTER ── */
+footer {
+  background: var(--dark);
+  padding: 48px 5vw;
+  border-top: 1px solid rgba(200,169,110,0.12);
+}
+.footer-inner {
+  max-width: 1100px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.footer-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px; font-weight: 600; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--white);
+}
+.footer-logo span { color: var(--gold); }
+.footer-tagline {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic; font-size: 15px; color: var(--gold-light);
+}
+.footer-contact {
+  font-size: 12px; color: rgba(255,255,255,0.45);
+  line-height: 1.9; text-align: right;
+}
 
-    /* ─── BACK COVER ─── */
-    .back-cover {
-      position: relative; width: 210mm; height: 297mm; overflow: hidden;
-      background: var(--green-deep);
-      display: flex; flex-direction: column; justify-content: center; align-items: center;
-    }
-    .back-photo {
-      position: absolute; inset: 0;
-      background: var(--green-deep);
-    }
-    .back-content { position: relative; z-index: 2; text-align: center; padding: 0 20mm; }
-    .back-logo {
-      font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600;
-      letter-spacing: 3px; text-transform: uppercase; color: var(--white); margin-bottom: 5px;
-    }
-    .back-logo span { color: var(--gold); }
-    .back-tagline { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 15px; color: var(--gold-light); margin-bottom: 28px; }
-    .back-divider { width: 40px; height: 1px; background: var(--gold); margin: 18px auto; }
-    .back-quote {
-      font-family: 'Cormorant Garamond', serif; font-size: 21px;
-      font-weight: 300; font-style: italic; color: var(--white); line-height: 1.55; margin-bottom: 28px;
-    }
-    .back-contact { font-size: 10px; color: rgba(255,255,255,0.62); letter-spacing: 0.8px; line-height: 2.2; }
-    .back-contact strong { color: var(--gold); font-weight: 500; }
+/* ── SCROLL REVEAL ── */
+.reveal {
+  opacity: 0; transform: translateY(28px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible {
+  opacity: 1; transform: translateY(0);
+}
 
-    @media print {
-      body { margin: 0; }
-      .page, .cover, .back-cover { page-break-after: always; }
-    }
-  </style>
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .nav-links { display: none; }
+  .nav-cta { display: none; }
+  .burger { display: flex; }
+  .get-grid { grid-template-columns: 1fr 1fr; }
+  .places-grid { grid-template-columns: 1fr 1fr; }
+  .hero-stats-inner { grid-template-columns: repeat(2, 1fr); }
+  .prog-card { position: static !important; width: 100% !important; margin-bottom: 14px; }
+  .prog-cards-grid { height: auto !important; display: flex; flex-direction: column; }
+  .prog-svg-overlay { display: none; }
+}
+@media (max-width: 640px) {
+  section { padding: 72px 5vw; }
+  .why-grid { grid-template-columns: 1fr; }
+  .why-item:nth-child(even) { padding-left: 0; border-left: none; }
+  .get-grid { grid-template-columns: 1fr; }
+  .places-grid { grid-template-columns: 1fr; }
+  .accom-options { grid-template-columns: 1fr; }
+  .price-block { grid-template-columns: 1fr; }
+  .forwhom-grid { grid-template-columns: 1fr; }
+  .forwhom-item:nth-child(even) { padding-left: 0; border-left: none; }
+  .contacts-grid { grid-template-columns: 1fr; }
+  .hero-stats-inner { grid-template-columns: repeat(2, 1fr); }
+  .footer-inner { flex-direction: column; gap: 20px; text-align: center; }
+  .footer-contact { text-align: center; }
+  .prog-cards-grid { grid-template-columns: 1fr; }
+  .cta-box { padding: 40px 28px; }
+  .accom-section { padding: 28px 22px; }
+  .hero-badge { width: 72px; height: 72px; }
+  .hero-badge .days { font-size: 28px; }
+}
+</style>
 </head>
 <body>
 
-<!-- ═══ COVER ═══ -->
-<div class="cover">
-  <div class="cover-bg"></div>
-  <div class="cover-overlay"></div>
-  <div class="corner-ornament tl"></div><div class="corner-ornament tr"></div>
-  <div class="corner-ornament bl"></div><div class="corner-ornament br"></div>
-  <div class="cover-logo">ShiR<span>Estate</span></div>
-  <div class="cover-badge">
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">ShiR<span>Estate</span></div>
+  <ul class="nav-links">
+    <li><a href="#why">Почему ДР</a></li>
+    <li><a href="#get">Что получишь</a></li>
+    <li><a href="#program">Программа</a></li>
+    <li><a href="#pricing">Цены</a></li>
+  </ul>
+  <a class="nav-cta" href="#cta">Записаться</a>
+  <div class="burger" id="burger">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#why" onclick="closeMobile()">Почему ДР</a>
+  <a href="#get" onclick="closeMobile()">Что получишь</a>
+  <a href="#program" onclick="closeMobile()">Программа</a>
+  <a href="#pricing" onclick="closeMobile()">Цены</a>
+  <a href="#cta" onclick="closeMobile()">Записаться</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-ornament tl"></div>
+  <div class="hero-ornament tr"></div>
+  <div class="hero-ornament bl"></div>
+  <div class="hero-ornament br"></div>
+  <div class="hero-badge">
     <span class="days">7</span>
     <span class="days-label">дней</span>
   </div>
-  <div class="cover-content">
-    <div class="cover-eyebrow">Авторский инвест-тур · 2026</div>
-    <div class="cover-title">Доминиканская<br><em>Республика</em></div>
-    <div class="cover-subtitle">Инвестиции в недвижимость мечты</div>
-    <div class="cover-divider"></div>
-    <div class="cover-desc">
-      Со мной ты станешь международным инвестором: создашь пассивный доход в валюте и выйдешь на новый уровень. Пунта-Кана, Кап-Кана, Байяибе, Лас-Терренес, Сосуа — 7 незабываемых дней.
+  <div class="hero-content">
+    <div class="hero-eyebrow">Авторский инвест-тур · 2026</div>
+    <div class="hero-title">Доминиканская<br><em>Республика</em></div>
+    <div class="hero-subtitle">Инвестиции в недвижимость мечты</div>
+    <div class="hero-divider"></div>
+    <div class="hero-desc">
+      Со мной ты станешь международным инвестором: создашь пассивный доход в валюте и выйдешь на новый уровень. Пунта-Кана, Кап-Кана, Байяибе, Лас-Терренас, Сосуа — 7 незабываемых дней.
+    </div>
+    <div class="hero-actions">
+      <a class="btn-primary" href="#cta">Забронировать место</a>
+      <a class="btn-outline" href="#program">Смотреть программу</a>
     </div>
   </div>
-</div>
-
-<!-- ═══ PAGE 2 — ПОЧЕМУ ДОМИНИКАНА ═══ -->
-<div class="page">
-  <div class="page-header">
-    <div class="page-header-logo">ShiR<span>Estate</span></div>
-    <div class="page-header-title">Инвестиционный тур · Доминиканская Республика</div>
-  </div>
-
-  <!-- MAP -->
-  <div class="map-block" style="padding:8px 10px;">
-    <div class="map-label">Карта маршрута</div>
-    <!-- Container with real map image + SVG overlay -->
-    <div style="position:relative;width:96%;line-height:0;border-radius:3px;overflow:hidden;">
-      <!-- Real map as background -->
-      <img src="map.png"
-           style="width:100%;display:block;" alt="Карта Доминиканской Республики"/>
-      <!-- SVG overlay — viewBox 1270x870 matches image proportions -->
-      <svg viewBox="0 0 1270 870" xmlns="http://www.w3.org/2000/svg"
-           style="position:absolute;top:0;left:0;width:100%;height:100%;">
-        <defs>
-          <!-- Gold teardrop pin -->
-          <g id="gpin">
-            <circle cx="0" cy="0" r="11" fill="#C8A96E" stroke="#7a4e10" stroke-width="1.5"/>
-            <polygon points="0,26 -9,9 9,9" fill="#C8A96E" stroke="#7a4e10" stroke-width="1"/>
-            <circle cx="0" cy="0" r="4.5" fill="#1A3328"/>
-          </g>
-          <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
-            <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.4"/>
-          </filter>
-        </defs>
-
-
-        <!-- 12.04 PuntaCana → 12.04 CapCana → 13.04 Bayahibe → 15.04 LasTer → 16.04 Sosua -->
-        <polyline
-                points="1110,410  1095,440  1005,500  762,238  490,125"
-                fill="none" stroke="#C8A96E" stroke-width="3"
-                stroke-dasharray="10,6" opacity="0.75" filter="url(#shadow)"/>
-        <!-- ── GOLD MARKERS ── -->
-        <!-- 1. PUNTA CANA (moved left onto land) -->
-        <g filter="url(#shadow)"><use href="#gpin" transform="translate(1100,390)"/></g>
-        <rect x="930" y="334" width="172" height="42" rx="4" fill="rgba(13,27,20,0.92)"/>
-        <text x="1016" y="350" fill="#E8D5A8" font-size="14" font-family="Arial,sans-serif" text-anchor="middle" font-weight="700" letter-spacing="0.5">PUNTA CANA</text>
-        <text x="1016" y="366" fill="#C8A96E" font-size="10" font-family="Arial,sans-serif" text-anchor="middle">12 апреля</text>
-        <!-- 2. CAP CANA (moved left onto land) -->
-        <g filter="url(#shadow)"><use href="#gpin" transform="translate(1095,420)"/></g>
-        <rect x="1066" y="454" width="162" height="42" rx="4" fill="rgba(13,27,20,0.92)"/>
-        <text x="1157" y="470" fill="#E8D5A8" font-size="14" font-family="Arial,sans-serif" text-anchor="middle" font-weight="700" letter-spacing="0.5">CAP CANA</text>
-        <text x="1157" y="486" fill="#C8A96E" font-size="10" font-family="Arial,sans-serif" text-anchor="middle">12 апреля</text>
-        <!-- 3. BAYAHIBE (moved left onto land) -->
-        <g filter="url(#shadow)"><use href="#gpin" transform="translate(1005,480)"/></g>
-        <rect x="816" y="508" width="162" height="42" rx="4" fill="rgba(13,27,20,0.92)"/>
-        <text x="897" y="524" fill="#E8D5A8" font-size="14" font-family="Arial,sans-serif" text-anchor="middle" font-weight="700" letter-spacing="0.5">BAYAHIBE</text>
-        <text x="897" y="540" fill="#C8A96E" font-size="10" font-family="Arial,sans-serif" text-anchor="middle">13 апреля</text>
-        <!-- 4. LAS TERRENAS (Samaná peninsula north) -->
-        <g filter="url(#shadow)"><use href="#gpin" transform="translate(762,218)"/></g>
-        <rect x="776" y="158" width="180" height="42" rx="4" fill="rgba(13,27,20,0.92)"/>
-        <text x="866" y="174" fill="#E8D5A8" font-size="14" font-family="Arial,sans-serif" text-anchor="middle" font-weight="700" letter-spacing="0.5">LAS TERRENAS</text>
-        <text x="866" y="190" fill="#C8A96E" font-size="10" font-family="Arial,sans-serif" text-anchor="middle">15 апреля</text>
-        <!-- 5. SOSUÁ (north coast, moved up to shoreline) -->
-        <g filter="url(#shadow)"><use href="#gpin" transform="translate(490,105)"/></g>
-        <rect x="310" y="130" width="174" height="42" rx="4" fill="rgba(13,27,20,0.92)"/>
-        <text x="397" y="146" fill="#E8D5A8" font-size="14" font-family="Arial,sans-serif" text-anchor="middle" font-weight="700" letter-spacing="0.5">SOSUÁ</text>
-        <text x="397" y="162" fill="#C8A96E" font-size="10" font-family="Arial,sans-serif" text-anchor="middle">16 апреля</text>
-        <!-- Legend -->
-        <rect x="31" y="765" width="200" height="50" rx="4" fill="rgba(13,27,20,0.82)"/>
-        <g><use href="#gpin" transform="translate(60,787) scale(0.75)"/></g>
-        <text x="80" y="785" fill="#E8D5A8" font-size="11" font-family="Arial,sans-serif" font-weight="600">— объект тура</text>
-        <line x1="80" y1="795" x2="106" y2="795" stroke="#C8A96E" stroke-width="2" stroke-dasharray="5,3"/>
-        <text x="113" y="798" fill="#E8D5A8" font-size="11" font-family="Arial,sans-serif">маршрут</text>
-      </svg>
+  <div class="hero-stats">
+    <div class="hero-stats-inner">
+      <div class="stat"><span class="stat-num">7,12%</span><span class="stat-label">Доходность аренды</span></div>
+      <div class="stat"><span class="stat-num">15%</span><span class="stat-label">Рост цен в год</span></div>
+      <div class="stat"><span class="stat-num">5</span><span class="stat-label">Локаций острова</span></div>
+      <div class="stat"><span class="stat-num">$200K</span><span class="stat-label">ВНЖ от</span></div>
     </div>
   </div>
+</section>
 
-  <div class="section-title">Лучший <em>момент</em> для входа</div>
-  <div class="section-divider"></div>
+<!-- WHY DR -->
+<section id="why">
+  <div class="section-inner">
+    <div class="eyebrow reveal">Доминиканская Республика</div>
+    <div class="section-title reveal">Лучший <em>момент</em> для входа</div>
+    <div class="section-divider reveal"></div>
+    <div class="why-grid">
+      <div class="why-item reveal"><div class="why-dot"></div><div class="why-text"><strong>Доходность от аренды</strong> в среднем <span class="why-num">7,12%</span> годовых, в лучших районах — <span class="why-num">15%</span> после расходов</div></div>
+      <div class="why-item reveal"><div class="why-dot"></div><div class="why-text"><strong>Рост цен</strong> <span class="why-num">7–15%</span> в год — стабильная капитализация вложений</div></div>
+      <div class="why-item reveal"><div class="why-dot"></div><div class="why-text"><strong>Глобальное развитие инфраструктуры:</strong> реконструкция аэропортов, дорог, новые круизные терминалы</div></div>
+      <div class="why-item reveal"><div class="why-dot"></div><div class="why-text"><strong>Стратегические партнёрства:</strong> новые экономические союзы с США, появление крупных компаний как Amazon</div></div>
+      <div class="why-item reveal"><div class="why-dot"></div><div class="why-text"><strong>Закон CONFOTUR:</strong> отмена налога на покупку, <span class="why-num">15 лет</span> без налога на имущество и прибыль от аренды</div></div>
+      <div class="why-item reveal"><div class="why-dot"></div><div class="why-text"><strong>ВНЖ при покупке</strong> от <span class="why-num">$200 000</span> для покупателя и всей семьи</div></div>
+      <div class="why-item reveal"><div class="why-dot"></div><div class="why-text"><strong>Полная собственность</strong> с теми же правами, что у граждан страны</div></div>
+      <div class="why-item reveal"><div class="why-dot"></div><div class="why-text"><strong>Круглогодичный сезон</strong> — белоснежные пляжи и тёплый океан 365 дней в году</div></div>
+    </div>
 
-  <div style="display:grid;grid-template-columns:3fr 2fr;gap:14px;">
-    <div>
-      <div class="why-col">
-        <div class="why-item"><div class="why-dot"></div><div class="why-text"><strong>Доходность от аренды</strong> в среднем <span class="why-strong-colored"><strong>7,12%</strong></span> годовых, в лучших районах — <span class="why-strong-colored"><strong>15%</strong></span> после расходов и оплаты управляющей компании</div></div>
-        <div class="why-item"><div class="why-dot"></div><div class="why-text"><strong>Рост цен </strong> <span class="why-strong-colored"><strong>7–15%</strong></span> в год — стабильная капитализация вложений</div></div>
-        <div class="why-item"><div class="why-dot"></div><div class="why-text"><strong>Глобальное развитие инфраструктуры страны:</strong> реконструкция аэропортов, дорог, новые круизные терминалы, строительство госпиталей и торговых центров</div></div>
-        <div class="why-item"><div class="why-dot"></div><div class="why-text"><strong>Создание стратегических партнерств:</strong> новые экономические партнерства с США и другими странами, появление крупных бизнесов, как Amazon</div></div>
-        <div class="why-item"><div class="why-dot"></div><div class="why-text"><strong>Отсутствие налогов</strong> на покупку, владение и прибыль до 15 ле по закону CONFOTUR</div></div>
-        <div class="why-item"><div class="why-dot"></div><div class="why-text"><strong>ВНЖ при покупке</strong> от <span class="why-strong-colored"><strong>$200 000</strong></span> для покупателя и его семьи</div></div>
-        <div class="why-item"><div class="why-dot"></div><div class="why-text"><strong>Спрос на строительство по новым стандартам</strong> вырос в разы за последние 3 года при более низких темпах строительства</div></div>
-        <div class="why-item"><div class="why-dot"></div><div class="why-text"><strong>Полная собственность</strong> c теми же правами что у граждан страны</div></div>
-        <div class="why-item"><div class="why-dot"></div><div class="why-text"><strong>Круглогодичный сезон</strong> — белоснежные пляжи, тёплый океан и ровная температура 365 дней в году</div></div>
+    <!-- WHY PHOTOS -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:40px;">
+      <div style="border-radius:6px;overflow:hidden;position:relative;" class="reveal">
+        <img src="construction.jpg" alt="Новая инфраструктура" style="width:100%;height:220px;object-fit:cover;display:block;" onerror="this.parentNode.style.background='var(--green-deep)'"/>
+        <div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(13,27,20,0.85));padding:18px 14px 10px;">
+          <div style="font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold-light);">Новая инфраструктура</div>
+        </div>
       </div>
-    </div>
-    <div style="display:flex;flex-direction:column;gap:8px;">
-      <div class="intro-photo">
-        <img src="construction.jpg" alt="Construction"/>
-        <div class="intro-photo-caption">Новая инфраструктура</div>
-      </div>
-      <div class="intro-photo">
-        <img src="cruise.png" alt="Cruise terminal"/>
-        <div class="intro-photo-caption">Лас Терренас · Круизный терминал</div>
+      <div style="border-radius:6px;overflow:hidden;position:relative;" class="reveal">
+        <img src="cruise.png" alt="Круизный терминал" style="width:100%;height:220px;object-fit:cover;display:block;" onerror="this.parentNode.style.background='var(--green-deep)'"/>
+        <div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(13,27,20,0.85));padding:18px 14px 10px;">
+          <div style="font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold-light);">Лас Терренас · Круизный терминал</div>
+        </div>
       </div>
     </div>
   </div>
-</div>
-
-<!-- ═══ PAGE 3 — ЧТО ТЫ ПОЛУЧИШЬ + СТРАТЕГИИ ═══ -->
-<div class="page">
-  <div class="page-header">
-    <div class="page-header-logo">ShiR<span>Estate</span></div>
-    <div class="page-header-title">Инвест-тур — отличное совмещение отдыха и поездки по делу</div>
-  </div>
-
-  <div class="section-title">Инвест-тур — <em>идеальное совмещение отдыха и бизнеса</em></div>
-  <div class="section-divider"></div>
-
-  <div class="get-grid">
-    <div class="get-item">
-      <div class="get-num">01</div>
-      <div class="get-text">
-        <div class="get-desc">Рассмотрите <strong>реальные варианты</strong> и поймёте как создать <strong>пассивный доход</strong> для себя</div>
-        <!-- <div class="get-desc">Как именно создать пассивный доход в валюте: стратегии, цифры, реальные кейсы</div> -->
+</section>
+<section id="get">
+  <div class="section-inner">
+    <div class="eyebrow reveal" style="color:rgba(200,169,110,0.7)">Инвест-тур</div>
+    <div class="section-title reveal" style="color:var(--white)">Идеальное совмещение <em>отдыха и бизнеса</em></div>
+    <div class="section-divider reveal"></div>
+    <div class="get-grid">
+      <div class="get-card reveal">
+        <div class="get-num">01</div>
+        <div class="get-title">Пассивный доход</div>
+        <div class="get-desc">Рассмотрите реальные варианты и поймёте как создать пассивный доход в валюте для себя</div>
       </div>
-    </div>
-    <div class="get-item">
-      <div class="get-num">02</div>
-      <div class="get-text">
-        <div class="get-desc">Посетите <strong>ТОПовые локации</strong> и своими глазами увидите самые доходные объекты</div>
+      <div class="get-card reveal">
+        <div class="get-num">02</div>
+        <div class="get-title">Топовые локации</div>
+        <div class="get-desc">Посетите ТОПовые локации и своими глазами увидите самые доходные объекты</div>
       </div>
-    </div>
-    <div class="get-item">
-      <div class="get-num">03</div>
-      <div class="get-text">
-        <div class="get-desc">Получите <strong>незабываемые впечатления</strong> в путешествии по Доминикане, диким пляжам, заповеднику на полуострове Самана</div>
+      <div class="get-card reveal">
+        <div class="get-num">03</div>
+        <div class="get-title">Незабываемые впечатления</div>
+        <div class="get-desc">Путешествие по Доминикане, дикие пляжи, заповедник на полуострове Самана</div>
       </div>
-    </div>
-    <div class="get-item">
-      <div class="get-num">04</div>
-      <div class="get-text">
-        <div class="get-desc">Заведете новые <strong>полезные знакомства</strong> и <strong>обменяетесь опытом</strong> с другими инвесторами</div>
+      <div class="get-card reveal">
+        <div class="get-num">04</div>
+        <div class="get-title">Полезные знакомства</div>
+        <div class="get-desc">Заведёте новые полезные знакомства и обменяетесь опытом с другими инвесторами</div>
       </div>
-    </div>
-    <div class="get-item">
-      <div class="get-num">05</div>
-      <div class="get-text">
-        <div class="get-desc">На месте узнаете все <strong>нюансы рынка</strong>, посмотрите его <strong>особенности</strong> и оцените риски</div>
+      <div class="get-card reveal">
+        <div class="get-num">05</div>
+        <div class="get-title">Нюансы рынка</div>
+        <div class="get-desc">На месте узнаете все особенности рынка, оцените его перспективы и риски</div>
       </div>
-    </div>
-    <div class="get-item">
-      <div class="get-num">06</div>
-      <div class="get-text">
-        <div class="get-desc">Сможете <strong>индивидуально</strong> подобрать объекта под свой бюджет и стратегию прямо во время тура</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- PHOTO SLOTS -->
-  <div style="margin-top:16px;">
-
-    <!-- Строка 1: 3 слота -->
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:8px;">
-      <div style="border-radius:4px;overflow:hidden;aspect-ratio:4/3;">
-        <img src="Santo-Domingo-Dominican-Republic.webp" alt="фото 1" style="width:100%;height:100%;object-fit:cover;display:block;"/>
-      </div>
-      <div style="border-radius:4px;overflow:hidden;aspect-ratio:4/3;">
-        <img src="birdview.png" alt="фото 2" style="width:100%;height:100%;object-fit:cover;display:block;"/>
-      </div>
-      <div style="border-radius:4px;overflow:hidden;aspect-ratio:4/3;">
-        <img src="villa.jpeg" alt="фото 3" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+      <div class="get-card reveal">
+        <div class="get-num">06</div>
+        <div class="get-title">Индивидуальный подбор</div>
+        <div class="get-desc">Подбор объекта под ваш бюджет и стратегию прямо во время тура</div>
       </div>
     </div>
 
-    <!-- Строка 2: 2 слота -->
-    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:8px;">
-      <div style="border-radius:4px;overflow:hidden;aspect-ratio:4/3;">
-        <img src="dominicus.jpeg" alt="фото 4" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+    <!-- PHOTO GALLERY -->
+    <div style="margin-top:40px;">
+      <div class="eyebrow reveal" style="color:rgba(200,169,110,0.7);margin-bottom:14px;">Доминикана · Объекты тура</div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:10px;">
+        <div style="border-radius:6px;overflow:hidden;aspect-ratio:4/3;" class="reveal">
+          <img src="reefgolf.jpg" alt="Reef Golf" style="width:100%;height:100%;object-fit:cover;display:block;" onerror="this.parentNode.style.background='var(--green-mid)'"/>
+        </div>
+        <div style="border-radius:6px;overflow:hidden;aspect-ratio:4/3;" class="reveal">
+          <img src="birdview.png" alt="Bird View" style="width:100%;height:100%;object-fit:cover;display:block;" onerror="this.parentNode.style.background='var(--green-mid)'"/>
+        </div>
+        <div style="border-radius:6px;overflow:hidden;aspect-ratio:4/3;" class="reveal">
+          <img src="villa.jpeg" alt="Villa" style="width:100%;height:100%;object-fit:cover;display:block;" onerror="this.parentNode.style.background='var(--green-mid)'"/>
+        </div>
       </div>
-      <div style="border-radius:4px;overflow:hidden;aspect-ratio:4/3;">
-        <img src="domingo.webp" alt="фото 5" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:10px;">
+        <div style="border-radius:6px;overflow:hidden;aspect-ratio:16/9;" class="reveal">
+          <img src="dominicus.jpeg" alt="Dominicus" style="width:100%;height:100%;object-fit:cover;display:block;" onerror="this.parentNode.style.background='var(--green-mid)'"/>
+        </div>
+        <div style="border-radius:6px;overflow:hidden;aspect-ratio:16/9;" class="reveal">
+          <img src="domingo.webp" alt="Santo Domingo" style="width:100%;height:100%;object-fit:cover;display:block;" onerror="this.parentNode.style.background='var(--green-mid)'"/>
+        </div>
       </div>
-    </div>
-
-  </div>
-
-  <div style="height:16px;"></div>
-  <div class="section-title">Тур отлично <em>подойдёт</em></div>
-  <div class="section-divider"></div>
-
-  <div style="font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:300;font-style:italic;color:var(--green-deep);line-height:1.7;margin-bottom:14px;">
-    Как начинающим инвесторам, так и действующим — тем, кто хочет сохранять деньги в надёжных активах, получать пассивный доход в валюте, создать капитал на долгие годы и занять для себя хорошее место у моря.
-  </div>
-
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px;">
-    <div class="why-item"><div class="why-dot"></div><div class="why-text"><strong>Начинающим инвесторам</strong> — первый опыт зарубежных инвестиций под руководством экспертов</div></div>
-    <div class="why-item"><div class="why-dot"></div><div class="why-text"><strong>Действующим инвесторам</strong> — диверсификация портфеля в твёрдой валюте</div></div>
-    <div class="why-item"><div class="why-dot"></div><div class="why-text"><strong>Тем, кто хочет ВНЖ</strong> — получить статус резидента для себя и семьи</div></div>
-    <div class="why-item"><div class="why-dot"></div><div class="why-text"><strong>Любителям путешествий</strong> — объединить бизнес с незабываемым отдыхом</div></div>
-  </div>
-
-</div>
-
-<!-- ═══ PAGE 4 — ПРОГРАММА (TIMELINE) ═══ -->
-<div class="page" style="padding: 14mm 14mm;">
-  <div class="page-header">
-    <div class="page-header-logo">ShiR<span>Estate</span></div>
-    <div class="page-header-title">Программа тура</div>
-  </div>
-
-  <!-- TITLE + DATE BADGE -->
-  <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:14px;">
-    <div>
-      <div class="section-title">Программа <em>Инвест-Тура</em></div>
-    </div>
-    <div style="background:var(--green-deep);border-radius:6px;padding:8px 16px;text-align:center;flex-shrink:0;margin-top:4px;">
-      <div style="font-size:7px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:3px;">Даты тура</div>
-      <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:var(--gold-light);line-height:1.1;">11 — 18 апреля</div>
     </div>
   </div>
+</section>
+<section id="program">
+  <div class="section-inner">
+    <div class="eyebrow reveal">7 дней · 11–18 апреля</div>
+    <div class="section-title reveal">Программа <em>Инвест-Тура</em></div>
+    <div class="section-divider reveal"></div>
 
-  <style>
-    .prog-wrap { position:relative; }
-    .prog-grid {
-      position: relative;
-      height: 660px;
-    }
-    #d11 { position:absolute; left:0;    width:46%; top:  0px; }
-    #d12 { position:absolute; left:54%;  width:46%; top: 32px; }
-    #d13 { position:absolute; left:0;    width:46%; top:100px; }
-    #d14 { position:absolute; left:54%;  width:46%; top:256px; }
-    #d15 { position:absolute; left:0;    width:46%; top:380px; }
-    #d16 { position:absolute; left:54%;  width:46%; top:450px; }
-    #d17 { position:absolute; left:0;    width:46%; top:590px; }
-    #d18 { position:absolute; left:54%;  width:46%; top:604px; }
-    .pc {
-      background: #fff;
-      border: 1px solid rgba(200,169,110,0.28);
-      border-radius: 6px;
-      overflow: hidden;
-    }
-    .pc-head {
-      background: var(--green-deep);
-      padding: 6px 11px;
-      display: flex; align-items: center; gap: 8px;
-    }
-    .pc-badge {
-      background: rgba(200,169,110,0.2);
-      border: 1px solid var(--gold);
-      border-radius: 4px;
-      padding: 2px 8px; flex-shrink:0;
-      font-size: 11px; font-weight: 700;
-      color: var(--gold); letter-spacing: 0.3px;
-    }
-    .pc-title { font-size: 9.5px; font-weight: 600; color: #fff; line-height: 1.3; }
-    .pc-body { padding: 7px 11px 8px; }
-    .pc-row { display:flex; gap:6px; align-items:flex-start; margin-bottom:3px; font-size:9px; color:#333; line-height:1.5; }
-    .pc-row:last-child { margin-bottom:0; }
-    .pc-dot { width:5px; height:5px; border-radius:50%; flex-shrink:0; margin-top:4px; }
-    .dot-invest { background: var(--gold); }
-    .dot-act    { background: var(--accent-orange); }
-    .pc-simple {
-      background: var(--green-deep);
-      border-radius: 6px;
-      padding: 8px 12px;
-      display: flex; align-items: center; gap: 9px;
-    }
-    .pc-simple .pc-badge { background: rgba(255,255,255,0.12); }
-    .pc-simple .pc-title { color: rgba(255,255,255,0.85); }
-    .prog-svg-overlay {
-      position: absolute;
-      top: 0; left: 0; width: 100%; height: 100%;
-      pointer-events: none; overflow: visible;
-    }
-  </style>
+    <!-- MAP -->
+    <div class="map-wrap reveal">
+      <div class="map-label">Маршрут тура · Доминиканская Республика</div>
+      <div class="map-inner">
+        <img src="map.png" style="width:100%;display:block;" alt="Карта Доминиканской Республики"/>
+        <svg viewBox="0 0 1270 870" xmlns="http://www.w3.org/2000/svg" style="position:absolute;top:0;left:0;width:100%;height:100%;">
+          <defs>
+            <g id="gpin">
+              <circle cx="0" cy="0" r="11" fill="#C8A96E" stroke="#7a4e10" stroke-width="1.5"/>
+              <polygon points="0,26 -9,9 9,9" fill="#C8A96E" stroke="#7a4e10" stroke-width="1"/>
+              <circle cx="0" cy="0" r="4.5" fill="#1A3328"/>
+            </g>
+            <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+              <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.4"/>
+            </filter>
+          </defs>
+          <polyline points="1110,410  1095,440  1005,500  762,238  490,125"
+            fill="none" stroke="#C8A96E" stroke-width="3"
+            stroke-dasharray="10,6" opacity="0.75" filter="url(#shadow)"/>
+          <!-- 1. PUNTA CANA -->
+          <g filter="url(#shadow)"><use href="#gpin" transform="translate(1100,390)"/></g>
+          <rect x="930" y="334" width="172" height="42" rx="4" fill="rgba(13,27,20,0.92)"/>
+          <text x="1016" y="350" fill="#E8D5A8" font-size="14" font-family="Arial,sans-serif" text-anchor="middle" font-weight="700" letter-spacing="0.5">PUNTA CANA</text>
+          <text x="1016" y="366" fill="#C8A96E" font-size="10" font-family="Arial,sans-serif" text-anchor="middle">12 апреля</text>
+          <!-- 2. CAP CANA -->
+          <g filter="url(#shadow)"><use href="#gpin" transform="translate(1095,420)"/></g>
+          <rect x="1066" y="454" width="162" height="42" rx="4" fill="rgba(13,27,20,0.92)"/>
+          <text x="1157" y="470" fill="#E8D5A8" font-size="14" font-family="Arial,sans-serif" text-anchor="middle" font-weight="700" letter-spacing="0.5">CAP CANA</text>
+          <text x="1157" y="486" fill="#C8A96E" font-size="10" font-family="Arial,sans-serif" text-anchor="middle">12 апреля</text>
+          <!-- 3. BAYAHIBE -->
+          <g filter="url(#shadow)"><use href="#gpin" transform="translate(1005,480)"/></g>
+          <rect x="816" y="508" width="162" height="42" rx="4" fill="rgba(13,27,20,0.92)"/>
+          <text x="897" y="524" fill="#E8D5A8" font-size="14" font-family="Arial,sans-serif" text-anchor="middle" font-weight="700" letter-spacing="0.5">BAYAHIBE</text>
+          <text x="897" y="540" fill="#C8A96E" font-size="10" font-family="Arial,sans-serif" text-anchor="middle">13 апреля</text>
+          <!-- 4. LAS TERRENAS -->
+          <g filter="url(#shadow)"><use href="#gpin" transform="translate(762,218)"/></g>
+          <rect x="776" y="158" width="180" height="42" rx="4" fill="rgba(13,27,20,0.92)"/>
+          <text x="866" y="174" fill="#E8D5A8" font-size="14" font-family="Arial,sans-serif" text-anchor="middle" font-weight="700" letter-spacing="0.5">LAS TERRENAS</text>
+          <text x="866" y="190" fill="#C8A96E" font-size="10" font-family="Arial,sans-serif" text-anchor="middle">15 апреля</text>
+          <!-- 5. SOSUÁ -->
+          <g filter="url(#shadow)"><use href="#gpin" transform="translate(490,105)"/></g>
+          <rect x="310" y="130" width="174" height="42" rx="4" fill="rgba(13,27,20,0.92)"/>
+          <text x="397" y="146" fill="#E8D5A8" font-size="14" font-family="Arial,sans-serif" text-anchor="middle" font-weight="700" letter-spacing="0.5">SOSUÁ</text>
+          <text x="397" y="162" fill="#C8A96E" font-size="10" font-family="Arial,sans-serif" text-anchor="middle">16 апреля</text>
+          <!-- Legend -->
+          <rect x="31" y="765" width="200" height="50" rx="4" fill="rgba(13,27,20,0.82)"/>
+          <g><use href="#gpin" transform="translate(60,787) scale(0.75)"/></g>
+          <text x="80" y="785" fill="#E8D5A8" font-size="11" font-family="Arial,sans-serif" font-weight="600">— объект тура</text>
+          <line x1="80" y1="795" x2="106" y2="795" stroke="#C8A96E" stroke-width="2" stroke-dasharray="5,3"/>
+          <text x="113" y="798" fill="#E8D5A8" font-size="11" font-family="Arial,sans-serif">маршрут</text>
+        </svg>
+      </div>
+    </div>
 
-  <div class="prog-wrap" id="progWrap">
-    <div class="prog-grid">
+    <!-- 3-COLUMN PROGRAM CARDS -->
+    <div class="prog-cards-grid" id="progGrid">
 
-      <!-- ROW 1: 11.04 left  |  12.04 right -->
-      <div id="d11">
-        <div class="pc-simple">
+      <!-- Day 11 -->
+      <div class="prog-card simple reveal" id="pd11">
+        <div class="pc-head">
           <div class="pc-badge">11.04</div>
-          <div class="pc-title">Прилёт · Свободное время</div>
+          <div class="pc-head-title">Прилёт · Свободное время</div>
         </div>
-      </div>
-      <div id="d12">
-        <div class="pc">
-          <div class="pc-head"><div class="pc-badge">12.04</div><div class="pc-title">Восточная часть острова</div></div>
-          <div class="pc-body">
-            <div class="pc-row"><div class="pc-dot dot-invest"></div><div>Осмотр района и объектов в <strong>Punta Cana</strong></div></div>
-            <div class="pc-row"><div class="pc-dot dot-invest"></div><div>Посещение закрытого сектора <strong>Cap-Cana</strong></div></div>
-          </div>
+        <div class="pc-body" style="color:rgba(255,255,255,0.7);">
+          <div class="pc-loc" style="color:var(--gold);">Punta Cana</div>
+          <div class="pc-row" style="color:rgba(255,255,255,0.7);"><div class="pc-dot dot-act"></div><div>Встреча в аэропорту, трансфер, заселение</div></div>
+          <div class="pc-row" style="color:rgba(255,255,255,0.7);"><div class="pc-dot dot-act"></div><div>Знакомство с группой, свободное время</div></div>
         </div>
+        <div class="pc-tags"><span class="tag" style="border-color:rgba(200,169,110,0.4);color:var(--gold-light);">✈️ Прилёт</span><span class="tag" style="border-color:rgba(200,169,110,0.4);color:var(--gold-light);">🏨 Заселение</span></div>
       </div>
 
-      <!-- ROW 2: 13.04 left  |  14.04 right -->
-      <div id="d13">
-        <div class="pc">
-          <div class="pc-head"><div class="pc-badge">13.04</div><div class="pc-title">Южная часть острова</div></div>
-          <div class="pc-body">
-            <div class="pc-row"><div class="pc-dot dot-invest"></div><div>Осмотр объектов в <strong>Bayahibe</strong></div></div>
-            <div class="pc-row"><div class="pc-dot dot-act"></div><div>Катание на лодке</div></div>
-            <div class="pc-row"><div class="pc-dot dot-act"></div><div>Посещение острова <strong>Saona</strong></div></div>
-          </div>
+      <!-- Day 12 -->
+      <div class="prog-card reveal" id="pd12">
+        <div class="pc-head">
+          <div class="pc-badge">12.04</div>
+          <div class="pc-head-title">Восточная часть острова</div>
         </div>
-      </div>
-      <div id="d14">
-        <div class="pc">
-          <div class="pc-head"><div class="pc-badge">14.04</div><div class="pc-title">Переезд на север острова</div></div>
-          <div class="pc-body">
-            <div class="pc-row"><div class="pc-dot dot-act"></div><div>Посещение <strong>деревни Художников</strong></div></div>
-            <div class="pc-row"><div class="pc-dot dot-act"></div><div>Живописная дорога на <strong>Samaná</strong></div></div>
-          </div>
+        <div class="pc-body">
+          <div class="pc-loc">Punta Cana · Cap Cana</div>
+          <div class="pc-row"><div class="pc-dot dot-invest"></div><div>Осмотр района и объектов в <strong>Punta Cana</strong></div></div>
+          <div class="pc-row"><div class="pc-dot dot-invest"></div><div>Посещение закрытого сектора <strong>Cap-Cana</strong> — элитная инфраструктура, яхт-клуб</div></div>
         </div>
+        <div class="pc-tags"><span class="tag">🏠 Объекты</span><span class="tag">🚗 Трансфер</span></div>
       </div>
 
-      <!-- ROW 3: 15.04 left  |  16.04 right -->
-      <div id="d15">
-        <div class="pc">
-          <div class="pc-head"><div class="pc-badge">15.04</div><div class="pc-title">Заповедник Samaná и север</div></div>
-          <div class="pc-body">
-            <div class="pc-row"><div class="pc-dot dot-invest"></div><div>Осмотр инвест-объектов в <strong>Las Terrenas</strong></div></div>
-            <div class="pc-row"><div class="pc-dot dot-act"></div><div>Посещение заповедника</div></div>
-            <div class="pc-row"><div class="pc-dot dot-act"></div><div>Купание на диком пляже</div></div>
-            <div class="pc-row"><div class="pc-dot dot-act"></div><div>Ужин на берегу океана</div></div>
-          </div>
+      <!-- Day 13 -->
+      <div class="prog-card reveal" id="pd13">
+        <div class="pc-head">
+          <div class="pc-badge">13.04</div>
+          <div class="pc-head-title">Южная часть острова</div>
         </div>
-      </div>
-      <div id="d16">
-        <div class="pc">
-          <div class="pc-head"><div class="pc-badge">16.04</div><div class="pc-title">Переезд в Sosuá</div></div>
-          <div class="pc-body">
-            <div class="pc-row"><div class="pc-dot dot-invest"></div><div>Осмотр вилл и квартир в инвест-проекте</div></div>
-            <div class="pc-row"><div class="pc-dot dot-act"></div><div>Прогулка по городу</div></div>
-          </div>
+        <div class="pc-body">
+          <div class="pc-loc">Bayahibe · Saona</div>
+          <div class="pc-row"><div class="pc-dot dot-invest"></div><div>Осмотр объектов в <strong>Bayahibe</strong></div></div>
+          <div class="pc-row"><div class="pc-dot dot-act"></div><div>Катание на лодке</div></div>
+          <div class="pc-row"><div class="pc-dot dot-act"></div><div>Посещение острова <strong>Saona</strong> — белоснежный пляж</div></div>
         </div>
+        <div class="pc-tags"><span class="tag">🏠 Объекты</span><span class="tag">⛵ Лодка</span><span class="tag">🏖️ Остров Саона</span></div>
       </div>
 
-      <!-- ROW 4: 17.04 left  |  18.04 right -->
-      <div id="d17">
-        <div class="pc-simple">
+      <!-- Day 14 -->
+      <div class="prog-card reveal" id="pd14">
+        <div class="pc-head">
+          <div class="pc-badge">14.04</div>
+          <div class="pc-head-title">Переезд на север острова</div>
+        </div>
+        <div class="pc-body">
+          <div class="pc-loc">Altos de Chavón · Samaná</div>
+          <div class="pc-row"><div class="pc-dot dot-act"></div><div>Посещение деревни Художников — <strong>Altos de Chavón</strong></div></div>
+          <div class="pc-row"><div class="pc-dot dot-act"></div><div>Живописная дорога на <strong>Samaná</strong> через горы</div></div>
+        </div>
+        <div class="pc-tags"><span class="tag">🎨 Деревня художников</span><span class="tag">🚗 Переезд</span></div>
+      </div>
+
+      <!-- Day 15 -->
+      <div class="prog-card reveal" id="pd15">
+        <div class="pc-head">
+          <div class="pc-badge">15.04</div>
+          <div class="pc-head-title">Заповедник Samaná и север</div>
+        </div>
+        <div class="pc-body">
+          <div class="pc-loc">Las Terrenas · Samaná</div>
+          <div class="pc-row"><div class="pc-dot dot-invest"></div><div>Осмотр инвест-объектов в <strong>Las Terrenas</strong></div></div>
+          <div class="pc-row"><div class="pc-dot dot-act"></div><div>Посещение заповедника и дикого пляжа</div></div>
+          <div class="pc-row"><div class="pc-dot dot-act"></div><div>Ужин на берегу океана</div></div>
+        </div>
+        <div class="pc-tags"><span class="tag">🏠 Объекты</span><span class="tag">🌿 Заповедник</span><span class="tag">🏖️ Дикий пляж</span></div>
+      </div>
+
+      <!-- Day 16 -->
+      <div class="prog-card reveal" id="pd16">
+        <div class="pc-head">
+          <div class="pc-badge">16.04</div>
+          <div class="pc-head-title">Переезд в Sosuá</div>
+        </div>
+        <div class="pc-body">
+          <div class="pc-loc">Sosuá</div>
+          <div class="pc-row"><div class="pc-dot dot-invest"></div><div>Осмотр вилл и квартир в инвест-проекте</div></div>
+          <div class="pc-row"><div class="pc-dot dot-act"></div><div>Прогулка по живописному городу</div></div>
+        </div>
+        <div class="pc-tags"><span class="tag">🏠 Виллы и квартиры</span><span class="tag">🚶 Прогулка</span></div>
+      </div>
+
+      <!-- Day 17 -->
+      <div class="prog-card simple reveal" id="pd17">
+        <div class="pc-head">
           <div class="pc-badge">17.04</div>
-          <div class="pc-title">Возвращение в Punta-Cana</div>
+          <div class="pc-head-title">Возвращение в Punta Cana</div>
         </div>
+        <div class="pc-body" style="color:rgba(255,255,255,0.7);">
+          <div class="pc-loc" style="color:var(--gold);">Punta Cana</div>
+          <div class="pc-row" style="color:rgba(255,255,255,0.7);"><div class="pc-dot dot-act"></div><div>Свободное время, итоговые встречи</div></div>
+          <div class="pc-row" style="color:rgba(255,255,255,0.7);"><div class="pc-dot dot-act"></div><div>Индивидуальные консультации по объектам</div></div>
+        </div>
+        <div class="pc-tags"><span class="tag" style="border-color:rgba(200,169,110,0.4);color:var(--gold-light);">🚗 Трансфер</span><span class="tag" style="border-color:rgba(200,169,110,0.4);color:var(--gold-light);">💬 Консультации</span></div>
       </div>
-      <div id="d18">
-        <div class="pc-simple">
+
+      <!-- Day 18 -->
+      <div class="prog-card simple reveal" id="pd18">
+        <div class="pc-head">
           <div class="pc-badge">18.04</div>
-          <div class="pc-title">Завершающий день · Вылет</div>
+          <div class="pc-head-title">Завершающий день · Вылет</div>
+        </div>
+        <div class="pc-body" style="color:rgba(255,255,255,0.7);">
+          <div class="pc-loc" style="color:var(--gold);">Punta Cana</div>
+          <div class="pc-row" style="color:rgba(255,255,255,0.7);"><div class="pc-dot dot-act"></div><div>Трансфер в аэропорт и вылет</div></div>
+          <div class="pc-row" style="color:rgba(255,255,255,0.7);"><div class="pc-dot dot-act"></div><div>Обратно домой — уже международным инвестором</div></div>
+        </div>
+        <div class="pc-tags"><span class="tag" style="border-color:rgba(200,169,110,0.4);color:var(--gold-light);">✈️ Вылет</span></div>
+      </div>
+
+      <svg class="prog-svg-overlay" id="progSvg" xmlns="http://www.w3.org/2000/svg"></svg>
+    </div>
+  </div>
+</section>
+<section id="places">
+  <div class="section-inner">
+    <div class="eyebrow reveal">Маршрут</div>
+    <div class="section-title reveal" style="color:var(--white)">Места, где мы <em>побываем</em></div>
+    <div class="section-divider reveal"></div>
+    <div class="places-grid">
+      <div class="place-card reveal">
+        <img src="saona.jpg" alt="Остров Саона" class="place-img" onerror="this.style.background='linear-gradient(135deg,#1a5c3a,#0d3a24)'"/>
+        <div class="place-card-gradient"></div>
+        <div class="place-card-cap">
+          <span class="pc-name">Остров Саона</span>
+          <span class="pc-sub">Райский пляж</span>
         </div>
       </div>
-
-    </div>
-
-    <svg class="prog-svg-overlay" id="progSvg" xmlns="http://www.w3.org/2000/svg"></svg>
-  </div>
-
-  <script>
-    (function(){
-      function draw(){
-        var wrap = document.getElementById('progWrap');
-        var svg  = document.getElementById('progSvg');
-        if(!wrap || !svg) return;
-        svg.innerHTML = '';
-
-        var wr = wrap.getBoundingClientRect();
-
-        function edges(id){
-          var r = document.getElementById(id).getBoundingClientRect();
-          return {
-            rMid: { x: r.right  - wr.left, y: (r.top + r.bottom)/2 - wr.top },
-            lMid: { x: r.left   - wr.left, y: (r.top + r.bottom)/2 - wr.top },
-            bMid: { x: (r.left + r.right)/2 - wr.left, y: r.bottom - wr.top },
-            tMid: { x: (r.left + r.right)/2 - wr.left, y: r.top    - wr.top },
-            bRight: { x: r.right - wr.left, y: r.bottom - wr.top },
-            tLeft:  { x: r.left  - wr.left, y: r.top    - wr.top }
-          };
-        }
-
-        var links = [
-          /* from      fromPt   to       toPt   car carImgDir ('-1' go right, 1: go left, required if car is true)*/
-          ['d11',  'rMid',  'd12',  'lMid',  false],
-          ['d12',  'lMid',  'd13',  'rMid',  false],
-          ['d13',  'rMid',  'd14',  'lMid',  true, -1],
-          ['d14',  'lMid',  'd15',  'rMid',  false],
-          ['d15',  'rMid',  'd16',  'lMid',  true, 1],
-          ['d16',  'lMid',  'd17',  'rMid',  true, -1],
-          ['d17',  'rMid',  'd18',  'lMid',  false]
-        ];
-
-        links.forEach(function(lk){
-          var e1 = edges(lk[0])[lk[1]];
-          var e2 = edges(lk[2])[lk[3]];
-          var x1=e1.x, y1=e1.y, x2=e2.x, y2=e2.y;
-
-          var idx = links.indexOf(lk);
-          var dx = x2 - x1;
-          var dy = y2 - y1;
-          var flip = (idx % 2 === 0) ? 1 : -1;
-
-          var cp1x, cp1y, cp2x, cp2y;
-
-          /* Cross-column downward links (12→13, 14→15, 16→17):
-             these go right-col → left-col, spanning both horizontal
-             and large vertical distance. Swing cp1 far right and
-             cp2 far left so the arc stays in the gap, not through cards. */
-          if (lk[1] === 'lMid' && lk[3] === 'rMid') {
-            var swing = Math.abs(dy) * 0.55;
-            cp1x = x1 - swing * 0.9;
-            cp1y = y1 + dy * 0.25;
-            cp2x = x2 + swing * 0.9;
-            cp2y = y2 - dy * 0.25;
-          } else {
-            /* Same-row or left→right organic curves */
-            var wobble = 18 * flip;
-            cp1x = x1 + dx * 0.45 + dy * 0.08;
-            cp1y = y1 + dy * 0.2  + wobble;
-            cp2x = x1 + dx * 0.6  - dy * 0.08;
-            cp2y = y2 - dy * 0.2  - wobble * 0.6;
-          }
-
-          var d = 'M '+x1+','+y1
-                  +' C '+cp1x.toFixed(1)+','+cp1y.toFixed(1)
-                  +' '+cp2x.toFixed(1)+','+cp2y.toFixed(1)
-                  +' '+x2+','+y2;
-
-          var path = document.createElementNS('http://www.w3.org/2000/svg','path');
-          path.setAttribute('d', d);
-          path.setAttribute('fill','none');
-          path.setAttribute('stroke','#C8A96E');
-          path.setAttribute('stroke-width','1.8');
-          path.setAttribute('stroke-dasharray','6,5');
-          path.setAttribute('opacity','0.85');
-          svg.appendChild(path);
-
-          [[x1,y1],[x2,y2]].forEach(function(p){
-            var c = document.createElementNS('http://www.w3.org/2000/svg','circle');
-            c.setAttribute('cx',p[0]); c.setAttribute('cy',p[1]);
-            c.setAttribute('r','3.5'); c.setAttribute('fill','#C8A96E');
-            svg.appendChild(c);
-          });
-
-          if(lk[4]){
-            /* midpoint at t=0.5 on the cubic Bezier */
-            var bx = 0.125*x1 + 0.375*cp1x + 0.375*cp2x + 0.125*x2;
-            var by = 0.125*y1 + 0.375*cp1y + 0.375*cp2y + 0.125*y2;
-            var fo = document.createElementNS('http://www.w3.org/2000/svg','foreignObject');
-            fo.setAttribute('x', (bx-13).toFixed(0));
-            fo.setAttribute('y', (by-13).toFixed(0));
-            fo.setAttribute('width','26'); fo.setAttribute('height','26');
-            fo.innerHTML = `<div xmlns="http://www.w3.org/1999/xhtml" style="width:26px;height:26px;background:#F7F2EA;border-radius:0;transform: scaleX(${lk[5]});display:flex;align-items:center;justify-content:center;font-size:15px;box-shadow:0 1px 4px rgba(0,0,0,.15);">🚗</div>`;
-            svg.appendChild(fo);
-          }
-        });
-      }
-
-      if(document.readyState==='complete') draw();
-      else window.addEventListener('load', draw);
-      setTimeout(draw, 250);
-    })();
-  </script>
-
-
-
-  <!-- PLACES -->
-  <div style="position:absolute; bottom:14mm; left:14mm; right:14mm;">
-    <div class="section-title">Места, где мы <em>побываем</em></div>
-    <div class="section-divider"></div>
-
-    <div class="places-grid">
-      <div class="place-card">
-        <img src="saona.jpg" alt="Saona"/>
-        <div class="place-card-cap"><span class="pc-name">Остров Саона</span><span class="pc-sub">Райский пляж</span></div>
+      <div class="place-card reveal">
+        <img src="Casa.png" alt="Альтос де Чавон" class="place-img" onerror="this.style.background='linear-gradient(135deg,#2a5040,#1a3328)'"/>
+        <div class="place-card-gradient"></div>
+        <div class="place-card-cap">
+          <span class="pc-name">Альтос де Чавон</span>
+          <span class="pc-sub">Город художников</span>
+        </div>
       </div>
-      <div class="place-card">
-        <img src="casa.png" alt="Altos de Chavon"/>
-        <div class="place-card-cap"><span class="pc-name">Альтос де Чавон</span><span class="pc-sub">Город художников</span></div>
-      </div>
-      <div class="place-card">
-        <img src="samana.png" alt="Samana"/>
-        <div class="place-card-cap"><span class="pc-name">Полуостров Самана</span><span class="pc-sub">Заповедник · Водопады</span></div>
-      </div>
-    </div><!-- /places-grid -->
-  </div><!-- /places wrapper -->
-
-
-
-
-</div>
-
-<!-- ═══ PAGE 6 — ЦЕНЫ И ЗАПИСЬ ═══ -->
-<div class="page" style="display:flex;flex-direction:column;">
-  <div class="page-header">
-    <div class="page-header-logo">ShiR<span>Estate</span></div>
-    <div class="page-header-title">Стоимость и запись</div>
-  </div>
-
-  <div class="section-title">Варианты <em>размещения</em> и <em>цены</em></div>
-  <div class="section-divider"></div>
-
-  <!-- ACCOMMODATION + PRICES UNIFIED -->
-  <div class="accom-section">
-    <div class="accom-title">Выберите свой формат</div>
-    <div class="accom-options">
-      <div class="accom-option">
-        <div class="opt-title"><span class="opt-icon">🏨</span>Индивидуальное</div>
-        <div class="opt-desc">Отдельный номер для комфортного проживания и приватности на каждом этапе маршрута.</div>
-      </div>
-      <div class="accom-option">
-        <div class="opt-title"><span class="opt-icon">👫</span>Пара</div>
-        <div class="opt-desc">Двухместный номер для двоих — идеально для пар и совместных поездок.</div>
-      </div>
-      <div class="accom-option">
-        <div class="opt-title"><span class="opt-icon">🛏</span>Совместное</div>
-        <div class="opt-desc">Общий номер с другим участником тура — выгодный вариант без потери комфорта.</div>
-      </div>
-    </div>
-    <!-- PRICES inside accommodation block -->
-    <div class="price-block" style="grid-template-columns:1fr 1fr 1fr;margin-top:12px;">
-      <div class="price-card pc-single">
-        <div class="pc-label">Индивидуальное</div>
-        <div class="pc-price"><span>$</span>3 500</div>
-        <div class="pc-note">Индивидуальное размещение · Все включено по программе</div>
-      </div>
-      <div class="price-card pc-double">
-        <div class="pc-label">Пара</div>
-        <div class="pc-price"><span>$</span>5 000</div>
-        <div class="pc-note">Двое в одном номере · Совместное путешествие</div>
-      </div>
-      <div class="price-card" style="background:#3a6b58;">
-        <div class="pc-label">Совместное</div>
-        <div class="pc-price"><span>$</span>2 700</div>
-        <div class="pc-note">Общий номер с другим участником тура · Выгодно</div>
+      <div class="place-card reveal">
+        <img src="Samana.png" alt="Полуостров Самана" class="place-img" onerror="this.style.background='linear-gradient(135deg,#0d3a24,#050f08)'"/>
+        <div class="place-card-gradient"></div>
+        <div class="place-card-cap">
+          <span class="pc-name">Полуостров Самана</span>
+          <span class="pc-sub">Заповедник · Водопады</span>
+        </div>
       </div>
     </div>
   </div>
+</section>
 
-  <!-- INCLUDED -->
-  <div class="price-included" style="margin-top:12px;">
-    <div class="pi-title">В стоимость включено</div>
-    <div class="pi-list" style="flex-direction:column;gap:4px;">
-      <div class="pi-item">Проживание</div>
-      <div class="pi-item">Питание</div>
-      <div class="pi-item">Посещение объектов</div>
-      <div class="pi-item">Все экскурсии</div>
-      <div class="pi-item">Трансфер</div>
+<!-- PRICING -->
+<section id="pricing">
+  <div class="section-inner">
+    <div class="eyebrow reveal">Стоимость и запись</div>
+    <div class="section-title reveal">Варианты <em>размещения</em> и <em>цены</em></div>
+    <div class="section-divider reveal"></div>
+    <div class="accom-section reveal">
+      <div class="accom-title">Выберите свой формат</div>
+      <div class="accom-options">
+        <div class="accom-option">
+          <div class="opt-title"><span class="opt-icon">🏨</span>Индивидуальное</div>
+          <div class="opt-desc">Отдельный номер для комфортного проживания и приватности на каждом этапе маршрута.</div>
+        </div>
+        <div class="accom-option">
+          <div class="opt-title"><span class="opt-icon">👫</span>Пара</div>
+          <div class="opt-desc">Двухместный номер для двоих — идеально для пар и совместных поездок.</div>
+        </div>
+        <div class="accom-option">
+          <div class="opt-title"><span class="opt-icon">🛏</span>Совместное</div>
+          <div class="opt-desc">Общий номер с другим участником тура — выгодный вариант без потери комфорта.</div>
+        </div>
+      </div>
+      <div class="price-block">
+        <div class="price-card pc-single">
+          <div class="pc-label">Индивидуальное</div>
+          <div class="pc-price"><span>$</span>3 500</div>
+          <div class="pc-note">Индивидуальное размещение · Все включено по программе</div>
+        </div>
+        <div class="price-card pc-double">
+          <div class="pc-label">Пара</div>
+          <div class="pc-price"><span>$</span>5 000</div>
+          <div class="pc-note">Двое в одном номере · Совместное путешествие</div>
+        </div>
+        <div class="price-card pc-shared">
+          <div class="pc-label">Совместное</div>
+          <div class="pc-price"><span>$</span>2 700</div>
+          <div class="pc-note">Общий номер с другим участником · Выгодно</div>
+        </div>
+      </div>
     </div>
-  </div>
-
-  <!-- ARROW -->
-  <div style="position:relative;height:180px;">
-    <svg viewBox="0 0 560 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"
-         style="width:100%;height:180px;display:block;">
-      <defs>
-        <marker id="ah" markerWidth="10" markerHeight="5" refX="2.5" refY="2.75" orient="auto">
-          <polygon points="4.5,2 7,4.5 1.5,4" fill="#C8A96E"/>
-        </marker>
-      </defs>
-      <!-- S-curve: starts right of included block, swings left, then comes straight down to center of CTA -->
-      <!-- M startX,0 → swing right → swing back to center → arrive at 280,78 straight down -->
-      <path d="M 390,2 C 430,2 430,30 280,35 C 130,40 160,60 280,70"
-            fill="none" stroke="#C8A96E" stroke-width="3.5"
-            stroke-dasharray="9,6" stroke-linecap="round"
-            marker-end="url(#ah)" opacity="0.95"/>
-    </svg>
-  </div>
-
-  <!-- CTA -->
-  <div style="background:var(--green-deep);border-radius:4px;padding:18px 20px;text-align:center;margin-top:6px;">
-    <div style="font-size:8px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:8px;">Забронировать место</div>
-    <div style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;color:var(--white);margin-bottom:12px;">Заполни анкету предзаписи</div>
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdnVBZy4XrDwoqjDsnbryF-6OLGLr4l218whXxJz9iV3py22Q/viewform?usp=header" style="display:inline-block;border:1px solid var(--gold);border-radius:2px;padding:8px 24px;margin-bottom:14px;text-decoration:none;">
-      <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-light);">Отправить заявку</div>
-    </a>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:10px;">
-      <div style="border:1px solid rgba(200,169,110,0.3);border-radius:3px;padding:8px;text-align:center;">
-        <div style="font-size:16px;margin-bottom:4px;">✈️</div>
-        <div style="font-size:8px;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,0.6);">Telegram</div>
-        <div style="font-size:9px;color:var(--gold);margin-top:3px;">@ShiREstate</div>
-      </div>
-      <div style="border:1px solid rgba(200,169,110,0.3);border-radius:3px;padding:8px;text-align:center;">
-        <div style="font-size:16px;margin-bottom:4px;">📱</div>
-        <div style="font-size:8px;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,0.6);">WhatsApp</div>
-        <div style="font-size:9px;color:var(--gold);margin-top:3px;">+X (XXX) XXX-XXXX</div>
-      </div>
-      <div style="border:1px solid rgba(200,169,110,0.3);border-radius:3px;padding:8px;text-align:center;">
-        <div style="font-size:16px;margin-bottom:4px;">🌐</div>
-        <div style="font-size:8px;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,0.6);">Сайт</div>
-        <a href="https://shirestate.github.io" style="display:inline-block;border-radius:2px;padding:8px 24px;margin-bottom:14px;text-decoration:none;">
-          <div style="font-size:9px;color:var(--gold);margin-top:3px;">shirestate.github.io</div>
-        </a>
+    <div class="included reveal">
+      <div class="included-title">В стоимость включено</div>
+      <div class="included-list">
+        <div class="included-item">Проживание в отеле на протяжении всего тура</div>
+        <div class="included-item">Питание (по программе)</div>
+        <div class="included-item">Посещение всех инвестиционных объектов</div>
+        <div class="included-item">Все экскурсии по программе</div>
+        <div class="included-item">Трансфер между локациями</div>
       </div>
     </div>
   </div>
-</div>
+</section>
 
-<!-- ═══ BACK COVER ═══ -->
-<div class="back-cover">
-  <div class="back-photo"></div>
-  <div class="corner-ornament tl"></div><div class="corner-ornament tr"></div>
-  <div class="corner-ornament bl"></div><div class="corner-ornament br"></div>
-  <div class="back-content">
-    <div class="back-logo">ShiR<span>Estate</span></div>
-    <div class="back-tagline">Ваши инвестиции. Ваш остров.</div>
-    <div class="back-divider"></div>
-    <div class="back-quote">«Доминиканская Республика — это не просто покупка недвижимости. Это выбор образа жизни и создание капитала в твёрдой валюте.»</div>
-    <div class="back-divider"></div>
-    <div class="back-contact">
-      <strong>Свяжитесь с нами</strong><br><br>
-      📍 Офис: Cap Cana, Punta Cana, Dominican Republic<br>
-      📞 Телефон / WhatsApp: +X (XXX) XXX-XXXX<br>
-      ✉️ Email: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="543d3a323b14273c263127203520
+<!-- FOR WHOM -->
+<section id="forwhom">
+  <div class="section-inner">
+    <div class="eyebrow reveal">Аудитория</div>
+    <div class="section-title reveal">Тур отлично <em>подойдёт</em></div>
+    <div class="section-divider reveal"></div>
+    <div class="forwhom-intro reveal">
+      Как начинающим инвесторам, так и действующим — тем, кто хочет сохранять деньги в надёжных активах, получать пассивный доход в валюте и создать капитал на долгие годы.
+    </div>
+    <div class="forwhom-grid">
+      <div class="forwhom-item reveal"><div class="fw-dot"></div><div class="fw-text"><strong>Начинающим инвесторам</strong> — первый опыт зарубежных инвестиций под руководством экспертов</div></div>
+      <div class="forwhom-item reveal"><div class="fw-dot"></div><div class="fw-text"><strong>Действующим инвесторам</strong> — диверсификация портфеля в твёрдой валюте</div></div>
+      <div class="forwhom-item reveal"><div class="fw-dot"></div><div class="fw-text"><strong>Тем, кто хочет ВНЖ</strong> — получить статус резидента для себя и семьи</div></div>
+      <div class="forwhom-item reveal"><div class="fw-dot"></div><div class="fw-text"><strong>Любителям путешествий</strong> — объединить бизнес с незабываемым отдыхом</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta">
+  <div class="section-inner">
+    <div class="cta-box reveal">
+      <div class="cta-eyebrow">Забронировать место</div>
+      <div class="cta-title">Заполни анкету предзаписи</div>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdnVBZy4XrDwoqjDsnbryF-6OLGLr4l218whXxJz9iV3py22Q/viewform?usp=header" class="cta-btn" target="_blank">Отправить заявку</a>
+      <div class="contacts-grid">
+        <div class="contact-card">
+          <div class="contact-icon">✈️</div>
+          <div class="contact-type">Telegram</div>
+          <div class="contact-val">@ShiREstate</div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-icon">📱</div>
+          <div class="contact-type">WhatsApp</div>
+          <div class="contact-val">+X (XXX) XXX-XXXX</div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-icon">🌐</div>
+          <div class="contact-type">Сайт</div>
+          <div class="contact-val">www.shrestate.com</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">ShiR<span>Estate</span></div>
+      <div class="footer-tagline" style="margin-top:6px;">Ваши инвестиции. Ваш остров.</div>
+    </div>
+    <div class="footer-contact">
+      📍 Cap Cana, Punta Cana, Dominican Republic<br>
+      «Доминиканская Республика — это выбор образа жизни и создание капитала в твёрдой валюте.»
+    </div>
+  </div>
+</footer>
 
 <script>
-(function(){
-  function drawP6Arrow(){
-    var included = document.querySelector('.price-included');
-    var cta = document.querySelector('#p6-gap').nextElementSibling;
-    var gap = document.getElementById('p6-gap');
-    var svg = document.getElementById('p6-arrow-svg');
-    if(!included || !cta || !gap || !svg) return;
+// ── PROGRAM CARDS: cascading position + SVG connectors ──
+(function() {
+  // col: 0=left, 1=center, 2=right  |  cascadeStep: vertical offset per card
+  var cards = [
+    { id:'pd11', col:0 },
+    { id:'pd12', col:1 },
+    { id:'pd13', col:2 },
+    { id:'pd14', col:0 },
+    { id:'pd15', col:1 },
+    { id:'pd16', col:2 },
+    { id:'pd17', col:0 },
+    { id:'pd18', col:1 },
+  ];
 
-    var gapRect = gap.getBoundingClientRect();
-    var incRect = included.getBoundingClientRect();
-    var ctaRect = cta.getBoundingClientRect();
+  // connections: [fromId, fromEdge, toId, toEdge, hasCar]
+  var links = [
+    ['pd11','rMid','pd12','lMid', false],
+    ['pd12','bMid','pd13','tMid', false],
+    ['pd13','lMid','pd14','rMid', false],
+    ['pd14','rMid','pd15','lMid', true ],
+    ['pd15','bMid','pd16','tMid', false],
+    ['pd16','lMid','pd17','rMid', true ],
+    ['pd17','rMid','pd18','lMid', false],
+  ];
 
-    // Start: bottom-right area of included block, relative to gap div
-    var x1 = incRect.right - gapRect.left - 30;
-    var y1 = incRect.bottom - gapRect.top;
+  var CASCADE = 60;   // px each card drops below previous
+  var GAP = 20;       // px horizontal gap between columns
+  var BOT_PAD = 40;   // extra space below last card
 
-    // End: top-center of CTA block, relative to gap div
-    var x2 = ctaRect.left + ctaRect.width * 0.5 - gapRect.left;
-    var y2 = ctaRect.top - gapRect.top;
+  function layout() {
+    var grid = document.getElementById('progGrid');
+    if (!grid) return;
+    var gridW = grid.offsetWidth;
+    var colW = Math.floor((gridW - GAP * 2) / 3);
 
-    // Control points for S-curve swinging left then centering
-    var cp1x = x1 - 40;
-    var cp1y = y1 + (y2 - y1) * 0.35;
-    var cp2x = x2 + 50;
-    var cp2y = y2 - (y2 - y1) * 0.35;
+    cards.forEach(function(c, i) {
+      var el = document.getElementById(c.id);
+      if (!el) return;
+      var left = c.col * (colW + GAP);
+      var top  = i * CASCADE;
+      el.style.left  = left + 'px';
+      el.style.top   = top  + 'px';
+      el.style.width = colW + 'px';
+    });
 
-    var path = document.createElementNS('http://www.w3.org/2000/svg','path');
-    path.setAttribute('d',
-      'M '+x1+','+y1+
-      ' C '+cp1x.toFixed(1)+','+cp1y.toFixed(1)+
-      ' '+cp2x.toFixed(1)+','+cp2y.toFixed(1)+
-      ' '+x2+','+y2
-    );
-    path.setAttribute('fill','none');
-    path.setAttribute('stroke','#C8A96E');
-    path.setAttribute('stroke-width','3');
-    path.setAttribute('stroke-dasharray','8,6');
-    path.setAttribute('stroke-linecap','round');
-    path.setAttribute('marker-end','url(#p6-arrowhead)');
-    path.setAttribute('opacity','0.9');
+    // set grid height to contain all cards
+    var lastCard = document.getElementById(cards[cards.length - 1].id);
+    if (lastCard) {
+      grid.style.height = (lastCard.offsetTop + lastCard.offsetHeight + BOT_PAD) + 'px';
+    }
 
-    // Clear previous paths
-    while(svg.querySelector('path')) svg.querySelector('path').remove();
-    svg.appendChild(path);
+    drawConnectors();
   }
 
-  if(document.readyState === 'complete') drawP6Arrow();
-  else window.addEventListener('load', drawP6Arrow);
-  setTimeout(drawP6Arrow, 300);
-})();
-</script>
+  function drawConnectors() {
+    var grid = document.getElementById('progGrid');
+    var svg  = document.getElementById('progSvg');
+    if (!grid || !svg) return;
+    svg.innerHTML = '';
 
+    // arrowhead marker
+    var defs = document.createElementNS('http://www.w3.org/2000/svg','defs');
+    var marker = document.createElementNS('http://www.w3.org/2000/svg','marker');
+    marker.setAttribute('id','arr');
+    marker.setAttribute('markerWidth','8');
+    marker.setAttribute('markerHeight','6');
+    marker.setAttribute('refX','4');
+    marker.setAttribute('refY','3');
+    marker.setAttribute('orient','auto');
+    var poly = document.createElementNS('http://www.w3.org/2000/svg','polygon');
+    poly.setAttribute('points','0 0, 8 3, 0 6');
+    poly.setAttribute('fill','#C8A96E');
+    marker.appendChild(poly);
+    defs.appendChild(marker);
+    svg.appendChild(defs);
+
+    var gr = grid.getBoundingClientRect();
+
+    function pt(id, edge) {
+      var el = document.getElementById(id);
+      if (!el) return {x:0,y:0};
+      var r = el.getBoundingClientRect();
+      var x0 = r.left - gr.left, y0 = r.top - gr.top;
+      var w = r.width, h = r.height;
+      switch(edge) {
+        case 'rMid':  return { x: x0+w,   y: y0+h/2 };
+        case 'lMid':  return { x: x0,     y: y0+h/2 };
+        case 'bMid':  return { x: x0+w/2, y: y0+h   };
+        case 'tMid':  return { x: x0+w/2, y: y0      };
+        default:      return { x: x0+w/2, y: y0+h/2 };
+      }
+    }
+
+    links.forEach(function(lk, idx) {
+      var p1 = pt(lk[0], lk[1]);
+      var p2 = pt(lk[2], lk[3]);
+      var x1=p1.x, y1=p1.y, x2=p2.x, y2=p2.y;
+      var dx = x2-x1, dy = y2-y1;
+
+      // control points — organic curve
+      var flip = (idx % 2 === 0) ? 1 : -1;
+      var cp1x, cp1y, cp2x, cp2y;
+
+      if (lk[1]==='bMid' && lk[3]==='tMid') {
+        // vertical drop: curve through the gap
+        var sw = Math.abs(dy)*0.45;
+        cp1x = x1 + sw*flip; cp1y = y1 + dy*0.3;
+        cp2x = x2 - sw*flip; cp2y = y2 - dy*0.3;
+      } else if ((lk[1]==='lMid' && lk[3]==='rMid')) {
+        // cross-column right-to-left + down: swing outside
+        cp1x = x1 - Math.abs(dy)*0.5; cp1y = y1 + dy*0.25;
+        cp2x = x2 + Math.abs(dy)*0.5; cp2y = y2 - dy*0.25;
+      } else {
+        // left-to-right same row or gentle curve
+        var wob = 22*flip;
+        cp1x = x1+dx*0.4+dy*0.08; cp1y = y1+dy*0.2+wob;
+        cp2x = x1+dx*0.6-dy*0.08; cp2y = y2-dy*0.2-wob*0.6;
+      }
+
+      var path = document.createElementNS('http://www.w3.org/2000/svg','path');
+      path.setAttribute('d',
+        'M '+x1.toFixed(1)+','+y1.toFixed(1)+
+        ' C '+cp1x.toFixed(1)+','+cp1y.toFixed(1)+
+        ' '+cp2x.toFixed(1)+','+cp2y.toFixed(1)+
+        ' '+x2.toFixed(1)+','+y2.toFixed(1));
+      path.setAttribute('fill','none');
+      path.setAttribute('stroke','#C8A96E');
+      path.setAttribute('stroke-width','2');
+      path.setAttribute('stroke-dasharray','7,5');
+      path.setAttribute('opacity','0.9');
+      path.setAttribute('marker-end','url(#arr)');
+      svg.appendChild(path);
+
+      // dots at endpoints
+      [p1, p2].forEach(function(p) {
+        var c = document.createElementNS('http://www.w3.org/2000/svg','circle');
+        c.setAttribute('cx', p.x); c.setAttribute('cy', p.y);
+        c.setAttribute('r','4'); c.setAttribute('fill','#C8A96E');
+        svg.appendChild(c);
+      });
+
+      // 🚗 icon on car-links at bezier midpoint t=0.5
+      if (lk[4]) {
+        var bx = 0.125*x1 + 0.375*cp1x + 0.375*cp2x + 0.125*x2;
+        var by = 0.125*y1 + 0.375*cp1y + 0.375*cp2y + 0.125*y2;
+        var fo = document.createElementNS('http://www.w3.org/2000/svg','foreignObject');
+        fo.setAttribute('x',(bx-14).toFixed(0));
+        fo.setAttribute('y',(by-14).toFixed(0));
+        fo.setAttribute('width','28');
+        fo.setAttribute('height','28');
+        fo.innerHTML = '<div xmlns="http://www.w3.org/1999/xhtml" style="width:28px;height:28px;background:#F7F2EA;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;box-shadow:0 2px 6px rgba(0,0,0,.2);">🚗</div>';
+        svg.appendChild(fo);
+      }
+    });
+  }
+
+  function init() {
+    layout();
+    window.addEventListener('resize', layout);
+  }
+
+  if (document.readyState === 'complete') init();
+  else window.addEventListener('load', init);
+  setTimeout(init, 300);
+})();
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('visible'), i * 60);
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Burger
+const burger = document.getElementById('burger');
+const mobileMenu = document.getElementById('mobileMenu');
+burger.addEventListener('click', () => {
+  mobileMenu.classList.toggle('open');
+});
+function closeMobile() {
+  mobileMenu.classList.remove('open');
+}
+
+// Nav active state on scroll
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => {
+    if (window.scrollY >= s.offsetTop - 120) current = s.id;
+  });
+  navLinks.forEach(a => {
+    a.style.color = a.getAttribute('href') === '#' + current
+      ? 'var(--gold)' : '';
+  });
+});
+</script>
+</body>
+</html>
