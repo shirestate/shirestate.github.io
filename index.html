@@ -724,13 +724,13 @@ body {
       }
 
       var links = [
-        /* from      fromPt   to       toPt   car */
+        /* from      fromPt   to       toPt   car carImgDir ('-1' go right, 1: go left, required if car is true)*/
         ['d11',  'rMid',  'd12',  'lMid',  false],
         ['d12',  'lMid',  'd13',  'rMid',  false],
-        ['d13',  'rMid',  'd14',  'lMid',  true ],
+        ['d13',  'rMid',  'd14',  'lMid',  true, -1],
         ['d14',  'lMid',  'd15',  'rMid',  false],
-        ['d15',  'rMid',  'd16',  'lMid',  true ],
-        ['d16',  'lMid',  'd17',  'rMid',  true ],
+        ['d15',  'rMid',  'd16',  'lMid',  true, 1],
+        ['d16',  'lMid',  'd17',  'rMid',  true, -1],
         ['d17',  'rMid',  'd18',  'lMid',  false]
       ];
 
@@ -794,7 +794,7 @@ body {
           fo.setAttribute('x', (bx-13).toFixed(0));
           fo.setAttribute('y', (by-13).toFixed(0));
           fo.setAttribute('width','26'); fo.setAttribute('height','26');
-          fo.innerHTML = '<div xmlns="http://www.w3.org/1999/xhtml" style="width:26px;height:26px;background:#F7F2EA;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;box-shadow:0 1px 4px rgba(0,0,0,.15);">🚗</div>';
+          fo.innerHTML = `<div xmlns="http://www.w3.org/1999/xhtml" style="width:26px;height:26px;background:#F7F2EA;border-radius:0;transform: scaleX(${lk[5]});display:flex;align-items:center;justify-content:center;font-size:15px;box-shadow:0 1px 4px rgba(0,0,0,.15);">🚗</div>`;
           svg.appendChild(fo);
         }
       });
