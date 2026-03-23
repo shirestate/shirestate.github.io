@@ -114,7 +114,7 @@
     .hero-ornament.bl { bottom: 30px; left: 5vw; width: 60px; height: 60px; border-width: 0 0 1px 1px; }
     .hero-ornament.br { bottom: 30px; right: 5vw; width: 60px; height: 60px; border-width: 0 1px 1px 0; }
     .hero-badge {
-      position: absolute; top: calc(var(--nav-h) + 40px); right: 5vw;
+      position: absolute; top: -15px; right: 0;
       width: 100px; height: 100px;
       border: 1px solid var(--gold); border-radius: 50%;
       background: rgba(13,27,20,0.7); backdrop-filter: blur(4px);
@@ -122,7 +122,7 @@
     }
     .hero-badge .days { font-size: 40px; font-weight: 600; color: var(--gold); line-height: 1; }
     .hero-badge .days-label { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.7); }
-    .hero-content { position: relative; z-index: 2; max-width: 700px; }
+    .hero-content { position: relative; z-index: 2; padding-right: 116px; }
     .hero-eyebrow {
       font-size: 11px; letter-spacing: 4px; text-transform: uppercase;
       color: var(--gold); margin-bottom: 16px;
@@ -594,6 +594,7 @@
       .accom-section { padding: 28px 22px; }
       .hero-badge { width: 72px; height: 72px; }
       .hero-badge .days { font-size: 28px; }
+      .hero-content { padding-right: 88px; }
     }
   </style>
 </head>
@@ -630,12 +631,12 @@
 <!--  <div class="hero-ornament tr"></div>-->
 <!--  <div class="hero-ornament bl"></div>-->
 <!--  <div class="hero-ornament br"></div>-->
-  <div class="hero-badge">
-    <span class="days">7</span>
-    <span class="days-label">дней</span>
-  </div>
   <div class="hero-content">
-    <div class="hero-eyebrow">Авторский инвест-тур · 2026</div>
+    <div class="hero-badge">
+      <span class="days">7</span>
+      <span class="days-label">дней</span>
+    </div>
+    <div class="hero-eyebrow">Авторский инвест-тур · <strong>11/04-18/04 2026</strong></div>
     <div class="hero-title">Доминиканская<br><em>Республика</em></div>
     <div class="hero-subtitle">Инвестиции в недвижимость мечты</div>
     <div class="hero-divider"></div>
@@ -731,7 +732,6 @@
 
     <!-- PHOTO GALLERY -->
     <div style="margin-top:40px;">
-      <div class="eyebrow reveal" style="color:rgba(200,169,110,0.7);margin-bottom:14px;">Доминикана · Объекты тура</div>
       <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:10px;">
         <div style="border-radius:6px;overflow:hidden;aspect-ratio:4/3;" class="reveal">
           <img src="reefgolf.jpg" alt="Reef Golf" style="width:100%;height:100%;object-fit:cover;display:block;" onerror="this.parentNode.style.background='var(--green-mid)'"/>
@@ -1078,7 +1078,6 @@
       <div class="footer-tagline" style="margin-top:6px;">Ваши инвестиции. Ваш остров.</div>
     </div>
     <div class="footer-contact">
-      📍 Cap Cana, Punta Cana, Dominican Republic<br>
       «Доминиканская Республика — это выбор образа жизни и создание капитала в твёрдой валюте.»
     </div>
   </div>
