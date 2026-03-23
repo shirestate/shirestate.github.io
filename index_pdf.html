@@ -43,8 +43,10 @@
     }
     .cover-bg {
       position: absolute; inset: 0;
-      background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MDAiIGhlaWdodD0iNDAwIiB2aWV3Qm94PSIwIDAgNjAwIDQwMCI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj48c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMWE1YzNhIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMGQzYTI0Ii8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjYwMCIgaGVpZ2h0PSI0MDAiIGZpbGw9InVybCgjZykiLz48L3N2Zz4=');
-      background-size: cover; background-position: center 40%;
+      /*background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MDAiIGhlaWdodD0iNDAwIiB2aWV3Qm94PSIwIDAgNjAwIDQwMCI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj48c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMWE1YzNhIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMGQzYTI0Ii8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjYwMCIgaGVpZ2h0PSI0MDAiIGZpbGw9InVybCgjZykiLz48L3N2Zz4=');*/
+      background: linear-gradient(to bottom, rgba(13,27,20,0.25) 0%, rgba(13,27,20,0.75) 100%),
+      url('beach.jpeg') center top / cover no-repeat;
+      /*background-size: cover; background-position: center 40%;*/
       filter: brightness(0.52) saturate(1.1);
     }
     .cover-overlay {
@@ -92,7 +94,9 @@
     .corner-ornament.tr { top: 10mm; right: 10mm; border-width: 1px 1px 0 0; }
     .corner-ornament.bl { bottom: 10mm; left: 10mm; border-width: 0 0 1px 1px; }
     .corner-ornament.br { bottom: 10mm; right: 10mm; border-width: 0 1px 1px 0; }
-
+    .__cf_email__ {
+      color: white;
+    }
     /* ─── PAGES ─── */
     .page {
       width: 210mm; height: 297mm;
@@ -350,7 +354,7 @@
     <span class="days-label">дней</span>
   </div>
   <div class="cover-content">
-    <div class="cover-eyebrow">Авторский инвест-тур · 2026</div>
+    <div class="cover-eyebrow">Авторский инвест-тур<br><strong>11/04-18/04 2026</strong></div>
     <div class="cover-title">Доминиканская<br><em>Республика</em></div>
     <div class="cover-subtitle">Инвестиции в недвижимость мечты</div>
     <div class="cover-divider"></div>
@@ -518,7 +522,7 @@
     <!-- Строка 1: 3 слота -->
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:8px;">
       <div style="border-radius:4px;overflow:hidden;aspect-ratio:4/3;">
-        <img src="Santo-Domingo-Dominican-Republic.webp" alt="фото 1" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+        <img src="reefgolf.jpg" alt="фото 1" style="width:100%;height:100%;object-fit:cover;display:block;"/>
       </div>
       <div style="border-radius:4px;overflow:hidden;aspect-ratio:4/3;">
         <img src="birdview.png" alt="фото 2" style="width:100%;height:100%;object-fit:cover;display:block;"/>
@@ -930,23 +934,23 @@
       <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-light);">Отправить заявку</div>
     </a>
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:10px;">
-      <div style="border:1px solid rgba(200,169,110,0.3);border-radius:3px;padding:8px;text-align:center;">
+      <a href="https://t.me/Liza_shilova_invest" target="_blank" rel="noopener noreferrer" style="border:1px solid rgba(200,169,110,0.3);border-radius:3px;padding:8px;text-align:center;">
         <div style="font-size:16px;margin-bottom:4px;">✈️</div>
         <div style="font-size:8px;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,0.6);">Telegram</div>
-        <div style="font-size:9px;color:var(--gold);margin-top:3px;">@ShiREstate</div>
-      </div>
-      <div style="border:1px solid rgba(200,169,110,0.3);border-radius:3px;padding:8px;text-align:center;">
+        <div style="font-size:9px;color:var(--gold);margin-top:3px;">@Liza_shilova_invest</div>
+      </a>
+      <a href="https://wa.me/15799571525" target="_blank" rel="noopener noreferrer" style="border:1px solid rgba(200,169,110,0.3);border-radius:3px;padding:8px;text-align:center;">
         <div style="font-size:16px;margin-bottom:4px;">📱</div>
         <div style="font-size:8px;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,0.6);">WhatsApp</div>
-        <div style="font-size:9px;color:var(--gold);margin-top:3px;">+X (XXX) XXX-XXXX</div>
-      </div>
-      <div style="border:1px solid rgba(200,169,110,0.3);border-radius:3px;padding:8px;text-align:center;">
+        <div style="font-size:9px;color:var(--gold);margin-top:3px;">+1 (579) 957-1525</div>
+      </a>
+      <a href="https://shirestate.github.io" target="_blank" rel="noopener noreferrer" style="border:1px solid rgba(200,169,110,0.3);border-radius:3px;padding:8px;text-align:center;">
         <div style="font-size:16px;margin-bottom:4px;">🌐</div>
         <div style="font-size:8px;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,0.6);">Сайт</div>
-        <a href="https://shirestate.github.io" style="display:inline-block;border-radius:2px;padding:8px 24px;margin-bottom:14px;text-decoration:none;">
+        <div style="display:inline-block;border-radius:2px;margin-bottom:4px;text-decoration:none;">
           <div style="font-size:9px;color:var(--gold);margin-top:3px;">shirestate.github.io</div>
-        </a>
-      </div>
+        </div>
+      </a>
     </div>
   </div>
 </div>
@@ -964,9 +968,11 @@
     <div class="back-divider"></div>
     <div class="back-contact">
       <strong>Свяжитесь с нами</strong><br><br>
-      📍 Офис: Cap Cana, Punta Cana, Dominican Republic<br>
-      📞 Телефон / WhatsApp: +X (XXX) XXX-XXXX<br>
-      ✉️ Email: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="543d3a323b14273c263127203520
+      📞 Телефон / WhatsApp: +1 (579) 957-1525<br>
+      ✉️ Email: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="543d3a323b14273c263127203520">elizash.work@gmail.com</a>
+    </div>
+  </div>
+</div>
 
 <script>
 (function(){
