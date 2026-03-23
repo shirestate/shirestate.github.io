@@ -122,7 +122,17 @@
     }
     .hero-badge .days { font-size: 40px; font-weight: 600; color: var(--gold); line-height: 1; }
     .hero-badge .days-label { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.7); }
-    .hero-content { position: relative; z-index: 2; padding-right: 116px; }
+    .hero-body {
+      flex: 1; display: flex; align-items: flex-end; gap: 48px; width: 100%; min-height: 0;
+    }
+    .hero-content { position: relative; z-index: 2; flex: 1; min-width: 0; padding-right: 116px; }
+    .hero-img-desktop {
+      flex-shrink: 0; width: 42%; align-self: stretch;
+      padding-bottom: 24px;
+      object-fit: cover; object-position: center top;
+      border-radius: 4px 4px 4px 4px; display: block; z-index: 2; position: relative;
+    }
+    .hero-img-mobile { display: none; }
     .hero-eyebrow {
       font-size: 11px; letter-spacing: 4px; text-transform: uppercase;
       color: var(--gold); margin-bottom: 16px;
@@ -594,7 +604,13 @@
       .accom-section { padding: 28px 22px; }
       .hero-badge { width: 72px; height: 72px; }
       .hero-badge .days { font-size: 28px; }
-      .hero-content { padding-right: 88px; }
+      .hero-content { padding-right: 0; }
+      .hero-img-desktop { display: none; }
+      .hero-img-mobile {
+        display: block; width: 100%; height: 220px;
+        object-fit: cover; object-position: center top;
+        border-radius: 4px; margin: 0 0 24px;
+      }
     }
   </style>
 </head>
@@ -631,22 +647,26 @@
 <!--  <div class="hero-ornament tr"></div>-->
 <!--  <div class="hero-ornament bl"></div>-->
 <!--  <div class="hero-ornament br"></div>-->
-  <div class="hero-content">
-    <div class="hero-badge">
-      <span class="days">7</span>
-      <span class="days-label">дней</span>
+  <div class="hero-body">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="days">7</span>
+        <span class="days-label">дней</span>
+      </div>
+      <div class="hero-eyebrow">Авторский инвест-тур · <strong>11/04-18/04 2026</strong></div>
+      <div class="hero-title">Доминиканская<br><em>Республика</em></div>
+      <div class="hero-subtitle">Инвестиции в недвижимость мечты</div>
+      <img class="hero-img-mobile" src="btest.jpg" alt="Доминиканская Республика">
+      <div class="hero-divider"></div>
+      <div class="hero-desc">
+        Со мной ты станешь международным инвестором: создашь пассивный доход в валюте и выйдешь на новый уровень. Пунта-Кана, Кап-Кана, Байяибе, Лас-Терренас, Сосуа — 7 незабываемых дней.
+      </div>
+      <div class="hero-actions">
+        <a class="btn-primary" href="#cta">Забронировать место</a>
+        <a class="btn-outline" href="#program">Смотреть программу</a>
+      </div>
     </div>
-    <div class="hero-eyebrow">Авторский инвест-тур · <strong>11/04-18/04 2026</strong></div>
-    <div class="hero-title">Доминиканская<br><em>Республика</em></div>
-    <div class="hero-subtitle">Инвестиции в недвижимость мечты</div>
-    <div class="hero-divider"></div>
-    <div class="hero-desc">
-      Со мной ты станешь международным инвестором: создашь пассивный доход в валюте и выйдешь на новый уровень. Пунта-Кана, Кап-Кана, Байяибе, Лас-Терренас, Сосуа — 7 незабываемых дней.
-    </div>
-    <div class="hero-actions">
-      <a class="btn-primary" href="#cta">Забронировать место</a>
-      <a class="btn-outline" href="#program">Смотреть программу</a>
-    </div>
+    <img class="hero-img-desktop" src="btest.jpg" alt="Доминиканская Республика">
   </div>
   <div class="hero-stats">
     <div class="hero-stats-inner">
