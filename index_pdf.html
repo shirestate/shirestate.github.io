@@ -309,6 +309,30 @@
     }
     .pi-item::before { content: '✓'; color: var(--gold); font-size: 10px; }
 
+    /* ─── FAQ ─── */
+    .faq-list { display: flex; flex-direction: column; gap: 0; margin-top: 16px; }
+    .faq-item {
+      border-bottom: 1px solid rgba(200,169,110,0.2);
+      padding: 14px 0;
+    }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-q {
+      display: flex; align-items: flex-start; gap: 10px; margin-bottom: 7px;
+    }
+    .faq-q-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px; font-weight: 300; color: var(--gold);
+      line-height: 1; flex-shrink: 0; width: 18px;
+    }
+    .faq-q-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px; font-weight: 400; color: var(--green-deep); line-height: 1.3;
+    }
+    .faq-a {
+      font-size: 12px; color: #444; line-height: 1.85;
+      font-weight: 300; padding-left: 28px;
+    }
+
     /* ─── BACK COVER ─── */
     .back-cover {
       position: relative; width: 210mm; height: 297mm; overflow: hidden;
@@ -952,6 +976,73 @@
         </div>
       </a>
     </div>
+  </div>
+</div>
+
+<!-- ═══ FAQ ═══ -->
+<div class="page">
+  <div class="page-header">
+    <div class="page-header-logo">ShiR<span>Estate</span></div>
+    <div class="page-header-title">Инвестиционный тур · Доминиканская Республика</div>
+  </div>
+
+  <div class="section-eyebrow">Вопросы и ответы</div>
+  <div class="section-title">Часто Задаваемые <em>Вопросы</em></div>
+  <div class="section-divider"></div>
+
+  <div class="faq-list">
+
+    <div class="faq-item">
+      <div class="faq-q">
+        <span class="faq-q-num">1</span>
+        <span class="faq-q-text">Нужна ли виза в Доминикану?</span>
+      </div>
+      <div class="faq-a">
+        Нет, гражданам России, Беларуси, Украины и большинства стран СНГ виза в Доминиканскую Республику не требуется — въезд разрешён на срок до 30 дней по загранпаспорту. При въезде оплачивается туристическая карта (Tourist Card) стоимостью $10, которая обычно уже включена в стоимость авиабилета. Срок действия загранпаспорта должен быть не менее 6 месяцев с момента въезда.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">
+        <span class="faq-q-num">2</span>
+        <span class="faq-q-text">Что входит в тур?</span>
+      </div>
+      <div class="faq-a">
+        В программу тура входят: трансферы внутри страны, проживание в апартаментах или отеле на время тура, посещение 5 локаций острова (Пунта-Кана, Кап-Кана, Байяибе, Лас-Терренас, Сосуа), встречи с застройщиками и брокерами, юридические консультации по покупке недвижимости, разбор реальных инвестиционных кейсов, а также авторские мастер-классы по формированию пассивного дохода в валюте. Перелёт и личные расходы оплачиваются отдельно.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">
+        <span class="faq-q-num">3</span>
+        <span class="faq-q-text">Как добраться до Доминиканы?</span>
+      </div>
+      <div class="faq-a">
+        Из Москвы и Петербурга летают прямые чартерные рейсы до аэропорта Пунта-Кана (PUJ) — время в пути около 11–12 часов. Также можно добраться с пересадкой через Стамбул, Дубай или Белград. Встреча группы организована в аэропорту Пунта-Кана: после прилёта трансфер до места размещения уже включён в программу тура.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">
+        <span class="faq-q-num">4</span>
+        <span class="faq-q-text">Что нужно для участия в туре?</span>
+      </div>
+      <div class="faq-a">
+        Для участия достаточно: действующего загранпаспорта (срок действия от 6 месяцев), предоплаты для бронирования места в группе и желания разобраться в международных инвестициях. Специальных знаний в недвижимости не требуется — всё объясняется с нуля. Рекомендуем заранее ознакомиться с базовыми понятиями инвестиций в недвижимость и подготовить вопросы для встреч с застройщиками.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">
+        <span class="faq-q-num">5</span>
+        <span class="faq-q-text">Какая погода в Доминикане?</span>
+      </div>
+      <div class="faq-a">
+        Доминиканская Республика — тропическая страна с тёплым климатом круглый год: температура воздуха +26…+32°C, вода — около +27°C. Сезон делится на сухой (декабрь–апрель) и дождливый (май–ноябрь), однако дожди в любое время короткие и преимущественно вечерние.<br/>
+        Наш тур проходит в апреле — это один из лучших месяцев для посещения страны. Конец сухого сезона: солнечно, минимум осадков, жара без изнуряющей влажности. Температура воздуха около +29°C, вода +27°C. Идеальные условия как для осмотра объектов и переговоров, так и для пляжного отдыха между встречами.
+      </div>
+    </div>
+
   </div>
 </div>
 
