@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1200">
+  <title>ShiREstate — Инвест-тур Доминикана 2026</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold: #C8A96E;
+      --gold-light: #E8D5A8;
+      --dark: #0D1B14;
+      --green-deep: #1A3328;
+      --white: #FFFFFF;
+    }
+
+    body {
+      width: 1200px;
+      height: 630px;
+      overflow: hidden;
+      font-family: 'Montserrat', sans-serif;
+      background: var(--dark);
+    }
+
+    /* ── CANVAS ── */
+    .brochure {
+      position: relative;
+      width: 1200px;
+      height: 630px;
+      overflow: hidden;
+    }
+
+    /* ── FULL-BLEED PHOTO ── */
+    .bg-photo {
+      position: absolute; inset: 0;
+      background: url('beach.jpeg') center top / cover no-repeat;
+      filter: brightness(0.80) saturate(1.25);
+    }
+
+    /* ── GRADIENT OVERLAYS ── */
+    /* Darkens right two-thirds for content readability */
+    .bg-overlay-right {
+      position: absolute; inset: 0;
+      background: linear-gradient(
+        to left,
+        rgba(13,27,20,0.98) 0%,
+        rgba(13,27,20,0.88) 30%,
+        rgba(13,27,20,0.40) 55%,
+        transparent 70%
+      );
+    }
+    /* Subtle bottom vignette */
+    .bg-overlay-bottom {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(13,27,20,0.6) 0%, transparent 45%);
+    }
+
+    /* ── MAP (inside content panel) ── */
+    .map-in-content {
+      flex: 1;
+      min-height: 0;
+    }
+    .map-corner-inner {
+      position: relative;
+      border-radius: 6px;
+      top: -40px;
+      overflow: hidden;
+    }
+    .map-corner-inner img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .map-corner-inner svg {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+    }
+
+    /* ── CORNER ORNAMENTS ── */
+    .ornament {
+      position: absolute;
+      width: 48px; height: 48px;
+      border-color: rgba(200,169,110,0.35); border-style: solid;
+      z-index: 4;
+    }
+    .ornament.tl { top: 24px; left: 24px; border-width: 1px 0 0 1px; }
+    .ornament.tr { top: 24px; right: 24px; border-width: 1px 1px 0 0; }
+    .ornament.bl { bottom: 24px; left: 24px; border-width: 0 0 1px 1px; }
+    .ornament.br { bottom: 24px; right: 24px; border-width: 0 1px 1px 0; }
+
+    /* ── BADGE "7 дней" ── */
+    .badge {
+      position: absolute;
+      top: 80px; left: 510px;
+      transform: translate(-50%, -50%);
+      z-index: 5;
+      width: 96px; height: 96px;
+      border: 1px solid var(--gold);
+      border-radius: 50%;
+      background: rgba(13,27,20,0.65);
+      backdrop-filter: blur(6px);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+    }
+    .badge-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 42px; font-weight: 600; color: var(--gold); line-height: 1;
+      position: relative;
+      top: -14px;
+    }
+    .badge-label {
+      font-size: 8px; letter-spacing: 2.5px; text-transform: uppercase;
+      color: rgba(255,255,255,0.7); margin-top: 2px;
+    }
+
+    /* ── LOGO ── */
+    .logo {
+      position: absolute; top: 32px; left: 44px; z-index: 5;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 15px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase;
+      color: rgba(255,255,255,0.85);
+    }
+    .logo span { color: var(--gold); }
+
+    /* ── CONTENT PANEL (right side) ── */
+    .content {
+      position: absolute;
+      top: 0; right: 0;
+      width: 52%; height: 100%;
+      z-index: 5;
+      display: flex; flex-direction: column;
+      justify-content: flex-start;
+      padding: 36px 44px 32px 32px;
+    }
+
+    /* Thin gold vertical accent line */
+    .content::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 15%; bottom: 15%;
+      width: 1px;
+      background: linear-gradient(to bottom, transparent, rgba(200,169,110,0.4) 30%, rgba(200,169,110,0.4) 70%, transparent);
+    }
+
+    /* Top block */
+    .top {}
+
+    .eyebrow {
+      font-size: 9px; letter-spacing: 4px; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 14px;
+    }
+
+    .headline {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 44px; font-weight: 300; color: var(--white);
+      line-height: 1.12; margin-bottom: 18px;
+    }
+    .headline em { font-style: italic; color: var(--gold-light); }
+
+    .divider {
+      width: 48px; height: 1px; background: var(--gold); margin-bottom: 18px;
+    }
+
+    .tagline {
+      font-size: 13.5px; color: rgba(255,255,255,0.65);
+      font-weight: 300; line-height: 1.75; margin-bottom: 22px;
+      max-width: 370px;
+    }
+
+    /* Meta row: dates + days + locations */
+    .meta {
+      display: flex; flex-direction: column; gap: 7px;
+    }
+    .meta-row {
+      display: flex; align-items: center; gap: 24px;
+    }
+    .meta-item {
+      display: flex; align-items: center; gap: 7px;
+    }
+    .meta-item-icon { font-size: 15px; }
+    .meta-item-text {
+      font-size: 13px; color: rgba(255,255,255,0.75); letter-spacing: 0.3px;
+    }
+    .meta-item-text strong { color: var(--gold-light); font-weight: 600; }
+
+    .locations-line {
+      font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase;
+      color: rgba(255,255,255,0.75);
+    }
+
+    /* ── STATS CORNER (bottom-left, full left-half width) ── */
+    .stats-corner {
+      position: absolute;
+      bottom: 32px;
+      left: 44px;
+      right: calc(52% + 16px);
+      z-index: 5;
+    }
+
+    /* Stats row */
+    .stats {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px;
+    }
+    .stat-box {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(200,169,110,0.22);
+      border-radius: 4px;
+      padding: 11px 8px 10px;
+      text-align: center;
+    }
+    .stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px; font-weight: 600; color: var(--gold);
+      line-height: 1; display: block; margin-bottom: 5px;
+    }
+    .stat-label {
+      font-size: 7px; letter-spacing: 1px; text-transform: uppercase;
+      color: rgba(255,255,255,0.48); line-height: 1.45; display: block;
+      font-weight: 600;
+    }
+
+    /* CTA line */
+    .cta-line {
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .cta-text {
+      font-size: 9.5px; letter-spacing: 0.5px;
+      color: rgba(255,255,255,0.45); font-weight: 300;
+    }
+    .cta-link {
+      font-size: 9px; letter-spacing: 2px; text-transform: uppercase;
+      color: var(--gold); font-weight: 500;
+      border-bottom: 1px solid rgba(200,169,110,0.3);
+      padding-bottom: 1px;
+    }
+  </style>
+</head>
+<body>
+<div class="brochure">
+
+  <!-- Background -->
+  <div class="bg-photo"></div>
+  <div class="bg-overlay-right"></div>
+  <div class="bg-overlay-bottom"></div>
+
+  <!-- Corner ornaments -->
+  <div class="ornament tl"></div>
+  <div class="ornament tr"></div>
+  <div class="ornament bl"></div>
+  <div class="ornament br"></div>
+
+  <!-- Logo -->
+  <div class="logo">ShiR<span>Estate</span></div>
+
+  <!-- "7 дней" badge over the photo -->
+  <div class="badge">
+    <span class="badge-num">7</span>
+    <span class="badge-label">дней</span>
+  </div>
+
+  <!-- Stats bottom-left -->
+  <div class="stats-corner">
+    <div class="stats">
+      <div class="stat-box">
+        <span class="stat-num">7–15%</span>
+        <span class="stat-label">Доходность аренды</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-num">до 15%</span>
+        <span class="stat-label">Рост цен в год</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-num">15 лет</span>
+        <span class="stat-label">Без налогов</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-num">$200K</span>
+        <span class="stat-label">ВНЖ от</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Content -->
+  <div class="content">
+
+    <div class="top">
+      <div class="eyebrow">Авторский инвест-тур · Доминиканская Республика</div>
+      <div class="headline">Когда отдых у моря<br><em>больше, чем просто отдых</em></div>
+      <div class="divider"></div>
+      <div class="tagline">
+        7 дней на лучших курортах Карибского моря —<br>
+        и ты уже знаешь, как твои деньги работают у океана.
+      </div>
+      <div class="meta">
+        <div class="meta-row">
+          <div class="meta-item">
+            <span class="meta-item-icon">📅</span>
+            <span class="meta-item-text"><strong>11 — 18 апреля 2026</strong></span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-item-icon">🌴</span>
+            <span class="meta-item-text"><strong>5 локаций острова</strong></span>
+          </div>
+        </div>
+        <div class="locations-line">Пунта-Кана · Кап-Кана · Байяибе · Лас-Терренас · Сосуа</div>
+      </div>
+    </div>
+
+    <!-- Map fills remaining space -->
+    <div class="map-in-content">
+      <div class="map-corner-inner">
+        <img src="map1.png" alt="Карта Доминиканской Республики"/>
+        <svg viewBox="0 0 1270 870" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <g id="bpin">
+              <circle cx="0" cy="0" r="11" fill="#C8A96E" stroke="#7a4e10" stroke-width="1.5"/>
+              <polygon points="0,26 -9,9 9,9" fill="#C8A96E" stroke="#7a4e10" stroke-width="1"/>
+              <circle cx="0" cy="0" r="4.5" fill="#1A3328"/>
+            </g>
+            <filter id="bshadow" x="-30%" y="-30%" width="160%" height="160%">
+              <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.4"/>
+            </filter>
+          </defs>
+          <polyline points="1110,410  1095,440  1005,500  762,238  490,125"
+                    fill="none" stroke="#C8A96E" stroke-width="3"
+                    stroke-dasharray="10,6" opacity="0.75" filter="url(#bshadow)"/>
+          <g filter="url(#bshadow)"><use href="#bpin" transform="translate(1100,390)"/></g>
+          <g filter="url(#bshadow)"><use href="#bpin" transform="translate(1095,420)"/></g>
+          <g filter="url(#bshadow)"><use href="#bpin" transform="translate(1005,480)"/></g>
+          <g filter="url(#bshadow)"><use href="#bpin" transform="translate(762,218)"/></g>
+          <g filter="url(#bshadow)"><use href="#bpin" transform="translate(490,105)"/></g>
+        </svg>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+</body>
+</html>
