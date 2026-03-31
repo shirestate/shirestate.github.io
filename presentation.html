@@ -1,0 +1,1249 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Инвестиционный Тур — Доминиканская Республика</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --gold: #C8A96E;
+    --gold-light: #E8D5A8;
+    --dark: #0D1B14;
+    --green-deep: #1A3328;
+    --green-mid: #2A5040;
+    --cream: #F7F2EA;
+    --white: #FFFFFF;
+    --accent-orange: #C8845A;
+  }
+
+  html, body {
+    width: 100%; height: 100%;
+    margin: 0; padding: 0;
+    background: #000;
+    font-family: 'Montserrat', sans-serif;
+    overflow: hidden;
+  }
+
+  /* ─── SLIDESHOW WRAPPER ─── */
+  .slideshow {
+    width: 100vw; height: 100vh;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.6s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .slide.active {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  /* ─── NAVIGATION ─── */
+  .nav {
+    position: fixed;
+    bottom: 28px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: rgba(13,27,20,0.85);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(200,169,110,0.3);
+    border-radius: 40px;
+    padding: 10px 22px;
+  }
+  .nav button {
+    background: none; border: none; cursor: pointer;
+    color: var(--gold); font-size: 18px; line-height: 1;
+    padding: 2px 8px; border-radius: 4px;
+    transition: background 0.2s;
+  }
+  .nav button:hover { background: rgba(200,169,110,0.15); }
+  .nav button:disabled { color: rgba(200,169,110,0.3); cursor: default; }
+  .nav-dots { display: flex; gap: 6px; }
+  .nav-dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: rgba(200,169,110,0.3);
+    transition: background 0.3s, transform 0.3s;
+    cursor: pointer;
+  }
+  .nav-dot.active { background: var(--gold); transform: scale(1.3); }
+  .nav-counter {
+    font-size: 10px; letter-spacing: 2px; color: rgba(200,169,110,0.7);
+    min-width: 38px; text-align: center;
+  }
+
+  /* ─── COMMON SLIDE LAYOUT ─── */
+  .slide-inner {
+    width: 100%; height: 100%;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* corner ornaments */
+  .corner {
+    position: absolute; width: 28px; height: 28px;
+    border-color: rgba(200,169,110,0.4); border-style: solid; z-index: 3;
+  }
+  .corner.tl { top: 20px; left: 20px; border-width: 1px 0 0 1px; }
+  .corner.tr { top: 20px; right: 20px; border-width: 1px 1px 0 0; }
+  .corner.bl { bottom: 60px; left: 20px; border-width: 0 0 1px 1px; }
+  .corner.br { bottom: 60px; right: 20px; border-width: 0 1px 1px 0; }
+
+  .logo-tag {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 14px; font-weight: 600; letter-spacing: 3px;
+    text-transform: uppercase; color: var(--white);
+  }
+  .second-logo-tag {
+    margin-top: 10px;
+  }
+  .logo-tag span { color: var(--gold); }
+
+  .eyebrow {
+    font-size: 9px; letter-spacing: 4px; text-transform: uppercase;
+    color: var(--gold);
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300; color: var(--green-deep); line-height: 1.15;
+  }
+  .section-title em { font-style: italic; color: var(--gold); }
+  .divider { height: 1.5px; background: var(--gold); }
+
+/* ─── SLIDE 1: COVER ─── */
+  #s-cover {
+    background: var(--dark);
+  }
+  #s-cover .cover-bg {
+    position: absolute; inset: 0;
+    background: linear-gradient(to bottom, rgba(13,27,20,0.3) 0%, rgba(13,27,20,0.85) 100%),
+                url('beach.jpeg') center top / cover no-repeat;
+    filter: brightness(0.55) saturate(1.1);
+  }
+  #s-cover .cover-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to bottom, transparent 20%, rgba(13,27,20,0.85) 70%, rgba(13,27,20,0.97) 100%);
+  }
+  #s-cover .cover-top {
+    position: absolute; top: 0; left: 0; right: 0; z-index: 3;
+    padding: 28px 48px;
+    display: flex; justify-content: space-between; align-items: flex-start;
+  }
+  #s-cover .cover-badge {
+    width: 80px; height: 80px;
+    border: 1px solid var(--gold); border-radius: 50%;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    background: rgba(13,27,20,0.7); backdrop-filter: blur(4px);
+  }
+  #s-cover .cover-badge .days { font-size: 28px; font-weight: 600; color: var(--gold); line-height: 1; }
+  #s-cover .cover-badge .days-label { font-size: 8px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.7); }
+  #s-cover .cover-content {
+    position: relative; z-index: 2;
+    padding: 0 80px 80px;
+    align-self: flex-end;
+    width: 100%;
+  }
+  #s-cover .cover-eyebrow { font-size: 9px; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
+  #s-cover .cover-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(48px, 7vw, 80px);
+    font-weight: 300; color: var(--white); line-height: 1.05; margin-bottom: 12px;
+  }
+  #s-cover .cover-title em { font-style: italic; color: var(--gold-light); }
+  #s-cover .cover-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(18px, 2.5vw, 26px);
+    font-weight: 300; color: rgba(255,255,255,0.7); font-style: italic; margin-bottom: 30px;
+  }
+  #s-cover .cover-divider { width: 60px; height: 1px; background: var(--gold); margin-bottom: 22px; }
+  #s-cover .cover-desc {
+    font-size: 12px; color: rgba(255,255,255,0.65); font-weight: 300;
+    max-width: 500px; letter-spacing: 0.3px; line-height: 1.9;
+  }
+
+  /* ─── SLIDE 2: ABOUT ME (PLACEHOLDER) ─── */
+  #s-about {
+    background: var(--dark);
+  }
+  #s-about .about-bg {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 70% 40%, rgba(42,80,64,0.5) 0%, transparent 65%),
+                radial-gradient(ellipse at 20% 80%, rgba(200,169,110,0.08) 0%, transparent 50%);
+  }
+  #s-about .about-content {
+    position: relative; z-index: 2;
+    width: 100%; height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 60px 80px;
+    gap: 60px;
+  }
+  #s-about .about-left {}
+  #s-about .about-photo-box {
+    width: 260px; height: 320px;
+    border: 1px solid rgba(200,169,110,0.4);
+    border-radius: 4px;
+    background: rgba(42,80,64,0.3);
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  #s-about .about-photo-box .photo-placeholder {
+    display: flex; flex-direction: column;
+    align-items: center; gap: 12px;
+  }
+  #s-about .about-photo-box .photo-icon {
+    width: 72px; height: 72px; border-radius: 50%;
+    border: 2px dashed rgba(200,169,110,0.5);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 28px;
+  }
+  #s-about .about-photo-box .photo-hint {
+    font-size: 8px; letter-spacing: 2px; text-transform: uppercase;
+    color: rgba(200,169,110,0.5); text-align: center;
+  }
+  #s-about .about-photo-box img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+  }
+  #s-about .about-right {}
+  #s-about .about-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(32px, 4vw, 52px);
+    font-weight: 300; color: var(--white); line-height: 1.1;
+    margin-bottom: 6px;
+  }
+  #s-about .about-name em { font-style: italic; color: var(--gold-light); }
+  #s-about .about-role {
+    font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 22px;
+  }
+  #s-about .about-divider { width: 50px; height: 1px; background: var(--gold); margin-bottom: 22px; }
+  #s-about .about-bio {
+    font-size: 14px; line-height: 1.9;
+    color: rgba(255,255,255,0.75); font-weight: 300;
+    margin-bottom: 28px;
+  }
+  #s-about .about-bio .placeholder-line {
+    display: inline-block;
+    background: rgba(200,169,110,0.15);
+    border: 1px dashed rgba(200,169,110,0.3);
+    border-radius: 3px;
+    padding: 2px 10px;
+    color: rgba(200,169,110,0.6);
+    font-size: 11px; letter-spacing: 1px;
+    font-style: italic;
+  }
+  #s-about .about-stats {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+  }
+  #s-about .stat-box {
+    border: 1px dashed rgba(200,169,110,0.3);
+    border-radius: 4px;
+    padding: 14px 12px;
+    text-align: center;
+    background: rgba(200,169,110,0.05);
+  }
+  #s-about .stat-box .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px; font-weight: 300; color: var(--gold);
+    display: block; line-height: 1;
+    margin-bottom: 4px;
+  }
+  #s-about .stat-box .stat-label {
+    font-size: 7px; letter-spacing: 1.5px; text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+  }
+  #s-about .stat-box .stat-placeholder {
+    font-size: 7px; letter-spacing: 1px; color: rgba(200,169,110,0.4);
+    font-style: italic;
+  }
+  #s-about .top-bar {
+    position: absolute; top: 0; left: 0; right: 0; z-index: 3;
+    padding: 20px 32px;
+    display: flex; justify-content: space-between; align-items: center;
+    border-bottom: 1px solid rgba(200,169,110,0.15);
+  }
+  #s-about .slide-num-badge {
+    font-size: 8px; letter-spacing: 3px; color: rgba(200,169,110,0.5);
+    text-transform: uppercase;
+  }
+
+  /* ─── CONTENT SLIDES COMMON ─── */
+  .content-slide {
+    background: var(--cream);
+  }
+  .content-slide .slide-inner {
+    padding: 48px 64px 80px;
+  }
+  .slide-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--gold);
+    margin-bottom: 36px;
+  }
+  .slide-header-title {
+    font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold);
+  }
+
+  /* ─── SLIDE 3: WHY DR ─── */
+  #s-why .why-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 0 40px;
+  }
+  #s-why .why-item {
+    display: flex; gap: 10px; align-items: flex-start;
+    padding: 10px 0; border-bottom: 1px solid rgba(200,169,110,0.2);
+  }
+  #s-why .why-dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: var(--gold); flex-shrink: 0; margin-top: 6px;
+  }
+  #s-why .why-text { font-size: 13px; line-height: 1.7; color: #333; }
+  #s-why .why-text strong { color: var(--green-deep); font-weight: 600; }
+  #s-why .why-text .colored strong { color: var(--gold); font-weight: 600; font-size: 15px; }
+
+  /* ─── SLIDE 4: STRATEGIES ─── */
+  #s-strat .strat-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+    margin-top: 8px;
+  }
+  #s-strat .strat-card {
+    border: 1px solid rgba(200,169,110,0.25);
+    border-radius: 6px; overflow: hidden;
+  }
+  #s-strat .strat-card-head {
+    background: var(--green-deep);
+    padding: 14px 18px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  #s-strat .strat-icon {
+    width: 36px; height: 36px; border-radius: 6px;
+    background: rgba(200,169,110,0.15);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; flex-shrink: 0;
+  }
+  #s-strat .strat-title { font-size: 13px; font-weight: 600; color: var(--white); }
+  #s-strat .strat-body { padding: 14px 18px; }
+  #s-strat .strat-desc { font-size: 12px; color: #555; line-height: 1.7; }
+  #s-strat .strat-yield { color: var(--accent-orange); font-weight: 600; }
+  #s-strat .for-whom {
+    margin-top: 24px;
+    background: var(--green-deep); border-radius: 6px;
+    padding: 18px 24px;
+  }
+  #s-strat .for-whom-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px; font-weight: 300; font-style: italic;
+    color: var(--white); margin-bottom: 14px;
+  }
+  #s-strat .for-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+  #s-strat .for-item {
+    border: 1px solid rgba(200,169,110,0.3);
+    border-radius: 4px; padding: 10px 12px;
+  }
+  #s-strat .for-item strong { font-size: 11px; color: var(--gold-light); display: block; margin-bottom: 4px; }
+  #s-strat .for-item span { font-size: 10px; color: rgba(255,255,255,0.6); line-height: 1.5; }
+
+  /* ─── SLIDE 5: WHAT YOU GET ─── */
+  #s-get .get-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+  }
+  #s-get .get-item {
+    display: flex; gap: 16px; align-items: flex-start;
+    padding: 16px 16px 16px 0;
+    border-bottom: 1px solid rgba(200,169,110,0.18);
+  }
+  #s-get .get-item:nth-child(even) {
+    padding-left: 20px;
+    border-left: 1px solid rgba(200,169,110,0.18);
+  }
+  #s-get .get-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px; font-weight: 300; color: var(--gold);
+    line-height: 1; flex-shrink: 0; width: 30px;
+  }
+  #s-get .get-desc { font-size: 13px; color: #555; line-height: 1.7; }
+  #s-get .get-desc strong { color: var(--green-deep); }
+
+  /* ─── SLIDE 6: PROGRAM ─── */
+  #s-prog {
+    background: var(--dark);
+  }
+  #s-prog .slide-inner { padding: 48px 64px 80px; }
+  #s-prog .slide-header { border-color: rgba(200,169,110,0.4); }
+  #s-prog .slide-header .logo-tag { color: var(--gold-light); }
+  #s-prog .slide-header-title { color: rgba(200,169,110,0.7); }
+  #s-prog .section-title { color: var(--white); }
+  #s-prog .section-title em { color: var(--gold); }
+  #s-prog .date-badge {
+    background: rgba(42,80,64,0.8);
+    border: 1px solid rgba(200,169,110,0.4);
+    border-radius: 6px; padding: 10px 20px; text-align: center;
+  }
+  #s-prog .date-badge .db-label { font-size: 7px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 4px; }
+  #s-prog .date-badge .db-date {
+    font-family: 'Cormorant Garamond', serif; font-style: italic;
+    font-size: 18px; color: var(--gold-light);
+  }
+  #s-prog .prog-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+    margin-top: 24px;
+  }
+  #s-prog .pc {
+    background: rgba(42,80,64,0.35);
+    border: 1px solid rgba(200,169,110,0.2);
+    border-radius: 6px; overflow: hidden;
+  }
+  #s-prog .pc-simple {
+    background: rgba(42,80,64,0.5);
+    border: 1px solid rgba(200,169,110,0.2);
+    border-radius: 6px;
+    padding: 12px 16px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  #s-prog .pc-head {
+    background: rgba(26,51,40,0.9);
+    padding: 10px 14px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  #s-prog .pc-badge {
+    background: rgba(200,169,110,0.2);
+    border: 1px solid var(--gold);
+    border-radius: 4px; padding: 2px 10px;
+    font-size: 12px; font-weight: 700; color: var(--gold);
+    flex-shrink: 0;
+  }
+  #s-prog .pc-title { font-size: 12px; font-weight: 600; color: var(--white); line-height: 1.3; }
+  #s-prog .pc-body { padding: 10px 14px; }
+  #s-prog .pc-row { display: flex; gap: 8px; align-items: flex-start; margin-bottom: 5px; font-size: 11px; color: rgba(255,255,255,0.7); line-height: 1.5; }
+  #s-prog .pc-dot { width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0; margin-top: 5px; }
+  #s-prog .dot-invest { background: var(--gold); }
+  #s-prog .dot-act { background: var(--accent-orange); }
+
+  /* ─── SLIDE 7: PLACES ─── */
+  #s-places {
+    background: var(--cream);
+  }
+  #s-places .places-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;
+    margin-top: 8px;
+  }
+  #s-places .place-card {
+    border-radius: 6px; overflow: hidden; position: relative;
+    aspect-ratio: 4/3;
+    background: var(--green-deep);
+    display: flex; align-items: center; justify-content: center;
+  }
+  #s-places .place-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  #s-places .place-card-cap {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    background: linear-gradient(transparent, rgba(13,27,20,0.88));
+    padding: 24px 14px 12px;
+  }
+  #s-places .pc-name { font-size: 14px; font-weight: 600; color: var(--white); display: block; }
+  #s-places .pc-sub { font-size: 10px; color: var(--gold-light); display: block; margin-top: 3px; }
+  #s-places .place-note {
+    background: var(--green-deep); border-radius: 4px;
+    padding: 14px 20px; margin-top: 16px;
+    font-size: 12px; color: rgba(255,255,255,0.8); line-height: 1.7;
+  }
+  #s-places .place-note strong { color: var(--gold); }
+
+  /* ─── SLIDE 8: PRICES ─── */
+  #s-prices {
+    background: var(--cream);
+  }
+  #s-prices .accom-section {
+    background: var(--green-deep); border-radius: 6px;
+    padding: 24px 28px; color: var(--white); margin-top: 8px;
+  }
+  #s-prices .accom-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px; font-weight: 300; color: var(--white); margin-bottom: 16px;
+  }
+  #s-prices .accom-options {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;
+    margin-bottom: 20px;
+  }
+  #s-prices .accom-option {
+    border: 1px solid rgba(200,169,110,0.35); border-radius: 4px; padding: 12px 14px;
+  }
+  #s-prices .opt-icon { font-size: 20px; margin-bottom: 6px; margin-right: 8px; }
+  #s-prices .opt-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px; font-weight: 600; color: var(--gold-light); margin-bottom: 5px;
+  }
+  #s-prices .opt-desc { font-size: 10px; color: rgba(255,255,255,0.6); line-height: 1.6; }
+  #s-prices .price-cards {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;
+  }
+  #s-prices .price-card {
+    border-radius: 6px; padding: 18px 20px;
+  }
+  #s-prices .price-card.pc-single { background: var(--gold); }
+  #s-prices .price-card.pc-single .pc-label { color: rgba(13,27,20,0.7); }
+  #s-prices .price-card.pc-single .pc-price, .price-card.pc-single .pc-price span { color: var(--dark); }
+  #s-prices .price-card.pc-single .pc-note { color: rgba(13,27,20,0.65); }
+  #s-prices .price-card.pc-double { background: var(--accent-orange); }
+  #s-prices .price-card.pc-shared { background: #3a6b58; }
+  #s-prices .pc-label { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.7); margin-bottom: 8px; }
+  #s-prices .pc-price { font-family: 'Cormorant Garamond', serif; font-size: 40px; font-weight: 300; color: var(--white); line-height: 1; }
+  #s-prices .pc-price span { font-size: 22px; }
+  #s-prices .pc-note { font-size: 9px; color: rgba(255,255,255,0.7); margin-top: 6px; line-height: 1.5; }
+  #s-prices .included-box {
+    background: var(--cream); border: 1px solid rgba(200,169,110,0.3);
+    border-radius: 6px; padding: 14px 20px; margin-top: 14px;
+  }
+  #s-prices .included-title { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+  #s-prices .included-items { display: flex; gap: 10px; flex-wrap: wrap; }
+  #s-prices .inc-item {
+    background: var(--green-deep); color: var(--white);
+    border-radius: 20px; padding: 5px 14px; font-size: 11px;
+  }
+
+  /* ─── SLIDE 9: CTA ─── */
+  #s-cta {
+    background: var(--dark);
+  }
+  #s-cta .cta-bg {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 50% 30%, rgba(42,80,64,0.6) 0%, transparent 65%);
+  }
+  #s-cta .cta-content {
+    position: relative; z-index: 2;
+    text-align: center;
+    padding: 60px 80px 80px;
+    width: 100%;
+  }
+  #s-cta .cta-eyebrow { font-size: 9px; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-bottom: 18px; }
+  #s-cta .cta-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 5vw, 60px);
+    font-weight: 300; color: var(--white); line-height: 1.1; margin-bottom: 14px;
+  }
+  #s-cta .cta-title em { font-style: italic; color: var(--gold-light); }
+  #s-cta .cta-sub {
+    font-size: 13px; color: rgba(255,255,255,0.6);
+    margin-bottom: 36px; line-height: 1.7;
+  }
+  #s-cta .cta-btn {
+    display: inline-block;
+    border: 1px solid var(--gold);
+    border-radius: 3px; padding: 14px 40px;
+    text-decoration: none; margin-bottom: 40px;
+    transition: background 0.3s;
+    cursor: pointer;
+  }
+  #s-cta .cta-btn:hover { background: rgba(200,169,110,0.15); }
+  #s-cta .cta-btn-text { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold-light); }
+  #s-cta .contacts {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;
+    max-width: 600px; margin: 0 auto;
+  }
+  #s-cta .contact-card {
+    border: 1px solid rgba(200,169,110,0.25); border-radius: 4px;
+    padding: 16px 12px; text-align: center; text-decoration: none;
+    transition: border-color 0.3s;
+  }
+  #s-cta .contact-card:hover { border-color: rgba(200,169,110,0.7); }
+  #s-cta .cc-icon { font-size: 22px; margin-bottom: 6px; }
+  #s-cta .cc-type { font-size: 8px; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 4px; }
+  #s-cta .cc-handle { font-size: 11px; color: var(--gold); }
+
+  /* keyboard hint */
+  .kbd-hint {
+    position: fixed; top: 20px; right: 24px; z-index: 100;
+    font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase;
+    color: rgba(200,169,110,0.4);
+  }
+</style>
+</head>
+<body>
+
+<div class="slideshow" id="deck">
+  <!-- ═══ SLIDE 1: COVER ═══ -->
+  <div class="slide active" id="s-cover">
+    <div class="slide-inner" style="display:flex;flex-direction:column;justify-content:flex-end;">
+      <div class="cover-bg"></div>
+      <div class="cover-overlay"></div>
+      <div class="corner tl"></div><div class="corner tr"></div>
+      <div class="corner bl" style="bottom:70px;"></div><div class="corner br" style="bottom:70px;"></div>
+
+      <div class="cover-top">
+        <div class="logo-tag">ShiR<span>Estate</span></div>
+        <div class="cover-badge">
+          <span class="days">7</span>
+          <span class="days-label">дней</span>
+        </div>
+      </div>
+
+      <div class="cover-content">
+        <div class="cover-eyebrow">Эксклюзивный инвестиционный тур</div>
+        <div class="cover-title">Инвестиционный<br><em>Тур</em></div>
+        <div class="cover-subtitle">Доминиканская Республика · 11–18 апреля</div>
+        <div class="cover-divider"></div>
+        <div class="cover-desc">Погружение в рынок недвижимости Доминиканы — от Punta Cana до Sosuá. Реальные объекты, встречи с застройщиками и незабываемые впечатления.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ SLIDE 2: ABOUT ME ═══ -->
+  <div class="slide" id="s-about">
+    <div class="slide-inner">
+      <div class="about-bg"></div>
+      <div class="corner tl"></div><div class="corner tr"></div>
+      <div class="corner bl"></div><div class="corner br"></div>
+
+      <div class="top-bar">
+        <div class="logo-tag second-logo-tag">ShiR<span>Estate</span></div>
+      </div>
+
+      <div class="about-content">
+        <div class="about-left">
+          <div class="about-photo-box">
+            <!-- ЗАМЕНИТЕ src на путь к вашей фотографии: <img src="photo.jpg" alt="Фото"> -->
+            <div class="photo-placeholder">
+              <div class="photo-icon">👤</div>
+              <div class="photo-hint">Ваша фотография</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-right">
+          <div class="eyebrow" style="margin-bottom:10px;">Ваш эксперт</div>
+          <!-- ЗАМЕНИТЕ на ваше имя -->
+          <div class="about-name"><em>[Имя Фамилия]</em></div>
+          <!-- ЗАМЕНИТЕ на вашу должность/роль -->
+          <div class="about-role">[Должность / Роль / Специализация]</div>
+          <div class="about-divider"></div>
+
+          <!-- ЗАМЕНИТЕ текст на вашу биографию/описание -->
+          <div class="about-bio">
+            <span class="placeholder-line">← Введите ваш текст: опыт, специализация, миссия</span>
+          </div>
+
+          <div class="about-stats">
+            <!-- ЗАМЕНИТЕ цифры и подписи на ваши данные -->
+            <div class="stat-box">
+              <span class="stat-num">—</span>
+              <div class="stat-placeholder">лет опыта</div>
+            </div>
+            <div class="stat-box">
+              <span class="stat-num">—</span>
+              <div class="stat-placeholder">сделок</div>
+            </div>
+            <div class="stat-box">
+              <span class="stat-num">—</span>
+              <div class="stat-placeholder">стран</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ═══ SLIDE 3: WHY DR ═══ -->
+  <div class="slide content-slide" id="s-why">
+    <div class="slide-inner">
+      <div class="slide-header">
+        <div class="logo-tag" style="color:var(--green-deep);">ShiR<span>Estate</span></div>
+        <div class="slide-header-title">Почему Доминикана</div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:28px;height:calc(100% - 100px);">
+        <!-- Left: reasons -->
+        <div>
+          <div class="eyebrow" style="margin-bottom:6px;">Инвестиционный потенциал</div>
+          <div class="section-title" style="font-size:clamp(20px,2.8vw,32px);margin-bottom:6px;">Лучший <em>момент</em> для входа</div>
+          <div class="divider" style="width:40px;margin:10px 0 16px;"></div>
+          <div class="why-grid" style="grid-template-columns:1fr;">
+            <div>
+              <div class="why-item"><div class="why-dot"></div><div class="why-text"><strong>Глобальное развитие инфраструктуры:</strong> аэропорты, дороги, круизные терминалы, госпитали</div></div>
+              <div class="why-item"><div class="why-dot"></div><div class="why-text"><strong>Отсутствие налогов</strong> на покупку, владение и прибыль до 15 лет по закону CONFOTUR</div></div>
+              <div class="why-item"><div class="why-dot"></div><div class="why-text"><strong>ВНЖ при покупке</strong> от <span class="colored"><strong>$200 000</strong></span> для покупателя и его семьи</div></div>
+              <div class="why-item"><div class="why-dot"></div><div class="why-text"><strong>Стратегические партнерства:</strong> новые экономические связи с США, появление Amazon и других гигантов</div></div>
+              <div class="why-item"><div class="why-dot"></div><div class="why-text"><strong>Спрос на новое строительство</strong> вырос в разы за последние 3 года при более низких темпах стройки</div></div>
+              <div class="why-item"><div class="why-dot"></div><div class="why-text"><strong>Полная собственность</strong> с теми же правами, что у граждан страны</div></div>
+              <div class="why-item"><div class="why-dot"></div><div class="why-text"><strong>Круглогодичный сезон</strong> — белоснежные пляжи, тёплый океан и ровная температура 365 дней в году</div></div>
+            </div>
+          </div>
+        </div>
+        <!-- Right: photos -->
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <!-- Photo 1 placeholder -->
+          <div style="flex:1;border-radius:6px;overflow:hidden;position:relative;background:rgba(42,80,64,0.3);border:1px dashed rgba(200,169,110,0.4);display:flex;align-items:center;justify-content:center;">
+            <!-- ЗАМЕНИТЕ на: <img src="your-photo.jpg" style="width:100%;height:100%;object-fit:cover;"> -->
+            <div style="text-align:center;">
+              <div style="font-size:28px;margin-bottom:8px;">🌴</div>
+              <div style="font-size:8px;letter-spacing:2px;text-transform:uppercase;color:rgba(200,169,110,0.5);">Фото Доминиканы 1</div>
+            </div>
+          </div>
+          <!-- Photo 2 placeholder -->
+          <div style="flex:1;border-radius:6px;overflow:hidden;position:relative;background:rgba(42,80,64,0.3);border:1px dashed rgba(200,169,110,0.4);display:flex;align-items:center;justify-content:center;">
+            <!-- ЗАМЕНИТЕ на: <img src="your-photo.jpg" style="width:100%;height:100%;object-fit:cover;"> -->
+            <div style="text-align:center;">
+              <div style="font-size:28px;margin-bottom:8px;">🏗️</div>
+              <div style="font-size:8px;letter-spacing:2px;text-transform:uppercase;color:rgba(200,169,110,0.5);">Фото Доминиканы 2</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ SLIDE 4: MANAGEMENT & YIELDS ═══ -->
+  <div class="slide content-slide" id="s-strat">
+    <div class="slide-inner">
+      <div class="slide-header">
+        <div class="logo-tag" style="color:var(--green-deep);">ShiR<span>Estate</span></div>
+        <div class="slide-header-title">Доходность и управление</div>
+      </div>
+
+      <div class="eyebrow" style="margin-bottom:6px;">Как это работает</div>
+      <div class="section-title" style="font-size:clamp(22px,3vw,34px);margin-bottom:4px;">Управление и <em>доходность</em></div>
+      <div class="divider" style="width:40px;margin:10px 0 14px;"></div>
+
+      <!-- Yield numbers from Why DR -->
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:16px;">
+        <div style="background:var(--green-deep);border-radius:6px;padding:18px 16px;text-align:center;">
+          <span style="font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:300;color:var(--gold);display:block;line-height:1;">6-15%</span>
+          <span style="font-size:8px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.65);display:block;margin-top:6px;">чистая доходность от аренды</span>
+        </div>
+        <div style="background:var(--green-deep);border-radius:6px;padding:18px 16px;text-align:center;">
+          <span style="font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:300;color:var(--gold);display:block;line-height:1;">90.000$ - 7,3М ₽</span>
+          <span style="font-size:8px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.65);display:block;margin-top:6px;">цены от</span>
+        </div>
+        <div style="background:var(--green-deep);border-radius:6px;padding:18px 16px;text-align:center;">
+          <span style="font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:300;color:var(--gold);display:block;line-height:1;">7–15%</span>
+          <span style="font-size:8px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.65);display:block;margin-top:6px;">рост цен в год</span>
+        </div>
+      </div>
+
+      <!-- Management block -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+        <!-- Management description -->
+        <div style="background:rgba(42,80,64,0.15);border:1px solid rgba(200,169,110,0.2);border-radius:6px;padding:16px 18px;">
+          <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;"><strong>Стандарты управления</strong></div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:300;font-style:italic;color:var(--green-deep);margin-bottom:12px;"><strong>Пассивный доход без вашего участия</strong></div>
+          <div style="display:flex;flex-direction:column;gap:8px;">
+            <div class="why-item" style="border-color:rgba(200,169,110,0.15);padding:6px 0;">
+              <div class="why-dot"></div>
+              <div class="why-text" style="font-size:12px;">Профессиональные <strong>управляющие компании</strong> берут весь сервис на себя</div>
+            </div>
+            <div class="why-item" style="border-color:rgba(200,169,110,0.15);padding:6px 0;">
+              <div class="why-dot"></div>
+              <div class="why-text" style="font-size:12px;">Собственник сам может <strong>отдыхать и пользоваться</strong> своим апартом и комплексом <strong>в любое время</strong></div>
+            </div>
+            <div class="why-item" style="border-color:rgba(200,169,110,0.15);padding:6px 0;">
+              <div class="why-dot"></div>
+              <div class="why-text" style="font-size:12px;"><strong>Регулярные отчеты и выплаты</strong> на ваш счёт в любой точке мира</div>
+            </div>
+            <!-- <div class="why-item" style="border-color:rgba(200,169,110,0.15);padding:6px 0;border-bottom:none;">
+              <div class="why-dot"></div>
+              <div class="why-text" style="font-size:12px;">Комиссия УК: <strong>15–25%</strong> от дохода — всё остальное ваше</div>
+            </div>-->
+          </div> 
+        </div>
+
+        <!-- Construction & standards -->
+        <div style="background:rgba(42,80,64,0.15);border:1px solid rgba(200,169,110,0.2);border-radius:6px;padding:16px 18px;">
+          <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;"><strong>Стандарты строительства</strong></div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:300;font-style:italic;color:var(--green-deep);margin-bottom:12px;"><strong>Полная упаковка</strong></div>
+          <div style="display:flex;flex-direction:column;gap:8px;">
+            <div class="why-item" style="border-color:rgba(200,169,110,0.15);padding:6px 0;">
+              <div class="why-dot"></div>
+              <div class="why-text" style="font-size:12px;">Просторные квартиры с большой кухня-гостинной. Односпальные от <strong>50м2</strong>, двухсальные от <strong>90м2</strong></div>
+            </div>
+            <div class="why-item" style="border-color:rgba(200,169,110,0.15);padding:6px 0;">
+              <div class="why-dot"></div>
+              <div class="why-text" style="font-size:12px;">Качественная <strong>чистовая отделка</strong> и полная <strong>меблировка</strong> всей квартиры</div>
+            </div>
+            <div class="why-item" style="border-color:rgba(200,169,110,0.15);padding:6px 0;">
+              <div class="why-dot"></div>
+              <div class="why-text" style="font-size:12px;">Зеленый двор, <strong>бассейн, тренажерный зал, лобби</strong> и прочее благоустройство комплекса</div>
+            </div>
+            <!-- <div class="why-item" style="border-color:rgba(200,169,110,0.15);padding:6px 0;border-bottom:none;">
+              <div class="why-dot"></div>
+              <div class="why-text" style="font-size:12px;"><strong>Гарантия застройщика</strong> и юридическое сопровождение сделки</div>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ SLIDE 4b: PROPERTY OPTIONS ═══ -->
+  <div class="slide content-slide" id="s-objects">
+    <div class="slide-inner">
+      <div class="slide-header">
+        <div class="logo-tag" style="color:var(--green-deep);">ShiR<span>Estate</span></div>
+        <div class="slide-header-title">Варианты недвижимости</div>
+      </div>
+
+      <div class="eyebrow" style="margin-bottom:6px;">Что мы рассмотрим</div>
+      <div class="section-title" style="font-size:clamp(22px,3vw,34px);margin-bottom:4px;">Три варианта <em>объектов</em></div>
+      <div class="divider" style="width:40px;margin:10px 0 18px;"></div>
+
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;height:calc(100% - 130px);">
+
+        <!-- Object 1 -->
+        <div style="display:flex;flex-direction:column;border:1px solid rgba(200,169,110,0.25);border-radius:8px;overflow:hidden;">
+          <!-- Photo placeholder -->
+          <div style="flex:1;background:rgba(42,80,64,0.25);border-bottom:1px dashed rgba(200,169,110,0.3);display:flex;align-items:center;justify-content:center;min-height:200px;position:relative;">
+            <!-- ЗАМЕНИТЕ на: <img src="object1.jpg" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;"> -->
+            <div style="text-align:center;z-index:1;">
+              <div style="font-size:36px;margin-bottom:8px;">🏢</div>
+              <div style="font-size:8px;letter-spacing:2px;text-transform:uppercase;color:rgba(200,169,110,0.5);">Фото объекта 1</div>
+            </div>
+          </div>
+          <!-- Info -->
+          <div style="padding:16px 18px;background:var(--cream);">
+            <div style="font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:6px;">[Регион / Локация]</div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600;color:var(--green-deep);margin-bottom:8px;">[Название объекта]</div>
+            <div style="display:flex;flex-direction:column;gap:5px;">
+              <div style="display:flex;justify-content:space-between;align-items:center;padding:5px 0;border-bottom:1px solid rgba(200,169,110,0.15);">
+                <span style="font-size:10px;color:#666;">Цена покупки</span>
+                <span style="font-size:12px;font-weight:600;color:var(--green-deep);">от $[XXX 000]</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:center;padding:5px 0;border-bottom:1px solid rgba(200,169,110,0.15);">
+                <span style="font-size:10px;color:#666;">Доходность</span>
+                <span style="font-size:12px;font-weight:600;color:var(--accent-orange);">[X–X%] годовых</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:center;padding:5px 0;">
+                <span style="font-size:10px;color:#666;">Формат</span>
+                <span style="font-size:11px;color:#555;">[апартаменты / вилла]</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Object 2 -->
+        <div style="display:flex;flex-direction:column;border:1px solid rgba(200,169,110,0.4);border-radius:8px;overflow:hidden;box-shadow:0 4px 24px rgba(200,169,110,0.15);">
+          <!-- Featured badge -->
+          <div style="background:var(--gold);padding:5px 12px;text-align:center;">
+            <span style="font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--dark);">⭐ Топ-выбор</span>
+          </div>
+          <!-- Photo placeholder -->
+          <div style="flex:1;background:rgba(42,80,64,0.25);border-bottom:1px dashed rgba(200,169,110,0.3);display:flex;align-items:center;justify-content:center;min-height:180px;position:relative;">
+            <!-- ЗАМЕНИТЕ на: <img src="object2.jpg" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;"> -->
+            <div style="text-align:center;z-index:1;">
+              <div style="font-size:36px;margin-bottom:8px;">🏖️</div>
+              <div style="font-size:8px;letter-spacing:2px;text-transform:uppercase;color:rgba(200,169,110,0.5);">Фото объекта 2</div>
+            </div>
+          </div>
+          <!-- Info -->
+          <div style="padding:16px 18px;background:var(--cream);">
+            <div style="font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:6px;">[Регион / Локация]</div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600;color:var(--green-deep);margin-bottom:8px;">[Название объекта]</div>
+            <div style="display:flex;flex-direction:column;gap:5px;">
+              <div style="display:flex;justify-content:space-between;align-items:center;padding:5px 0;border-bottom:1px solid rgba(200,169,110,0.15);">
+                <span style="font-size:10px;color:#666;">Цена покупки</span>
+                <span style="font-size:12px;font-weight:600;color:var(--green-deep);">от $[XXX 000]</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:center;padding:5px 0;border-bottom:1px solid rgba(200,169,110,0.15);">
+                <span style="font-size:10px;color:#666;">Доходность</span>
+                <span style="font-size:12px;font-weight:600;color:var(--accent-orange);">[X–X%] годовых</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:center;padding:5px 0;">
+                <span style="font-size:10px;color:#666;">Формат</span>
+                <span style="font-size:11px;color:#555;">[апартаменты / вилла]</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Object 3 -->
+        <div style="display:flex;flex-direction:column;border:1px solid rgba(200,169,110,0.25);border-radius:8px;overflow:hidden;">
+          <!-- Photo placeholder -->
+          <div style="flex:1;background:rgba(42,80,64,0.25);border-bottom:1px dashed rgba(200,169,110,0.3);display:flex;align-items:center;justify-content:center;min-height:200px;position:relative;">
+            <!-- ЗАМЕНИТЕ на: <img src="object3.jpg" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;"> -->
+            <div style="text-align:center;z-index:1;">
+              <div style="font-size:36px;margin-bottom:8px;">🏡</div>
+              <div style="font-size:8px;letter-spacing:2px;text-transform:uppercase;color:rgba(200,169,110,0.5);">Фото объекта 3</div>
+            </div>
+          </div>
+          <!-- Info -->
+          <div style="padding:16px 18px;background:var(--cream);">
+            <div style="font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:6px;">[Регион / Локация]</div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600;color:var(--green-deep);margin-bottom:8px;">[Название объекта]</div>
+            <div style="display:flex;flex-direction:column;gap:5px;">
+              <div style="display:flex;justify-content:space-between;align-items:center;padding:5px 0;border-bottom:1px solid rgba(200,169,110,0.15);">
+                <span style="font-size:10px;color:#666;">Цена покупки</span>
+                <span style="font-size:12px;font-weight:600;color:var(--green-deep);">от $[XXX 000]</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:center;padding:5px 0;border-bottom:1px solid rgba(200,169,110,0.15);">
+                <span style="font-size:10px;color:#666;">Доходность</span>
+                <span style="font-size:12px;font-weight:600;color:var(--accent-orange);">[X–X%] годовых</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:center;padding:5px 0;">
+                <span style="font-size:10px;color:#666;">Формат</span>
+                <span style="font-size:11px;color:#555;">[апартаменты / вилла]</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+<!-- ═══ SLIDE 5: WHAT YOU GET ═══ -->
+  <div class="slide content-slide" id="s-get">
+    <div class="slide-inner">
+      <div class="slide-header">
+        <div class="logo-tag" style="color:var(--green-deep);">ShiR<span>Estate</span></div>
+        <div class="slide-header-title">Что вы получите</div>
+      </div>
+
+      <div class="eyebrow" style="margin-bottom:6px;">Инвест-тур</div>
+      <div class="section-title" style="font-size:clamp(24px,3.5vw,38px);margin-bottom:6px;">Инвест-тур — <em>идеальное совмещение</em> отдыха и бизнеса</div>
+      <div class="divider" style="width:40px;margin:12px 0 20px;"></div>
+
+      <div class="get-grid">
+        <div class="get-item">
+          <div class="get-num">01</div>
+          <div class="get-desc">Рассмотрите <strong>реальные варианты</strong> и поймёте как создать <strong>пассивный доход</strong> для себя</div>
+        </div>
+        <div class="get-item">
+          <div class="get-num">02</div>
+          <div class="get-desc">Посетите <strong>топовые локации</strong> и своими глазами увидите самые доходные объекты</div>
+        </div>
+        <div class="get-item">
+          <div class="get-num">03</div>
+          <div class="get-desc">Получите <s
+          <div class="get-desc">Заведёте новые <strong>полезные знакомства</strong> и <strong>обменяетесь опытом</strong> с другими инвесторами</div>trong>незабываемые впечатления</strong> в путешествии по Доминикане, диким пляжам и заповеднику Самана</div>
+        </div>
+        <div class="get-item">
+          <div class="get-num">04</div>
+        </div>
+        <div class="get-item">
+          <div class="get-num">05</div>
+          <div class="get-desc">Узнаете все <strong>нюансы рынка</strong>, его особенности и оцените риски на месте</div>
+        </div>
+        <div class="get-item">
+          <div class="get-num">06</div>
+          <div class="get-desc"><strong>Индивидуально</strong> подберёте объект под свой бюджет и стратегию прямо во время тура</div>
+        </div>
+      </div>
+
+      <div style="background:var(--green-deep);border-radius:6px;padding:18px 24px;margin-top:20px;">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:300;font-style:italic;color:var(--white);line-height:1.7;">
+          Как начинающим инвесторам, так и действующим — тем, кто хочет сохранять деньги в надёжных активах, получать пассивный доход в валюте и создать капитал на долгие годы.
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ═══ SLIDE 6: PROGRAM ═══ -->
+  <div class="slide" id="s-prog">
+    <div class="slide-inner">
+      <div class="slide-header">
+        <div class="logo-tag">ShiR<span>Estate</span></div>
+        <div class="slide-header-title">Программа тура</div>
+      </div>
+
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:20px;">
+        <div>
+          <div class="eyebrow" style="margin-bottom:6px;">11–18 апреля</div>
+          <div class="section-title" style="font-size:clamp(22px,3vw,36px);color:var(--white);">Программа <em>Инвест-Тура</em></div>
+        </div>
+        <div class="date-badge">
+          <div class="db-label">Даты тура</div>
+          <div class="db-date">11 — 18 апреля</div>
+        </div>
+      </div>
+
+      <div class="prog-grid">
+        <div class="pc-simple">
+          <div class="pc-badge">11.04</div>
+          <div class="pc-title">Прилёт · Свободное время</div>
+        </div>
+        <div class="pc">
+          <div class="pc-head"><div class="pc-badge">12.04</div><div class="pc-title">Восточная часть острова</div></div>
+          <div class="pc-body">
+            <div class="pc-row"><div class="pc-dot dot-invest"></div><div>Осмотр района и объектов в <strong>Punta Cana</strong></div></div>
+            <div class="pc-row"><div class="pc-dot dot-invest"></div><div>Посещение закрытого сектора <strong>Cap-Cana</strong></div></div>
+          </div>
+        </div>
+        <div class="pc">
+          <div class="pc-head"><div class="pc-badge">13.04</div><div class="pc-title">Южная часть острова</div></div>
+          <div class="pc-body">
+            <div class="pc-row"><div class="pc-dot dot-invest"></div><div>Осмотр объектов в <strong>Bayahibe</strong></div></div>
+            <div class="pc-row"><div class="pc-dot dot-act"></div><div>Катание на лодке · Остров <strong>Saona</strong></div></div>
+          </div>
+        </div>
+        <div class="pc">
+          <div class="pc-head"><div class="pc-badge">14.04</div><div class="pc-title">Переезд на север</div></div>
+          <div class="pc-body">
+            <div class="pc-row"><div class="pc-dot dot-act"></div><div>Посещение <strong>деревни Художников</strong></div></div>
+            <div class="pc-row"><div class="pc-dot dot-act"></div><div>Живописная дорога на <strong>Samaná</strong></div></div>
+          </div>
+        </div>
+        <div class="pc">
+          <div class="pc-head"><div class="pc-badge">15.04</div><div class="pc-title">Заповедник Samaná</div></div>
+          <div class="pc-body">
+            <div class="pc-row"><div class="pc-dot dot-invest"></div><div>Инвест-объекты в <strong>Las Terrenas</strong></div></div>
+            <div class="pc-row"><div class="pc-dot dot-act"></div><div>Заповедник · Дикий пляж · Ужин у океана</div></div>
+          </div>
+        </div>
+        <div class="pc">
+          <div class="pc-head"><div class="pc-badge">16.04</div><div class="pc-title">Переезд в Sosuá</div></div>
+          <div class="pc-body">
+            <div class="pc-row"><div class="pc-dot dot-invest"></div><div>Виллы и квартиры в инвест-проекте</div></div>
+            <div class="pc-row"><div class="pc-dot dot-act"></div><div>Прогулка по городу</div></div>
+          </div>
+        </div>
+        <div class="pc-simple">
+          <div class="pc-badge">17.04</div>
+          <div class="pc-title">Возвращение в Punta-Cana</div>
+        </div>
+        <div class="pc-simple">
+          <div class="pc-badge">18.04</div>
+          <div class="pc-title">Завершающий день · Вылет</div>
+        </div>
+      </div>
+
+      <div style="display:flex;gap:20px;margin-top:16px;font-size:10px;">
+        <div style="display:flex;align-items:center;gap:6px;"><div style="width:8px;height:8px;border-radius:50%;background:var(--gold);flex-shrink:0;"></div><span style="color:rgba(255,255,255,0.6);">Инвест-объект</span></div>
+        <div style="display:flex;align-items:center;gap:6px;"><div style="width:8px;height:8px;border-radius:50%;background:var(--accent-orange);flex-shrink:0;"></div><span style="color:rgba(255,255,255,0.6);">Активность / экскурсия</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ SLIDE 7: PLACES ═══ -->
+  <div class="slide content-slide" id="s-places">
+    <div class="slide-inner">
+      <div class="slide-header">
+        <div class="logo-tag" style="color:var(--green-deep);">ShiR<span>Estate</span></div>
+        <div class="slide-header-title">Места тура</div>
+      </div>
+
+      <div class="eyebrow" style="margin-bottom:6px;">Маршрут</div>
+      <div class="section-title" style="font-size:clamp(22px,3vw,36px);margin-bottom:6px;">Места, где мы <em>побываем</em></div>
+      <div class="divider" style="width:40px;margin:12px 0 16px;"></div>
+
+      <div class="places-grid">
+        <div class="place-card">
+          <img src="saona.jpg" alt="Saona" onerror="this.style.display='none'">
+          <div class="place-card-cap">
+            <span class="pc-name">Остров Саона</span>
+            <span class="pc-sub">Райский пляж · 13 апреля</span>
+          </div>
+        </div>
+        <div class="place-card">
+          <img src="casa.png" alt="Altos de Chavon" onerror="this.style.display='none'">
+          <div class="place-card-cap">
+            <span class="pc-name">Альтос де Чавон</span>
+            <span class="pc-sub">Город художников · 14 апреля</span>
+          </div>
+        </div>
+        <div class="place-card">
+          <img src="samana.png" alt="Samana" onerror="this.style.display='none'">
+          <div class="place-card-cap">
+            <span class="pc-name">Полуостров Самана</span>
+            <span class="pc-sub">Заповедник · Водопады · 15 апреля</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:16px;">
+        <div style="background:var(--green-deep);border-radius:4px;padding:14px 12px;text-align:center;">
+          <span style="font-size:20px;display:block;margin-bottom:6px;">🏖️</span>
+          <span style="font-size:10px;font-weight:600;color:var(--gold-light);display:block;margin-bottom:3px;">Punta Cana</span>
+          <span style="font-size:9px;color:rgba(255,255,255,0.55);">12 апреля</span>
+        </div>
+        <div style="background:var(--green-deep);border-radius:4px;padding:14px 12px;text-align:center;">
+          <span style="font-size:20px;display:block;margin-bottom:6px;">⛵</span>
+          <span style="font-size:10px;font-weight:600;color:var(--gold-light);display:block;margin-bottom:3px;">Cap-Cana</span>
+          <span style="font-size:9px;color:rgba(255,255,255,0.55);">12 апреля</span>
+        </div>
+        <div style="background:var(--green-deep);border-radius:4px;padding:14px 12px;text-align:center;">
+          <span style="font-size:20px;display:block;margin-bottom:6px;">🌊</span>
+          <span style="font-size:10px;font-weight:600;color:var(--gold-light);display:block;margin-bottom:3px;">Las Terrenas</span>
+          <span style="font-size:9px;color:rgba(255,255,255,0.55);">15 апреля</span>
+        </div>
+        <div style="background:var(--green-deep);border-radius:4px;padding:14px 12px;text-align:center;">
+          <span style="font-size:20px;display:block;margin-bottom:6px;">🏘️</span>
+          <span style="font-size:10px;font-weight:600;color:var(--gold-light);display:block;margin-bottom:3px;">Sosuá</span>
+          <span style="font-size:9px;color:rgba(255,255,255,0.55);">16 апреля</span>
+        </div>
+      </div>
+
+      <div class="place-note">
+        Все локации отобраны с точки зрения <strong>инвестиционного потенциала</strong>. Каждый день — сочетание просмотра объектов с яркими впечатлениями от острова.
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ SLIDE 8: PRICES ═══ -->
+  <div class="slide content-slide" id="s-prices">
+    <div class="slide-inner">
+      <div class="slide-header">
+        <div class="logo-tag" style="color:var(--green-deep);">ShiR<span>Estate</span></div>
+        <div class="slide-header-title">Стоимость и запись</div>
+      </div>
+
+      <div class="eyebrow" style="margin-bottom:6px;">Участие в туре</div>
+      <div class="section-title" style="font-size:clamp(22px,3vw,36px);margin-bottom:6px;">Варианты <em>размещения</em> и <em>цены</em></div>
+      <div class="divider" style="width:40px;margin:12px 0 16px;"></div>
+
+      <div class="accom-section">
+        <div class="accom-title">Выберите свой формат</div>
+        <div class="accom-options">
+          <div class="accom-option">
+            <div class="opt-title"><span class="opt-icon">🏨</span>Индивидуальное</div>
+            <div class="opt-desc">Отдельный номер для комфортного проживания и приватности на каждом этапе маршрута.</div>
+          </div>
+          <div class="accom-option">
+            <div class="opt-title"><span class="opt-icon">👫</span>Пара</div>
+            <div class="opt-desc">Двухместный номер для двоих — идеально для пар и совместных поездок.</div>
+          </div>
+          <div class="accom-option">
+            <div class="opt-title"><span class="opt-icon">🛏</span>Совместное</div>
+            <div class="opt-desc">Общий номер с другим участником тура — выгодный вариант без потери комфорта.</div>
+          </div>
+        </div>
+        <div class="price-cards">
+          <div class="price-card pc-single">
+            <div class="pc-label">Индивидуальное</div>
+            <div class="pc-price"><span>$</span>3 500</div>
+            <div class="pc-note">Отдельный номер · Всё включено по программе</div>
+          </div>
+          <div class="price-card pc-double">
+            <div class="pc-label">Пара</div>
+            <div class="pc-price"><span>$</span>5 000</div>
+            <div class="pc-note">Двое в одном номере · Совместное путешествие</div>
+          </div>
+          <div class="price-card pc-shared">
+            <div class="pc-label">Совместное</div>
+            <div class="pc-price"><span>$</span>2 700</div>
+            <div class="pc-note">Общий номер с участником тура · Выгодно</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="included-box">
+        <div class="included-title">В стоимость включено</div>
+        <div class="included-items">
+          <div class="inc-item">🏨 Проживание</div>
+          <div class="inc-item">🍽️ Питание</div>
+          <div class="inc-item">🏗️ Посещение объектов</div>
+          <div class="inc-item">🗺️ Все экскурсии</div>
+          <div class="inc-item">🚗 Трансфер</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ SLIDE 9: CONTACTS ═══ -->
+  <div class="slide" id="s-cta">
+    <div class="slide-inner" style="display:flex;flex-direction:column;justify-content:center;align-items:center;">
+      <div class="cta-bg"></div>
+      <div class="corner tl"></div><div class="corner tr"></div>
+      <div class="corner bl" style="bottom:70px;"></div><div class="corner br" style="bottom:70px;"></div>
+
+      <div class="cta-content" style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;padding:60px 80px 80px;">
+
+        <div style="margin-bottom:28px;text-align:center;">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--white);margin-bottom:6px;">ShiR<span style="color:var(--gold);">Estate</span></div>
+          <div style="font-size:10px;letter-spacing:2px;color:rgba(200,169,110,0.6);">Ваши инвестиции. Ваш остров.</div>
+        </div>
+
+        <div class="cta-eyebrow" style="margin-bottom:12px;">Свяжитесь с нами</div>
+        <div class="cta-title" style="margin-bottom:18px;">Готовы <em>начать?</em></div>
+        <div style="width:50px;height:1px;background:var(--gold);margin-bottom:28px;"></div>
+
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:640px;width:100%;">
+          <a href="https://t.me/Liza_shilova_invest" target="_blank" class="contact-card" style="padding:24px 16px;">
+            <div class="cc-icon" style="font-size:28px;margin-bottom:10px;">✈️</div>
+            <div class="cc-type" style="margin-bottom:6px;">Telegram</div>
+            <div class="cc-handle" style="font-size:13px;">@Liza_shilova_invest</div>
+          </a>
+          <a href="https://wa.me/15799571525" target="_blank" class="contact-card" style="padding:24px 16px;">
+            <div class="cc-icon" style="font-size:28px;margin-bottom:10px;">📱</div>
+            <div class="cc-type" style="margin-bottom:6px;">WhatsApp</div>
+            <div class="cc-handle" style="font-size:13px;">+1 (579) 957-1525</div>
+          </a>
+          <a href="https://shirestate.github.io" target="_blank" class="contact-card" style="padding:24px 16px;">
+            <div class="cc-icon" style="font-size:28px;margin-bottom:10px;">🌐</div>
+            <div class="cc-type" style="margin-bottom:6px;">Сайт</div>
+            <div class="cc-handle" style="font-size:13px;">shirestate.github.io</div>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div><!-- /slideshow -->
+
+<!-- NAVIGATION -->
+<div class="nav" id="nav">
+  <button id="btn-prev" onclick="go(-1)" disabled>←</button>
+  <div class="nav-dots" id="dots"></div>
+  <button id="btn-next" onclick="go(1)">→</button>
+  <div class="nav-counter" id="counter">1 / 10</div>
+</div>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  const dotsContainer = document.getElementById('dots');
+  const counter = document.getElementById('counter');
+  const btnPrev = document.getElementById('btn-prev');
+  const btnNext = document.getElementById('btn-next');
+  let cur = 0;
+  const total = slides.length;
+
+  // Build dots
+  slides.forEach((_, i) => {
+    const d = document.createElement('div');
+    d.className = 'nav-dot' + (i === 0 ? ' active' : '');
+    d.onclick = () => goTo(i);
+    dotsContainer.appendChild(d);
+  });
+
+  function goTo(n) {
+    slides[cur].classList.remove('active');
+    dotsContainer.children[cur].classList.remove('active');
+    cur = Math.max(0, Math.min(total - 1, n));
+    slides[cur].classList.add('active');
+    dotsContainer.children[cur].classList.add('active');
+    counter.textContent = (cur + 1) + ' / ' + total;
+    btnPrev.disabled = cur === 0;
+    btnNext.disabled = cur === total - 1;
+  }
+
+  function go(dir) { goTo(cur + dir); }
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') go(1);
+    if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp')   go(-1);
+  });
+
+  // Touch swipe
+  let tx = 0;
+  document.addEventListener('touchstart', e => tx = e.touches[0].clientX);
+  document.addEventListener('touchend',   e => {
+    const dx = tx - e.changedTouches[0].clientX;
+    if (Math.abs(dx) > 40) go(dx > 0 ? 1 : -1);
+  });
+</script>
+</body>
+</html>
