@@ -133,7 +133,7 @@
     position: absolute; inset: 0;
     background: linear-gradient(to bottom, rgba(13,27,20,0.3) 0%, rgba(13,27,20,0.85) 100%),
                 url('beach.jpeg') center top / cover no-repeat;
-    filter: brightness(0.55) saturate(1.1);
+    filter: brightness(1.25) saturate(1.1);
   }
   #s-cover .cover-overlay {
     position: absolute; inset: 0;
@@ -597,7 +597,7 @@
         <div class="cover-title">Инвестиционный<br><em>Тур</em></div>
         <div class="cover-subtitle">Доминиканская Республика · 11–18 апреля</div>
         <div class="cover-divider"></div>
-        <div class="cover-desc">Погружение в рынок недвижимости Доминиканы — от Punta Cana до Sosuá. Реальные объекты, встречи с застройщиками и незабываемые впечатления.</div>
+        <div class="cover-desc">Погружение в рынок недвижимости Доминиканы — от Punta-Cana до Sosuá. Реальные объекты, встречи с застройщиками и незабываемые впечатления.</div>
       </div>
     </div>
   </div>
@@ -616,16 +616,11 @@
       <div class="about-content">
         <div class="about-left">
           <div class="about-photo-box">
-            <!-- ЗАМЕНИТЕ src на путь к вашей фотографии: <img src="photo.jpg" alt="Фото"> -->
-            <div class="photo-placeholder">
-              <div class="photo-icon">👤</div>
-              <div class="photo-hint">Ваша фотография</div>
-            </div>
+            <img src="btest.jpg" alt="Фото" style="width:100%;height:100%;object-fit:cover;">
           </div>
         </div>
 
         <div class="about-right">
-          <div class="eyebrow" style="margin-bottom:10px;">Ваш эксперт</div>
           <!-- ЗАМЕНИТЕ на ваше имя -->
           <div class="about-name"><em>[Имя Фамилия]</em></div>
           <!-- ЗАМЕНИТЕ на вашу должность/роль -->
@@ -669,7 +664,6 @@
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:28px;height:calc(100% - 100px);">
         <!-- Left: reasons -->
         <div>
-          <div class="eyebrow" style="margin-bottom:6px;">Инвестиционный потенциал</div>
           <div class="section-title" style="font-size:clamp(20px,2.8vw,32px);margin-bottom:6px;">Лучший <em>момент</em> для входа</div>
           <div class="divider" style="width:40px;margin:10px 0 16px;"></div>
           <div class="why-grid" style="grid-template-columns:1fr;">
@@ -687,20 +681,12 @@
         <!-- Right: photos -->
         <div style="display:flex;flex-direction:column;gap:10px;">
           <!-- Photo 1 placeholder -->
-          <div style="flex:1;border-radius:6px;overflow:hidden;position:relative;background:rgba(42,80,64,0.3);border:1px dashed rgba(200,169,110,0.4);display:flex;align-items:center;justify-content:center;">
-            <!-- ЗАМЕНИТЕ на: <img src="your-photo.jpg" style="width:100%;height:100%;object-fit:cover;"> -->
-            <div style="text-align:center;">
-              <div style="font-size:28px;margin-bottom:8px;">🌴</div>
-              <div style="font-size:8px;letter-spacing:2px;text-transform:uppercase;color:rgba(200,169,110,0.5);">Фото Доминиканы 1</div>
-            </div>
+          <div style="flex:1;border-radius:6px;overflow:hidden;position:relative;">
+            <img src="cruise.png" style="width:100%;height:100%;object-fit:cover;">
           </div>
-          <!-- Photo 2 placeholder -->
-          <div style="flex:1;border-radius:6px;overflow:hidden;position:relative;background:rgba(42,80,64,0.3);border:1px dashed rgba(200,169,110,0.4);display:flex;align-items:center;justify-content:center;">
-            <!-- ЗАМЕНИТЕ на: <img src="your-photo.jpg" style="width:100%;height:100%;object-fit:cover;"> -->
-            <div style="text-align:center;">
-              <div style="font-size:28px;margin-bottom:8px;">🏗️</div>
-              <div style="font-size:8px;letter-spacing:2px;text-transform:uppercase;color:rgba(200,169,110,0.5);">Фото Доминиканы 2</div>
-            </div>
+          <!-- Photo 2 -->
+          <div style="flex:1;border-radius:6px;overflow:hidden;position:relative;">
+            <img src="dominicus.jpeg" style="width:100%;height:100%;object-fit:cover;">
           </div>
         </div>
       </div>
@@ -715,7 +701,6 @@
         <div class="slide-header-title">Доходность и управление</div>
       </div>
 
-      <div class="eyebrow" style="margin-bottom:6px;">Как это работает</div>
       <div class="section-title" style="font-size:clamp(22px,3vw,34px);margin-bottom:4px;">Управление и <em>доходность</em></div>
       <div class="divider" style="width:40px;margin:10px 0 14px;"></div>
 
@@ -796,7 +781,6 @@
         <div class="slide-header-title">Варианты недвижимости</div>
       </div>
 
-      <div class="eyebrow" style="margin-bottom:6px;">Что мы рассмотрим</div>
       <div class="section-title" style="font-size:clamp(22px,3vw,34px);margin-bottom:4px;">Три варианта <em>объектов</em></div>
       <div class="divider" style="width:40px;margin:10px 0 18px;"></div>
 
@@ -805,12 +789,8 @@
         <!-- Object 1 -->
         <div style="display:flex;flex-direction:column;border:1px solid rgba(200,169,110,0.25);border-radius:8px;overflow:hidden;">
           <!-- Photo placeholder -->
-          <div style="flex:1;background:rgba(42,80,64,0.25);border-bottom:1px dashed rgba(200,169,110,0.3);display:flex;align-items:center;justify-content:center;min-height:200px;position:relative;">
-            <!-- ЗАМЕНИТЕ на: <img src="object1.jpg" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;"> -->
-            <div style="text-align:center;z-index:1;">
-              <div style="font-size:36px;margin-bottom:8px;">🏢</div>
-              <div style="font-size:8px;letter-spacing:2px;text-transform:uppercase;color:rgba(200,169,110,0.5);">Фото объекта 1</div>
-            </div>
+          <div style="flex:1;min-height:200px;position:relative;overflow:hidden;">
+            <img src="btest.jpg" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;">
           </div>
           <!-- Info -->
           <div style="padding:16px 18px;background:var(--cream);">
@@ -835,17 +815,9 @@
 
         <!-- Object 2 -->
         <div style="display:flex;flex-direction:column;border:1px solid rgba(200,169,110,0.4);border-radius:8px;overflow:hidden;box-shadow:0 4px 24px rgba(200,169,110,0.15);">
-          <!-- Featured badge -->
-          <div style="background:var(--gold);padding:5px 12px;text-align:center;">
-            <span style="font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--dark);">⭐ Топ-выбор</span>
-          </div>
           <!-- Photo placeholder -->
-          <div style="flex:1;background:rgba(42,80,64,0.25);border-bottom:1px dashed rgba(200,169,110,0.3);display:flex;align-items:center;justify-content:center;min-height:180px;position:relative;">
-            <!-- ЗАМЕНИТЕ на: <img src="object2.jpg" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;"> -->
-            <div style="text-align:center;z-index:1;">
-              <div style="font-size:36px;margin-bottom:8px;">🏖️</div>
-              <div style="font-size:8px;letter-spacing:2px;text-transform:uppercase;color:rgba(200,169,110,0.5);">Фото объекта 2</div>
-            </div>
+          <div style="flex:1;min-height:180px;position:relative;overflow:hidden;">
+            <img src="btest.jpg" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;">
           </div>
           <!-- Info -->
           <div style="padding:16px 18px;background:var(--cream);">
@@ -871,12 +843,8 @@
         <!-- Object 3 -->
         <div style="display:flex;flex-direction:column;border:1px solid rgba(200,169,110,0.25);border-radius:8px;overflow:hidden;">
           <!-- Photo placeholder -->
-          <div style="flex:1;background:rgba(42,80,64,0.25);border-bottom:1px dashed rgba(200,169,110,0.3);display:flex;align-items:center;justify-content:center;min-height:200px;position:relative;">
-            <!-- ЗАМЕНИТЕ на: <img src="object3.jpg" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;"> -->
-            <div style="text-align:center;z-index:1;">
-              <div style="font-size:36px;margin-bottom:8px;">🏡</div>
-              <div style="font-size:8px;letter-spacing:2px;text-transform:uppercase;color:rgba(200,169,110,0.5);">Фото объекта 3</div>
-            </div>
+          <div style="flex:1;min-height:200px;position:relative;overflow:hidden;">
+            <img src="btest.jpg" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;">
           </div>
           <!-- Info -->
           <div style="padding:16px 18px;background:var(--cream);">
@@ -911,7 +879,6 @@
         <div class="slide-header-title">Что вы получите</div>
       </div>
 
-      <div class="eyebrow" style="margin-bottom:6px;">Инвест-тур</div>
       <div class="section-title" style="font-size:clamp(24px,3.5vw,38px);margin-bottom:6px;">Инвест-тур — <em>идеальное совмещение</em> отдыха и бизнеса</div>
       <div class="divider" style="width:40px;margin:12px 0 20px;"></div>
 
@@ -926,11 +893,11 @@
         </div>
         <div class="get-item">
           <div class="get-num">03</div>
-          <div class="get-desc">Получите <s
-          <div class="get-desc">Заведёте новые <strong>полезные знакомства</strong> и <strong>обменяетесь опытом</strong> с другими инвесторами</div>trong>незабываемые впечатления</strong> в путешествии по Доминикане, диким пляжам и заповеднику Самана</div>
+          <div class="get-desc">Заведёте новые <strong>полезные знакомства</strong> и <strong>обменяетесь опытом</strong> с другими инвесторами</div>
         </div>
         <div class="get-item">
           <div class="get-num">04</div>
+          <div class="get-desc">Получите <strong>незабываемые впечатления</strong> в путешествии по Доминикане, диким пляжам и заповеднику Самана</div>
         </div>
         <div class="get-item">
           <div class="get-num">05</div>
@@ -961,7 +928,6 @@
 
       <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:20px;">
         <div>
-          <div class="eyebrow" style="margin-bottom:6px;">11–18 апреля</div>
           <div class="section-title" style="font-size:clamp(22px,3vw,36px);color:var(--white);">Программа <em>Инвест-Тура</em></div>
         </div>
         <div class="date-badge">
@@ -978,7 +944,7 @@
         <div class="pc">
           <div class="pc-head"><div class="pc-badge">12.04</div><div class="pc-title">Восточная часть острова</div></div>
           <div class="pc-body">
-            <div class="pc-row"><div class="pc-dot dot-invest"></div><div>Осмотр района и объектов в <strong>Punta Cana</strong></div></div>
+            <div class="pc-row"><div class="pc-dot dot-invest"></div><div>Осмотр района и объектов в <strong>Punta-Cana</strong></div></div>
             <div class="pc-row"><div class="pc-dot dot-invest"></div><div>Посещение закрытого сектора <strong>Cap-Cana</strong></div></div>
           </div>
         </div>
@@ -1035,7 +1001,6 @@
         <div class="slide-header-title">Места тура</div>
       </div>
 
-      <div class="eyebrow" style="margin-bottom:6px;">Маршрут</div>
       <div class="section-title" style="font-size:clamp(22px,3vw,36px);margin-bottom:6px;">Места, где мы <em>побываем</em></div>
       <div class="divider" style="width:40px;margin:12px 0 16px;"></div>
 
@@ -1063,16 +1028,21 @@
         </div>
       </div>
 
-      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:16px;">
+      <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:16px;">
         <div style="background:var(--green-deep);border-radius:4px;padding:14px 12px;text-align:center;">
           <span style="font-size:20px;display:block;margin-bottom:6px;">🏖️</span>
-          <span style="font-size:10px;font-weight:600;color:var(--gold-light);display:block;margin-bottom:3px;">Punta Cana</span>
+          <span style="font-size:10px;font-weight:600;color:var(--gold-light);display:block;margin-bottom:3px;">Punta-Cana</span>
+          <span style="font-size:9px;color:rgba(255,255,255,0.55);">12 апреля</span>
+        </div>
+        <div style="background:var(--green-deep);border-radius:4px;padding:14px 12px;text-align:center;">
+          <span style="font-size:20px;display:block;margin-bottom:6px;">⛳</span>
+          <span style="font-size:10px;font-weight:600;color:var(--gold-light);display:block;margin-bottom:3px;">Cap-Cana</span>
           <span style="font-size:9px;color:rgba(255,255,255,0.55);">12 апреля</span>
         </div>
         <div style="background:var(--green-deep);border-radius:4px;padding:14px 12px;text-align:center;">
           <span style="font-size:20px;display:block;margin-bottom:6px;">⛵</span>
-          <span style="font-size:10px;font-weight:600;color:var(--gold-light);display:block;margin-bottom:3px;">Cap-Cana</span>
-          <span style="font-size:9px;color:rgba(255,255,255,0.55);">12 апреля</span>
+          <span style="font-size:10px;font-weight:600;color:var(--gold-light);display:block;margin-bottom:3px;">Bayahibe</span>
+          <span style="font-size:9px;color:rgba(255,255,255,0.55);">13 апреля</span>
         </div>
         <div style="background:var(--green-deep);border-radius:4px;padding:14px 12px;text-align:center;">
           <span style="font-size:20px;display:block;margin-bottom:6px;">🌊</span>
@@ -1100,7 +1070,6 @@
         <div class="slide-header-title">Стоимость и запись</div>
       </div>
 
-      <div class="eyebrow" style="margin-bottom:6px;">Участие в туре</div>
       <div class="section-title" style="font-size:clamp(22px,3vw,36px);margin-bottom:6px;">Варианты <em>размещения</em> и <em>цены</em></div>
       <div class="divider" style="width:40px;margin:12px 0 16px;"></div>
 
@@ -1166,7 +1135,6 @@
           <div style="font-size:10px;letter-spacing:2px;color:rgba(200,169,110,0.6);">Ваши инвестиции. Ваш остров.</div>
         </div>
 
-        <div class="cta-eyebrow" style="margin-bottom:12px;">Свяжитесь с нами</div>
         <div class="cta-title" style="margin-bottom:18px;">Готовы <em>начать?</em></div>
         <div style="width:50px;height:1px;background:var(--gold);margin-bottom:28px;"></div>
 
