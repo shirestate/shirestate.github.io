@@ -208,13 +208,20 @@
     width: 100%; height: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    align-items: center;
+    align-items: stretch;
     padding: 60px 80px;
     gap: 60px;
   }
-  #s-about .about-left {}
+  #s-about .about-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 0;
+  }
   #s-about .about-photo-box {
-    width: min(260px, 30vw); height: min(320px, 50vh);
+    flex: 1;
+    min-height: 0;
+    width: 100%;
     border: 1px solid rgba(200,169,110,0.4);
     border-radius: 4px;
     background: rgba(42,80,64,0.3);
@@ -239,7 +246,12 @@
   #s-about .about-photo-box img {
     width: 100%; height: 100%; object-fit: cover; display: block;
   }
-  #s-about .about-right {}
+  #s-about .about-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 0;
+  }
   #s-about .about-name {
     font-family: 'Cormorant Garamond', serif;
     font-size: clamp(32px, 4vw, 52px);
@@ -815,7 +827,7 @@
         </div>
 
         <!-- Image 1 — same row as management card -->
-        <div class="mgmt-img"><img src="btest.jpg" alt=""></div>
+        <div class="mgmt-img"><img src="s1.jpeg" alt=""></div>
 
         <!-- Construction & standards -->
         <div class="mgmt-card">
@@ -838,7 +850,7 @@
         </div>
 
         <!-- Image 2 — same row as construction card -->
-        <div class="mgmt-img"><img src="btest.jpg" alt=""></div>
+        <div class="mgmt-img"><img src="s2.jpeg" alt=""></div>
       </div>
     </div>
   </div>
