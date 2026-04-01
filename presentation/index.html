@@ -92,7 +92,25 @@
     width: 100%; height: 100%;
     position: relative;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
   }
+
+  /*@media (max-height: 650px) {*/
+  /*  .slide-inner {*/
+  /*    overflow-y: auto;*/
+  /*  }*/
+  /*}*/
+
+  /*@media (max-width: 1200px) {*/
+  /*  .slideshow {*/
+  /*    overflow-x: auto;*/
+  /*    overflow-y: hidden;*/
+  /*  }*/
+  /*  .slide-inner {*/
+  /*    min-width: 900px;*/
+  /*  }*/
+  /*}*/
 
   /* corner ornaments */
   .corner {
@@ -196,7 +214,7 @@
   }
   #s-about .about-left {}
   #s-about .about-photo-box {
-    width: 260px; height: 320px;
+    width: min(260px, 30vw); height: min(320px, 50vh);
     border: 1px solid rgba(200,169,110,0.4);
     border-radius: 4px;
     background: rgba(42,80,64,0.3);
@@ -565,6 +583,60 @@
   #s-cta .cc-type { font-size: 8px; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 4px; }
   #s-cta .cc-handle { font-size: 11px; color: var(--gold); }
 
+  /* ─── SLIDE 4: MANAGEMENT BLOCK ─── */
+  .mgmt-block {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(6px, 1.2vh, 14px);
+  }
+  .mgmt-card {
+    background: rgba(42,80,64,0.15);
+    border: 1px solid rgba(200,169,110,0.2);
+    border-radius: 6px;
+    padding: clamp(8px, 1.8vh, 16px) clamp(10px, 1.5vw, 18px);
+  }
+  .mgmt-card-label {
+    font-size: clamp(8px, 1.3vh, 13px);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: bold;
+    margin-bottom: clamp(3px, 0.8vh, 10px);
+  }
+  .mgmt-card-heading {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(10px, 1.8vh, 16px);
+    font-weight: bold;
+    font-style: italic;
+    color: var(--green-deep);
+    margin-bottom: clamp(3px, 1vh, 12px);
+  }
+  .mgmt-card .why-items {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(2px, 0.6vh, 8px);
+  }
+  .mgmt-card .why-item {
+    border-color: rgba(200,169,110,0.15);
+    padding: clamp(2px, 0.5vh, 6px) 0;
+  }
+  .mgmt-card .why-text {
+    font-size: clamp(8px, 1.3vh, 12px);
+  }
+  .mgmt-img {
+    border: 1px solid rgba(200,169,110,0.2);
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+  }
+  .mgmt-img img {
+    position: absolute;
+    inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover; display: block;
+  }
+
   /* keyboard hint */
   .kbd-hint {
     position: fixed; top: 20px; right: 24px; z-index: 100;
@@ -679,14 +751,14 @@
           </div>
         </div>
         <!-- Right: photos -->
-        <div style="display:flex;flex-direction:column;gap:10px;">
+        <div style="display:flex;flex-direction:column;gap:10px;min-height:0;">
           <!-- Photo 1 placeholder -->
-          <div style="flex:1;border-radius:6px;overflow:hidden;position:relative;">
-            <img src="cruise.png" style="width:100%;height:100%;object-fit:cover;">
+          <div style="flex:1;min-height:0;min-width:0;border-radius:6px;overflow:hidden;position:relative;">
+            <img src="cruise.png" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;">
           </div>
           <!-- Photo 2 -->
-          <div style="flex:1;border-radius:6px;overflow:hidden;position:relative;">
-            <img src="dominicus.jpeg" style="width:100%;height:100%;object-fit:cover;">
+          <div style="flex:1;min-height:0;border-radius:6px;overflow:hidden;position:relative;">
+            <img src="dominicus.jpeg" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;">
           </div>
         </div>
       </div>
@@ -720,55 +792,53 @@
         </div>
       </div>
 
-      <!-- Management block -->
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+      <!-- Management block: 2-column × 2-row grid so each image row matches its text card row -->
+      <div class="mgmt-block">
         <!-- Management description -->
-        <div style="background:rgba(42,80,64,0.15);border:1px solid rgba(200,169,110,0.2);border-radius:6px;padding:16px 18px;">
-          <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;"><strong>Стандарты управления</strong></div>
-          <div style="font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:300;font-style:italic;color:var(--green-deep);margin-bottom:12px;"><strong>Пассивный доход без вашего участия</strong></div>
-          <div style="display:flex;flex-direction:column;gap:8px;">
-            <div class="why-item" style="border-color:rgba(200,169,110,0.15);padding:6px 0;">
+        <div class="mgmt-card">
+          <div class="mgmt-card-label">Стандарты управления</div>
+          <div class="mgmt-card-heading">Пассивный доход без вашего участия</div>
+          <div class="why-items">
+            <div class="why-item">
               <div class="why-dot"></div>
-              <div class="why-text" style="font-size:12px;">Профессиональные <strong>управляющие компании</strong> берут весь сервис на себя</div>
+              <div class="why-text">Профессиональные <strong>управляющие компании</strong> берут весь сервис на себя</div>
             </div>
-            <div class="why-item" style="border-color:rgba(200,169,110,0.15);padding:6px 0;">
+            <div class="why-item">
               <div class="why-dot"></div>
-              <div class="why-text" style="font-size:12px;">Собственник сам может <strong>отдыхать и пользоваться</strong> своим апартом и комплексом <strong>в любое время</strong></div>
+              <div class="why-text">Собственник сам может <strong>отдыхать и пользоваться</strong> своим апартом и комплексом <strong>в любое время</strong></div>
             </div>
-            <div class="why-item" style="border-color:rgba(200,169,110,0.15);padding:6px 0;">
+            <div class="why-item">
               <div class="why-dot"></div>
-              <div class="why-text" style="font-size:12px;"><strong>Регулярные отчеты и выплаты</strong> на ваш счёт в любой точке мира</div>
+              <div class="why-text"><strong>Регулярные отчеты и выплаты</strong> на ваш счёт в любой точке мира</div>
             </div>
-            <!-- <div class="why-item" style="border-color:rgba(200,169,110,0.15);padding:6px 0;border-bottom:none;">
-              <div class="why-dot"></div>
-              <div class="why-text" style="font-size:12px;">Комиссия УК: <strong>15–25%</strong> от дохода — всё остальное ваше</div>
-            </div>-->
-          </div> 
-        </div>
-
-        <!-- Construction & standards -->
-        <div style="background:rgba(42,80,64,0.15);border:1px solid rgba(200,169,110,0.2);border-radius:6px;padding:16px 18px;">
-          <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;"><strong>Стандарты строительства</strong></div>
-          <div style="font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:300;font-style:italic;color:var(--green-deep);margin-bottom:12px;"><strong>Полная упаковка</strong></div>
-          <div style="display:flex;flex-direction:column;gap:8px;">
-            <div class="why-item" style="border-color:rgba(200,169,110,0.15);padding:6px 0;">
-              <div class="why-dot"></div>
-              <div class="why-text" style="font-size:12px;">Просторные квартиры с большой кухня-гостинной. Односпальные от <strong>50м2</strong>, двухсальные от <strong>90м2</strong></div>
-            </div>
-            <div class="why-item" style="border-color:rgba(200,169,110,0.15);padding:6px 0;">
-              <div class="why-dot"></div>
-              <div class="why-text" style="font-size:12px;">Качественная <strong>чистовая отделка</strong> и полная <strong>меблировка</strong> всей квартиры</div>
-            </div>
-            <div class="why-item" style="border-color:rgba(200,169,110,0.15);padding:6px 0;">
-              <div class="why-dot"></div>
-              <div class="why-text" style="font-size:12px;">Зеленый двор, <strong>бассейн, тренажерный зал, лобби</strong> и прочее благоустройство комплекса</div>
-            </div>
-            <!-- <div class="why-item" style="border-color:rgba(200,169,110,0.15);padding:6px 0;border-bottom:none;">
-              <div class="why-dot"></div>
-              <div class="why-text" style="font-size:12px;"><strong>Гарантия застройщика</strong> и юридическое сопровождение сделки</div>
-            </div> -->
           </div>
         </div>
+
+        <!-- Image 1 — same row as management card -->
+        <div class="mgmt-img"><img src="../btest.jpg" alt=""></div>
+
+        <!-- Construction & standards -->
+        <div class="mgmt-card">
+          <div class="mgmt-card-label">Стандарты строительства</div>
+          <div class="mgmt-card-heading">Полная упаковка</div>
+          <div class="why-items">
+            <div class="why-item">
+              <div class="why-dot"></div>
+              <div class="why-text">Просторные квартиры с большой кухня-гостинной. Односпальные от <strong>50м2</strong>, двухсальные от <strong>90м2</strong></div>
+            </div>
+            <div class="why-item">
+              <div class="why-dot"></div>
+              <div class="why-text">Качественная <strong>чистовая отделка</strong> и полная <strong>меблировка</strong> всей квартиры</div>
+            </div>
+            <div class="why-item">
+              <div class="why-dot"></div>
+              <div class="why-text">Зеленый двор, <strong>бассейн, тренажерный зал, лобби</strong> и прочее благоустройство комплекса</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Image 2 — same row as construction card -->
+        <div class="mgmt-img"><img src="../btest.jpg" alt=""></div>
       </div>
     </div>
   </div>
@@ -789,11 +859,11 @@
         <!-- Object 1 -->
         <div style="display:flex;flex-direction:column;border:1px solid rgba(200,169,110,0.25);border-radius:8px;overflow:hidden;">
           <!-- Photo placeholder -->
-          <div style="flex:1;min-height:200px;position:relative;overflow:hidden;">
+          <div style="flex:1;min-height:0;position:relative;overflow:hidden;">
             <img src="btest.jpg" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;">
           </div>
           <!-- Info -->
-          <div style="padding:16px 18px;background:var(--cream);">
+          <div style="padding:16px 18px;background:var(--cream);flex-shrink:0;">
             <div style="font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:6px;">[Регион / Локация]</div>
             <div style="font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600;color:var(--green-deep);margin-bottom:8px;">[Название объекта]</div>
             <div style="display:flex;flex-direction:column;gap:5px;">
@@ -816,11 +886,11 @@
         <!-- Object 2 -->
         <div style="display:flex;flex-direction:column;border:1px solid rgba(200,169,110,0.4);border-radius:8px;overflow:hidden;box-shadow:0 4px 24px rgba(200,169,110,0.15);">
           <!-- Photo placeholder -->
-          <div style="flex:1;min-height:180px;position:relative;overflow:hidden;">
+          <div style="flex:1;min-height:0;position:relative;overflow:hidden;">
             <img src="btest.jpg" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;">
           </div>
           <!-- Info -->
-          <div style="padding:16px 18px;background:var(--cream);">
+          <div style="padding:16px 18px;background:var(--cream);flex-shrink:0;">
             <div style="font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:6px;">[Регион / Локация]</div>
             <div style="font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600;color:var(--green-deep);margin-bottom:8px;">[Название объекта]</div>
             <div style="display:flex;flex-direction:column;gap:5px;">
@@ -843,11 +913,11 @@
         <!-- Object 3 -->
         <div style="display:flex;flex-direction:column;border:1px solid rgba(200,169,110,0.25);border-radius:8px;overflow:hidden;">
           <!-- Photo placeholder -->
-          <div style="flex:1;min-height:200px;position:relative;overflow:hidden;">
+          <div style="flex:1;min-height:0;position:relative;overflow:hidden;">
             <img src="btest.jpg" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;">
           </div>
           <!-- Info -->
-          <div style="padding:16px 18px;background:var(--cream);">
+          <div style="padding:16px 18px;background:var(--cream);flex-shrink:0;">
             <div style="font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:6px;">[Регион / Локация]</div>
             <div style="font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600;color:var(--green-deep);margin-bottom:8px;">[Название объекта]</div>
             <div style="display:flex;flex-direction:column;gap:5px;">
