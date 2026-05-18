@@ -80,7 +80,6 @@ function Hero({ t }) {
     <section className="hero wrap" id="top" data-screen-label="01 Hero">
       <div className="hero-grid">
         <div>
-          <Eyebrow>{t.hero.eyebrow}</Eyebrow>
           <h1 style={{ marginTop: 22 }}>
             {t.hero.h1_a} <span className="it">{t.hero.h1_b}</span>{t.hero.h1_c}
           </h1>
